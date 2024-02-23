@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat with GPT</title>
+</head>
+<body>
+    <h1>Chat with GPT</h1>
+    <input type="text" id="userInput" placeholder="Say something...">
+    <button onclick="sendMessage()">Send</button>
+    <div id="chatResponse"></div>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({message: userInput}),
+            });
+
+            const data = await response.json();
+            const chatResponse = document.getElementById('chatResponse');
+            chatResponse.innerHTML = `GPT: ${data.choices[0].message.content}`;
+        }
+    </script>
+</body>
+</html>
