@@ -1,0 +1,398 @@
+{
+    "scenes": [
+        {
+            "narrative_order": 42,
+            "conversations": [
+                {
+                    "dialogue": [
+                        {
+                            "content": "Butch, stop watching TV a second. We got a special visitor. Now do you remember when I told you your daddydies in a P.O.W. camp?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Mother",
+                    "order": 1
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Uh-huh.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Butch",
+                    "order": 2
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Well this here is Capt. Koons. Hewas in the P.O.W. camp with Daddy.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Mother",
+                    "order": 3
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Hello, little man. Boy I sure hearda bunch about you. See, I was a goodfriend of your Daddy's. We were inthat Hanoi pit of hell over fiveyears together.  Hopefully, you'llnever have to experience thisyourself, but when two men are in asituation like me and your Daddywere, for as long as we were, youtake on certain responsibilities ofthe other. If it had been me who hadnot made it, Major Coolidge would betalkin' right now to my son Jim. Butthe way it worked out is I'm talkin'to you, Butch. I got somethin' forya.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Capt. Koons",
+                    "order": 5
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "This watch I got here was firstpurchased by your great-granddaddy.It was bought during the First WorldWar in a little general store inKnoxville, Tennessee. It was boughtby private Doughboy Ernie Coolidgethe day he set sail for Paris. Itwas your great-granddaddy's war watch,made by the first company to evermake wrist watches. You see, up untilthen, people just carried pocketwatches. Your great-granddaddy worethat watch every day he was in thewar. Then when he had done his duty,he went home to your great-grandmother, took the watch off hiswrist and put it in an ol' coffeecan. And in that can it stayed 'tilyour grandfather Dane Coolidge wascalled upon by his country to gooverseas and fight the Germans onceagain. This time they called it WorldWar Two. Your great-granddaddy gaveit to your granddad for good luck.Unfortunately, Dane's luck wasn't asgood as his old man's. Your granddadwas a Marine and he was killed withall the other Marines at the battleof Wake Island. Your granddad wasfacing death and he knew it. None ofthose boys had any illusions aboutever leavin' that island alive. Sothree days before the Japanese tookthe island, your 22-year oldgrandfather asked a gunner on an AirForce transport named Winocki, a manhe had never met before in his life,to deliver to his infant son, who hehad never seen in the flesh, hisgold watch. Three days later, yourgrandfather was dead. But Winockikept his word. After the war wasover, he paid a visit to yourgrandmother, delivering to your infantfather, his Dad's gold watch. Thiswatch. This watch was on your Daddy'swrist when he was shot down overHanoi. He was captured and put in aVietnamese prison camp. Now he knewif the gooks ever saw the watch it'dbe confiscated. The way your Daddylooked at it, that watch was yourbirthright. And he'd be damned ifand slopeheads were gonna put theirgreasy yella hands on his boy'sbirthright. So he hid it in the oneplace he knew he could hide somethin'.His ass. Five long years, he worethis watch up his ass. Then when hedied of dysentery, he gave me thewatch. I hid with uncomfortable hunkof metal up my ass for two years.Then, after seven years, I was senthome to my family. And now, littleman, I give the watch to you.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Capt. Koons",
+                    "order": 7
+                }
+            ],
+            "actions": [
+                {
+                    "content": "We're in the living room of a modest two bedroom house inAlhambra, California, in the year 1972. BUTCH'S MOTHER, 35ish,stands in the doorway leading into the living room. Next toher is a man dressed in the uniform of an American Air Forceofficer. The CAMERA is the perspective of a five-year oldboy.",
+                    "order": 0
+                },
+                {
+                    "content": "CAPT. KOONS steps inside the room toward the little boy andbends down on one knee to bring him even with the boy'seyeline. When Koons speaks, he speaks with a slight Texasaccent.",
+                    "order": 4
+                },
+                {
+                    "content": "The Captain pulls a gold wrist watch out of his pocket.",
+                    "order": 6
+                },
+                {
+                    "content": "Capt. Koons hands the watch to Butch. A little hand comesinto FRAME to accept it.",
+                    "order": 8
+                }
+            ],
+            "character_metadata": [
+                {
+                    "verbosity": 193,
+                    "name": "Mother",
+                    "sentiment": 0.17857142857142858
+                },
+                {
+                    "verbosity": 7,
+                    "name": "Butch",
+                    "sentiment": 0
+                },
+                {
+                    "verbosity": 2734,
+                    "name": "Capt. Koons",
+                    "sentiment": 0.03182367149758454
+                }
+            ],
+            "characters": [
+                "Mother",
+                "Butch",
+                "Capt. Koons"
+            ],
+            "story_order": 0,
+            "heading": "BUTCH'S POV",
+            "scene_metadata": {
+                "size": 3547,
+                "setting": "Butch'S Pov",
+                "location": null,
+                "sentiment": 0.015370783730158724,
+                "time": null
+            }
+        },
+        {
+            "narrative_order": 1,
+            "conversations": [
+                {
+                    "dialogue": [
+                        {
+                            "content": "\u0096 Okay now, tell me about the hashbars?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 1
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "What so you want to know?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 2
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Well, hash is legal there, right?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 3
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Yeah, it's legal, but is ain't ahundred percent legal. I mean youcan't walk into a restaurant, roll ajoint, and start puffin' away. You'reonly supposed to smoke in your homeor certain designated places.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 4
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Those are hash bars?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 5
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Yeah, it breaks down like this: it'slegal to buy it, it's legal to ownit and, if you're the proprietor ofa hash bar, it's legal to sell it.It's legal to carry it, which doesn'treally matter 'cause \u0096 get a load ofthis \u0096 if the cops stop you, it'sillegal for this to search you.Searching you is a right that thecops in Amsterdam don't have.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 6
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "That did it, man \u0096 I'm fuckin' goin',that's all there is to it.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 7
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "You'll dig it the most. But you knowwhat the funniest thing about Europeis?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 8
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "What?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 9
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "It's the little differences. A lottathe same shit we got here, they gotthere, but there they're a littledifferent.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 10
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Examples?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 11
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Well, in Amsterdam, you can buy beerin a movie theatre. And I don't meanin a paper cup either. They give youa glass of beer, like in a bar. InParis, you can buy beer atMacDonald's. Also, you know whatthey call a Quarter Pounder withCheese in Paris?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 12
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "They don't call it a Quarter Pounderwith Cheese?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 13
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "No, they got the metric system there,they wouldn't know what the fuck aQuarter Pounder is.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 14
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "What'd they call it?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 15
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Royale with Cheese.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 16
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "(repeating)",
+                            "type": "Parenthetical"
+                        },
+                        {
+                            "content": "Royale with Cheese. What'd they calla Big Mac?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 17
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Big Mac's a Big Mac, but they callit Le Big Mac.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 18
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Le Big Mac. What do they call aWhopper?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 19
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "I dunno, I didn't go into a BurgerKing.  But you know what they put onfrench fries in Holland instead ofketchup?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 20
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "What?",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 21
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Mayonnaise.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 22
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Goddamn!",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 23
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "I seen 'em do it. And I don't mean alittle bit on the side of the plate,they fuckin' drown 'em in it.",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Vincent",
+                    "order": 24
+                },
+                {
+                    "dialogue": [
+                        {
+                            "content": "Uuccch!",
+                            "type": "Dialogue"
+                        }
+                    ],
+                    "character": "Jules",
+                    "order": 25
+                }
+            ],
+            "actions": [
+                {
+                    "content": "An old gas guzzling, dirty, white 1974 Chevy Nova BARRELSdown a homeless-ridden street in Hollywood. In the frontseat are two young fellas \u0096 one white, one black \u0096 bothwearing cheap black suits with thin black ties under longgreen dusters. Their names are VINCENT VEGA (white) and JULESWINNFIELD (black). Jules is behind the wheel.",
+                    "order": 0
+                }
+            ],
+            "character_metadata": [
+                {
+                    "verbosity": 342,
+                    "name": "Jules",
+                    "sentiment": 0.175
+                },
+                {
+                    "verbosity": 1383,
+                    "name": "Vincent",
+                    "sentiment": 0.02540849673202615
+                }
+            ],
+            "characters": [
+                "Jules",
+                "Vincent"
+            ],
+            "story_order": 1,
+            "heading": "INT. '74 CHEVY (MOVING) \u0096 \u0096- MORNING",
+            "scene_metadata": {
+                "size": 2067,
+                "setting": "Int.",
+                "location": "' Chevy Moving",
+                "sentiment": -0.009844771241830069,
+                "time": "Morning"
+            }
+        }
+    ]
+}
