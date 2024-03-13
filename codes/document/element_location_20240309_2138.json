@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Little Red Riding Hood",
+        "x": 400,
+        "y": 450,
+        "size": 1
+    },
+    {
+        "name": "wolf",
+        "x": 600,
+        "y": 450,
+        "size": 1.2
+    },
+    {
+        "name": "cake",
+        "x": 420,
+        "y": 450,
+        "size": 0.5
+    },
+    {
+        "name": "wine",
+        "x": 380,
+        "y": 450,
+        "size": 0.5
+    },
+    {
+        "name": "flowers",
+        "x": 800,
+        "y": 450,
+        "size": 0.8
+    },
+    {
+        "name": "trees",
+        "x": 1200,
+        "y": 300,
+        "size": 3
+    },
+    {
+        "name": "sunlight",
+        "x": 1400,
+        "y": 100,
+        "size": 2
+    }
+]

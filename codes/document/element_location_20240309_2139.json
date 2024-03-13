@@ -1,0 +1,33 @@
+// scene 4
+[
+    {
+        "name": "Little Red Riding Hood",
+        "x": 400,
+        "y": 450,
+        "size": 1
+    },
+    {
+        "name": "grandmother",
+        "x": 1200,
+        "y": 450,
+        "size": 1.5
+    },
+    {
+        "name": "bed",
+        "x": 1200,
+        "y": 600,
+        "size": 2
+    },
+    {
+        "name": "curtains",
+        "x": 1100,
+        "y": 450,
+        "size": 2.5
+    },
+    {
+        "name": "cap",
+        "x": 1200,
+        "y": 400,
+        "size": 0.5
+    }
+]

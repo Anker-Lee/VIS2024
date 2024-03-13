@@ -1,0 +1,110 @@
+```json
+[
+  {
+    "scene": {
+      "character": ["grandmother", "Little Red Riding Hood"],
+      "object": ["a little cap made of red velvet"],
+      "line": [
+        {
+          "name": "mother",
+          "content": "Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother.",
+          "type": "speak"
+        }
+      ],
+      "action": ["grandmother gave Little Red Riding Hood a little cap made of red velvet"],
+      "text": "Once upon a time there was a sweet little girl. Everyone who saw her liked her, but most of all her <span class=\"marked character\">grandmother</span>, who did not know what to give the child next. Once she <span class=\"marked action\">gave her a <span class=\"marked object\">little cap made of red velvet</span></span>. Because it suited her so well, and she wanted to wear it all the time, she came to be known as <span class=\"marked character\">Little Red Riding Hood</span>. One day her <span class=\"marked character\">mother</span> said to her: <span class=\"marked line\">\"Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother.\"</span>",
+      "id": 0
+    }
+  },
+  {
+    "scene": {
+      "character": ["Little Red Riding Hood", "wolf"],
+      "object": [],
+      "line": [
+        {
+          "name": "wolf",
+          "content": "Good day to you, Little Red Riding Hood.",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "Thank you, wolf.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "Where are you going so early, Little Red Riding Hood?",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "To grandmother's.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "And what are you carrying under your apron?",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "Grandmother is sick and weak, and I am taking her some cake and wine. We baked yesterday, and they should give her strength.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "Little Red Riding Hood, just where does your grandmother live?",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "Now there is a tasty bite for me. Just how are you going to catch her?",
+          "type": "thought"
+        },
+        {
+          "name": "wolf",
+          "content": "Listen, Little Red Riding Hood, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.",
+          "type": "speak"
+        }
+      ],
+      "action": ["Little Red Riding Hood promised to obey her mother"],
+      "text": "<span class=\"marked action\">Little Red Riding Hood promised to obey her <span class=\"marked character\">mother</span></span>. The <span class=\"marked character\">grandmother</span> lived out in the woods, a half hour from the village. When <span class=\"marked character\">Little Red Riding Hood</span> entered the woods a <span class=\"marked character\">wolf</span> came up to her. She did not know what a wicked animal he was, and was not afraid of him. <span class=\"marked line\">\"Good day to you, Little Red Riding Hood.\" - \"Thank you, wolf.\" - \"Where are you going so early, Little Red Riding Hood?\" - \"To grandmother's.\" - \"And what are you carrying under your apron?\" - \"Grandmother is sick and weak, and I am taking her some cake and wine. We baked yesterday, and they should give her strength.\" - \"Little Red Riding Hood, just where does your grandmother live?\" - \"Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,\" said Little Red Riding Hood.</span> The <span class=\"marked character\">wolf</span> thought to himself: <span class=\"marked line\">\"Now there is a tasty bite for me. Just how are you going to catch her?\"</span> Then he said: <span class=\"marked line\">\"Listen, Little Red Riding Hood, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.\"</span>",
+      "id": 1
+    }
+  },
+  {
+    "scene": {
+      "character": ["Little Red Riding Hood", "wolf", "grandmother"],
+      "object": [],
+      "line": [
+        {
+          "name": "Little Red Riding Hood",
+          "content": "If a take a bouquet to grandmother, she will be very pleased. Anyway, it is still early, and I'll be home on time.",
+          "type": "thought"
+        },
+        {
+          "name": "grandmother",
+          "content": "Just press the latch,\" called out the grandmother. \"I'm too weak to get up.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "Who's there?\" - \"Little Red Riding Hood. I'm bringing you some cake and wine. Open the door for me.",
+          "type": "speak"
+        }
+      ],
+      "action": [
+        "Little Red Riding Hood opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers",
+        "she ran off into the woods looking for flowers",
+        "wolf ran straight to the grandmother's house and knocked on the door",
+        "wolf pressed the latch, and the door opened",
+        "he stepped inside, went straight to the grandmother's bed, and ate her up",
+        "then he took her clothes, put them on, and put her cap on his head",
+        "he got into her bed and pulled the curtains shut"
+      ],
+      "text": "<span class=\"marked character\">Little Red Riding Hood</span> opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers. She thought: <span class=\"marked line\">\"If a take a bouquet to grandmother, she will be very pleased. Anyway, it is still early, and I'll be home on time.\"</span> And she <span class=\"marked action\">ran off into the woods looking for flowers</span>. Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods. But the <span class=\"marked character\">wolf</span> <span class=\"marked action\">ran straight to the grandmother's house and knocked on the door</span>. <span class=\"marked line\">\"Who's there?\" - \"Little Red Riding Hood. I'm bringing you some cake and wine. Open the door for me.\" - \"Just press the latch,\" called out the <span class=\"marked character\">grandmother</span>. \"I'm too weak to get up.\"</span> The <span class=\"marked character\">wolf</span> <span class=\"marked action\">pressed the latch, and the door opened</span>. He <span class=\"marked action\">stepped inside, went straight to the grandmother's bed, and ate her up</span>. Then he <span c

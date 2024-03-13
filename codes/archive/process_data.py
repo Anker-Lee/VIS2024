@@ -31,11 +31,13 @@ def process_data(input_file, output_file):
         del scene['actions']
         del scene['character_metadata']
         del scene['scene_metadata']
+
+    scenes.sort(key=lambda x: x['narrative_order'])
     
     with open(output_file, 'w') as f:
         json.dump(scenes, f, indent=4)
 
 # Example usage
-input_file = '/Users/anker/Viseer/system/VIS2024/test_codes/pulp_fiction.json'
-output_file = '/Users/anker/Viseer/system/VIS2024/test_codes/processed_data.json'
+input_file = '/Users/anker/Viseer/system/VIS2024/test_codes/data/pulp_fiction.json'
+output_file = '/Users/anker/Viseer/system/VIS2024/test_codes/data/processed_data_plup_fiction_narrative_order.json'
 process_data(input_file, output_file)

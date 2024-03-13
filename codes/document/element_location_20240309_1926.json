@@ -1,0 +1,27 @@
+[
+    {
+        "element": "Little Red Riding Hood",
+        "x": 200,
+        "y": 500
+    },
+    {
+        "element": "mother",
+        "x": 600,
+        "y": 500
+    },
+    {
+        "element": "cake",
+        "x": 650,
+        "y": 500
+    },
+    {
+        "element": "wine",
+        "x": 550,
+        "y": 500
+    },
+    {
+        "element": "red cap",
+        "x": 200,
+        "y": 450
+    }
+]

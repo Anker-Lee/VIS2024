@@ -34,6 +34,7 @@
     "express-session": "^1.17.1",
     "express-validator": "^4.3.0",
     "fs": "0.0.1-security",
+    "gsap": "^3.12.5",
     "helmet": "^3.23.3",
     "install": "^0.12.2",
     "mongoose": "^5.11.8",

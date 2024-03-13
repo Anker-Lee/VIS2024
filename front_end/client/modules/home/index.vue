@@ -1,58 +1,127 @@
 <template>
     <!-- 这里写Html -->
     <div class="wrapper">
-        <el-row :gutter="10">
-            <el-col :span="4">
-                <div id="hxb_viz" class="grid-content ep-bg-purple" style="margin: 10px 0px 10px 10px">
-                    <el-input v-model="inputMsg" placeholder="Say something..."></el-input>
-                    <el-button @click="testBackend">Send</el-button>
-                    <div id="chatResponse"></div>
-                </div>
-            </el-col>
-            <el-col :span="16">
-                <div class="grid-content ep-bg-purple" style="margin: 10px 0px">
-                </div>
-                <div class="grid-content ep-bg-purple" style="height: 1160px;">
+        <div v-show="!showMain" class="container">
+            <div class="brand-section">
+                <div class="header">DANCING BOARD</div>
+                <div id="slogan" style="text-align: center;">Turn your story into animated storyboard!</div>
+            </div>
+            <el-input type="textarea" :rows="60" placeholder="Please enter content" v-model="input_story"
+                class="input-area">
+            </el-input>
+            <button class="generate-btn" :disabled="isButtonDisabled" @click="showMainPage"
+                style="height: 150px; width: 400px; font-size: 50px;">Generate your
+                storyboard!</button>
 
-                    <div class="grid-content-p" style="margin: 10px 0px; height: 410px; overflow-y: auto;">
+        </div>
+
+
+        <div v-show="showMain">
+            <el-row :gutter="40">
+                <el-col :span="7">
+                    <div id="left_view">
+                        <div class="header grid-content">DANCING BOARD</div>
+                        <story></story>
                     </div>
-                </div>
-            </el-col>
-            <el-col :span="4">
-                <div class="grid-content ep-bg-purple" style="height: 400px; margin: 10px 10px 10px 0px">
+                </el-col>
+                <el-col :span="17">
+                    <div id="storyboard" class="grid-content" style="height: 1160px;">
+                        <storyboard></storyboard>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
 
-                </div>
-                <div class="grid-content ep-bg-purple" style="height:960px; margin: 10px 10px 10px 0px">
-                </div>
-            </el-col>
-        </el-row>
     </div>
 </template>
 <script src="./script.js"></script>
 <style type="text/css">
-/* 画布大小 1920*1080 + 标题大小 1920 * 35 */
+/* 画布大小 2560*1440 */
 .wrapper {
-    width: 2520px;
-    height: 1550px;
+    width: 2560px;
+    height: 1440px;
     border: 2px solid #22201420;
     /* border-bottom: none; */
     border-radius: 5px;
+    padding: 60px;
+    /* Add padding */
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Adjust the ratio as needed */
+    grid-template-rows: auto;
+    gap: 20px;
+    /* Space between grid items */
+    align-items: center;
+    padding: 20px;
+}
+
+.brand-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Aligns children to the center of the flex container */
+    grid-column: 1 / 2;
+}
+
+.input-area {
+    grid-column: 2 / 3;
+    width: 100%;
+    /* Full width of grid column */
+    /* Adjust height if needed or use the rows attribute to define height */
+}
+
+.generate-btn {
+    grid-column: 2 / 3;
+    /* Span across both columns */
+    justify-self: center;
+    /* Center the button */
+    margin-top: 20px;
+    /* Space above the button */
 }
 
 .grid-content {
     border: 2px solid #22201420;
-    /* border-bottom: none; */
     border-radius: 5px;
 }
 
-/* 标题FMLens */
-.header {
-    width: 270px;
-    height: 116px;
-    position: relative;
-    left: 20px;
-    top: 30px;
+#slogan {
+    color: #000;
+    text-align: center;
+    font-family: "Nothing You Could Do";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 596px;
 }
+
+/* 标题 */
+.header {
+    width: 700px;
+    height: 160px;
+    flex-shrink: 0;
+    border: 1px solid #000;
+    background: #D9D9D9;
+}
+
+.header {
+    color: #000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
 
 .title {
     width: 270px;
@@ -178,6 +247,7 @@ text,
     src: url("../../assets/font/kaisei-opti-regular.ttf");
 }
 
+
 .el-col {
     border-radius: 4px;
 }
@@ -187,4 +257,4 @@ text,
     min-height: 36px;
 }
 </style>
-
+./home.js./home.js

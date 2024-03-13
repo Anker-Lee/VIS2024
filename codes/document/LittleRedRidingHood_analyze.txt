@@ -1,0 +1,87 @@
+**Scene 1:**
+- Environmental Information: Little Red Riding Hood's home, daytime, cozy domestic setting
+- Character Interactions: Little Red Riding Hood interacts with her mother.
+- Character Actions: Little Red Riding Hood's mother gives her a piece of cake and a bottle of wine to take to her sick grandmother. Little Red Riding Hood promises to obey her mother's instructions.
+- Dialogues: 
+  {Mother: "Come Little Red Riding Hood. Take these to your grandmother. She is sick and weak, and they will do her well. Mind your manners and behave yourself on the way."}
+
+**Scene 2:**
+- Environmental Information: The woods on the way to grandmother's house, daytime, natural and tranquil
+- Character Interactions: Little Red Riding Hood meets the wolf.
+- Character Actions: Little Red Riding Hood naively tells the wolf about her sick grandmother and where she lives.
+- Dialogues: 
+  {Wolf: "Good day to you, Little Red Riding Hood.", 
+   Little Red Riding Hood: "Thank you, wolf.", 
+   Wolf: "Where are you going so early?", 
+   Little Red Riding Hood: "To grandmother's.", 
+   Wolf: "And what are you carrying under your apron?", 
+   Little Red Riding Hood: "Cake and wine for grandmother. She is sick and weak."}
+
+**Scene 3:**
+- Environmental Information: Deeper in the woods, later in the day, enticing and distracting
+- Character Interactions: Little Red Riding Hood is alone, being distracted by the environment.
+- Character Actions: Little Red Riding Hood is lured away from the path by the wolf’s suggestion and starts picking flowers.
+- Dialogues: 
+  {Wolf: "Why don't you go and take a look at the beautiful flowers? Listen how beautifully the birds are singing!"}
+
+**Scene 4:**
+- Environmental Information: Grandmother's house, the wolf arrives before Little Red Riding Hood, suspenseful
+- Character Interactions: The wolf and grandmother.
+- Character Actions: The wolf tricks grandmother by impersonating Little Red Riding Hood, enters the house, and eats the grandmother.
+- Dialogues: 
+  {Wolf (as Little Red Riding Hood): "Just press the latch, I'm bringing you some cake and wine.", 
+   Grandmother: "Just press the latch. I'm too weak to get up."}
+
+**Scene 5:**
+- Environmental Information: Grandmother's house, interior, eerie and strange
+- Character Interactions: Little Red Riding Hood and the wolf (dressed as grandmother).
+- Character Actions: Little Red Riding Hood arrives and is suspicious. She approaches the wolf, mistaking him for her grandmother until he reveals himself and eats her.
+- Dialogues: 
+  {Little Red Riding Hood: "Oh, grandmother, what big ears/eyes/hands you have!", 
+   Wolf (as Grandmother): "All the better to hear/see/grab you with!", 
+   Little Red Riding Hood: "What a horribly big mouth you have!", 
+   Wolf: "All the better to eat you with!"}
+
+**Scene 6:**
+- Environmental Information: Grandmother’s bedroom, shortly after, tense and dark-toned
+- Character Interactions: The huntsman overhears and investigates the snoring wolf.
+- Character Actions: The huntsman discovers the wolf asleep in the bed, cuts open the wolf’s stomach to rescue Little Red Riding Hood and the grandmother.
+- Dialogues: 
+  {Huntsman thinking: "He has eaten the grandmother, but perhaps she can be saved. I won't shoot him."}
+
+**Scene 7:**
+- Environmental Information: Grandmother's house, daytime, a tense yet hopeful atmosphere turning to relief
+- Character Interactions: The huntsman, Little Red Riding Hood, and the grandmother are all interacting positively after the rescue.
+- Character Actions: Little Red Riding Hood and the grandmother fill the wolf’s belly with heavy stones. The wolf tries to escape but falls down dead.
+- Dialogues: 
+  {Little Red Riding Hood: "I was so frightened! It was so dark inside the wolf's body.", 
+   Grandmother: "Let's fill his body with these stones."}
+
+**Scene 8:**
+- Environmental Information: Grandmother's house, after the ordeal with the wolf, peaceful and reflective
+- Character Interactions: The huntsman, Little Red Riding Hood, and the grandmother are happy and celebrating.
+- Character Actions: The huntsman takes the wolf’s pelt, grandmother eats the food brought by Little Red Riding Hood, and Little Red Riding Hood reflects on her mistake.
+- Dialogues: 
+  {Little Red Riding Hood thinking: "As long as I live, I will never leave the path and run off into the woods by myself if mother tells me not to."}
+
+**Scene 9:**
+- Environmental Information: Another day, on the path to grandmother’s house, cautious and alert
+- Character Interactions: Little Red Riding Hood interacts with another wolf, then with her grandmother at the house.
+- Character Actions: Little Red Riding Hood avoids being tricked by the new wolf and goes straight to her grandmother’s house where they take precautions against the wolf.
+- Dialogues: 
+  {Little Red Riding Hood: "He would have eaten me up if we hadn't been on a public road.", 
+   Grandmother: "Let's lock the door, so he can't get in."}
+
+**Scene 10:**
+- Environmental Information: Grandmother's house, the wolf lurking outside, and then falling into a trap, the atmosphere is tense but ends with relief
+- Character Interactions: Little Red Riding Hood and the grandmother outwit the second wolf.
+- Character Actions: Little Red Riding Hood fills a trough with sausage water to attract the wolf, who falls in and drowns.
+- Dialogues: 
+  {Wolf: "Open up, grandmother. It's Little Red Riding Hood with some baked things.", 
+   Grandmother: "Fetch a bucket, Little Red Riding Hood. Carry the water to the trough."}
+
+**Scene 11:**
+- Environmental Information: Little Red Riding Hood leaves her grandmother's house, daytime, peaceful and safe
+- Character Interactions: It's implied that Little Red Riding Hood departs safely.
+- Character Actions: Little Red Riding Hood happily and safely returns home.
+- Dialogues: Not applicable, it’s a narrative resolution without direct speech.

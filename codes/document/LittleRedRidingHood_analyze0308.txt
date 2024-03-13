@@ -1,0 +1,92 @@
+```
+[
+  {
+    "scene": {
+      "character": ["grandmother", "Little Red Riding Hood", "mother"],
+      "object": ["a cap made of red velvet", "piece of cake", "bottle of wine"],
+      "line": [
+        {
+          "name": "mother",
+          "content": "Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother.",
+          "type": "speak"
+        }
+      ],
+      "action": [
+        "grandmother gave Little Red Riding Hood a little cap made of red velvet",
+        "Little Red Riding Hood promised to obey her mother"
+      ],
+      "text": "Once upon a time there was a sweet little girl. Everyone who saw her liked her, but most of all her <span class=\"marked character\">grandmother</span>, who did not know what to give the child next. Once she <span class=\"marked action\">gave her a <span class=\"marked object\">little cap made of red velvet</span></span>. Because it suited her so well, and she wanted to wear it all the time, she came to be known as <span class=\"marked character\">Little Red Riding Hood</span>. One day her <span class=\"marked character\">mother</span> said to her: <span class=\"marked line\">\"Come Little Red Riding Hood. Here is a <span class=\"marked object\">piece of cake</span> and a <span class=\"marked object\">bottle of wine</span>. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother.\"</span> <span class=\"marked action\">Little Red Riding Hood promised to obey her mother</span>.",
+      "id": 0
+    }
+  },
+  {
+    "scene": {
+      "character": ["Little Red Riding Hood", "wolf"],
+      "object": [],
+      "line": [
+        {
+          "name": "wolf",
+          "content": "Good day to you, Little Red Riding Hood.",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "Thank you, wolf.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "Where are you going so early, Little Red Riding Hood?",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "To grandmother's.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "And what are you carrying under your apron?",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "Grandmother is sick and weak, and I am taking her some cake and wine. We baked yesterday, and they should give her strength.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "Little Red Riding Hood, just where does your grandmother live?",
+          "type": "speak"
+        },
+        {
+          "name": "Little Red Riding Hood",
+          "content": "Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place.",
+          "type": "speak"
+        },
+        {
+          "name": "wolf",
+          "content": "Now there is a tasty bite for me. Just how are you going to catch her?",
+          "type": "thought"
+        },
+        {
+          "name": "wolf",
+          "content": "Listen, Little Red Riding Hood, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.",
+          "type": "speak"
+        }
+      ],
+      "action": [
+        "Little Red Riding Hood entered the woods",
+        "wolf came up to her",
+        "Little Red Riding Hood opened her eyes",
+        "She thought about taking a bouquet to grandmother",
+        "She ran off into the woods looking for flowers"
+      ],
+      "text": "The <span class=\"marked character\">grandmother</span> lived out in the woods, a half hour from the village. When <span class=\"marked character\">Little Red Riding Hood</span> <span class=\"marked action\">entered the woods</span> a <span class=\"marked character\">wolf</span> came up to her. She did not know what a wicked animal he was, and was not afraid of him. <span class=\"marked line\">\"Good day to you, Little Red Riding Hood.\" - \"Thank you, wolf.\" - \"Where are you going so early, Little Red Riding Hood?\" - \"To grandmother's.\" - \"And what are you carrying under your apron?\" - \"Grandmother is sick and weak, and I am taking her some cake and wine. We baked yesterday, and they should give her strength.\" - \"Little Red Riding Hood, just where does your grandmother live?\" - \"Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,\"</span> said <span class=\"marked character\">Little Red Riding Hood</span>. The <span class=\"marked character\">wolf</span> thought to himself: <span class=\"marked line\">\"Now there is a tasty bite for me. Just how are you going to catch her?\"</span> Then he said: <span class=\"marked line\">\"Listen, Little Red Riding Hood, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.\"</span> <span class=\"marked action\">Little Red Riding Hood opened her eyes</span> and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers. She thought: <span class=\"marked line\">\"If a take a bouquet to grandmother, she will be very pleased. Anyway, it is still early, and I'll be home on time.\"</span> And <span class=\"marked action\">she ran off into the woods looking for flowers</span>.",
+      "id": 1
+    }
+  },
+  // Subsequent scenes omitted due to length.
+]
+```
+Please note that the subsequent scenes were omitted due to length constraints. If further detail on those scenes is required, please inform me and I will provide the information for the remaining scenes separately.

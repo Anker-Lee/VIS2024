@@ -1,0 +1,213 @@
+```json
+[
+    {
+        "Scene 1": {
+            "Environmental Information": {
+                "Location": "Red Riding Hood's home",
+                "Time": "Unspecified",
+                "Color Tone": "Warm & comforting",
+                "Background": ["home interior"]
+            },
+            "Character Interactions": "Red Riding Hood's mother is instructing her to take cake and wine to her grandmother.",
+            "Character Actions": {
+                "Red Riding Hood": "Listening to her mother",
+                "Mother": "Giving instructions and cautioning Red Riding Hood"
+            },
+            "Dialogues": {
+                "Mother": "Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother.",
+                "Red Riding Hood": "Promises to obey her mother."
+            }
+        }
+    },
+    {
+        "Scene 2": {
+            "Environmental Information": {
+                "Location": "The woods",
+                "Time": "Daytime",
+                "Color Tone": "Natural, earthy",
+                "Background": ["trees", "path"]
+            },
+            "Character Interactions": "Red Riding Hood meets a wolf and they have a conversation.",
+            "Character Actions": {
+                "Red Riding Hood": "Walking",
+                "Wolf": "Talking to Red Riding Hood, thinking to himself"
+            },
+            "Dialogues": {
+                "Wolf": "Good day to you, Little Red Riding Hood.",
+                "Red Riding Hood": "Thank you, wolf.",
+                "Wolf": "Where are you going so early, Little Red Riding Hood?",
+                "Red Riding Hood": "To grandmother's.",
+                "Wolf": "And what are you carrying under your apron?",
+                "Red Riding Hood": "Grandmother is sick and weak, and I am taking her some cake and wine. We baked yesterday, and they should give her strength.",
+                "Wolf": "Little Red Riding Hood, just where does your grandmother live?",
+                "Red Riding Hood": "Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place."
+            }
+        }
+    },
+    {
+        "Scene 3": {
+            "Environmental Information": {
+                "Location": "Deeper in the woods",
+                "Time": "Daytime",
+                "Color Tone": "Bright and colorful",
+                "Background": ["flowers", "birds", "sunlight"]
+            },
+            "Character Interactions": "The wolf convinces Little Red Riding Hood to look at flowers.",
+            "Character Actions": {
+                "Wolf": "Manipulating Red Riding Hood",
+                "Red Riding Hood": "Getting distracted by the flowers and running off"
+            },
+            "Dialogues": {
+                "Wolf": "Listen, Little Red Riding Hood, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods."
+            }
+        }
+    },
+    {
+        "Scene 4": {
+            "Environmental Information": {
+                "Location": "Grandmother's house",
+                "Time": "Daytime",
+                "Color Tone": "Tense, eerie",
+                "Background": ["house", "bed", "curtains"]
+            },
+            "Character Interactions": "The wolf disguises himself as Grandmother after eating her.",
+            "Character Actions": {
+                "Wolf": "Knocking on the door, eating Grandmother, dressing in her clothes, getting into her bed"
+            },
+            "Dialogues": {
+                "Grandmother": "Who's there?",
+                "Wolf (as Red Riding Hood)": "Little Red Riding Hood. I'm bringing you some cake and wine. Open the door for me.",
+                "Grandmother": "Just press the latch. I'm too weak to get up."
+            }
+        }
+    },
+    {
+        "Scene 5": {
+            "Environmental Information": {
+                "Location": "Inside grandmother's house",
+                "Time": "Daytime",
+                "Color Tone": "Suspenseful",
+                "Background": ["parlor", "bed"]
+            },
+            "Character Interactions": "Red Riding Hood is talking to the wolf disguised as her grandmother.",
+            "Character Actions": {
+                "Red Riding Hood": "Entering the house, looking around, approaching the bed, talking to grandmother",
+                "Wolf": "Disguising as grandmother, talking to Red Riding Hood"
+            },
+            "Dialogues": {
+                "Red Riding Hood": "Oh, grandmother, what big ears you have! What big eyes you have! What big hands you have! What a horribly big mouth you have!",
+                "Wolf": "All the better to hear you with. All the better to see you with. All the better to grab you with! All the better to eat you with!"
+            }
+        }
+    },
+    {
+        "Scene 6": {
+            "Environmental Information": {
+                "Location": "Grandmother's house",
+                "Time": "Daytime",
+                "Color Tone": "Menacing",
+                "Background": ["bed", "curtains"]
+            },
+            "Character Interactions": "The wolf is asleep; the huntsman is investigating the snoring.",
+            "Character Actions": {
+                "Wolf": "Sleeping and snoring",
+                "Huntsman": "Stepping inside, observing the wolf, deciding to rescue Grandmother and Red Riding Hood"
+            },
+            "Dialogues": {}
+        }
+    },
+    {
+        "Scene 7": {
+            "Environmental Information": {
+                "Location": "Inside grandmother's house",
+                "Time": "Daytime",
+                "Color Tone": "Relieved",
+                "Background": ["bed", "scissors", "stones"]
+            },
+            "Character Interactions": "The huntsman rescues Red Riding Hood and her grandmother from the wolf's belly.",
+            "Character Actions": {
+                "Huntsman": "Cutting open the wolf's belly",
+                "Red Riding Hood": "Jumping out, fetching stones",
+                "Grandmother": "Coming out alive"
+            },
+            "Dialogues": {
+                "Red Riding Hood": "Oh, I was so frightened! It was so dark inside the wolf's body!"
+            }
+        }
+    },
+    {
+        "Scene 8": {
+            "Environmental Information": {
+                "Location": "Outside grandmother's house",
+                "Time": "Daytime",
+                "Color Tone": "Triumphant",
+                "Background": []
+            },
+            "Character Interactions": "The wolf dies; the three characters are happy.",
+            "Character Actions": {
+                "Wolf": "Dying from the stones inside him",
+                "Red Riding Hood": "Reflecting on not leaving the path",
+                "Huntsman": "Taking the wolf's pelt",
+                "Grandmother": "Eating the cake and drinking the wine"
+            },
+            "Dialogues": {}
+        }
+    },
+    {
+        "Scene 9": {
+            "Environmental Information": {
+                "Location": "Grandmother's house and the woods",
+                "Time": "Daytime",
+                "Color Tone": "Cautious",
+                "Background": ["house", "woods", "path"]
+            },
+            "Character Interactions": "Red Riding Hood takes precautions against the wolf with her grandmother's help.",
+            "Character Actions": {
+                "Red Riding Hood": "Visiting Grandmother, not getting distracted by the wolf",
+                "Wolf": "Speaking to Red Riding Hood, waiting on the roof",
+                "Grandmother": "Suggesting to lock the door, tricking the wolf"
+            },
+            "Dialogues": {
+                "Red Riding Hood": "Telling her grandmother about the encounter with the wolf.",
+                "Grandmother": "Lock the door, so he can't get in."
+            }
+        }
+    },
+    {
+        "Scene 10": {
+            "Environmental Information": {
+                "Location": "Outside grandmother's house",
+                "Time": "Daytime",
+                "Color Tone": "Vindictive",
+                "Background": ["house", "roof", "trough"]
+            },
+            "Character Interactions": "The wolf attempts to wait for and ambush Red Riding Hood but falls into a trap.",
+            "Character Actions": {
+                "Wolf": "Knocking on the door, walking around the house, jumping onto the roof, sniffing, stretching his neck",
+                "Red Riding Hood": "Fetching water, filling the trough as instructed by Grandmother",
+                "Grandmother": "Instructing Red Riding Hood"
+            },
+            "Dialogues": {
+                "Wolf": "Open up, grandmother. It's Little Red Riding Hood, and I'm bringing you some baked things.",
+                "Grandmother": "Fetch a bucket, Little Red Riding Hood. Carry the water that I boiled them with to the trough."
+            }
+        }
+    },
+    {
+        "Scene 11": {
+            "Environmental Information": {
+                "Location": "Outside grandmother's house",
+                "Time": "Daytime",
+                "Color Tone": "Resolved",
+                "Background": ["trough", "water"]
+            },
+            "Character Interactions": "The wolf drowns in the trough; Red Riding Hood and her grandmother are safe.",
+            "Character Actions": {
+                "Wolf": "Sliding off the roof, falling into the trough, drowning",
+                "Red Riding Hood": "Returning home safe"
+            },
+            "Dialogues": {}
+        }
+    }
+]
+```

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "begin_index": 0,
+        "end_index": 11
+    },
+    {
+        "id": 1,
+        "begin_index": 12,
+        "end_index": 33
+    },
+    {
+        "id": 2,
+        "begin_index": 34,
+        "end_index": 50
+    },
+    {
+        "id": 3,
+        "begin_index": 51,
+        "end_index": 58
+    },
+    {
+        "id": 4,
+        "begin_index": 59,
+        "end_index": 67
+    },
+    {
+        "id": 5,
+        "begin_index": 68,
+        "end_index": 77
+    },
+    {
+        "id": 6,
+        "begin_index": 78,
+        "end_index": 87
+    }
+]
