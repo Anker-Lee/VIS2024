@@ -25,7 +25,7 @@
                     </div>
                 </el-col>
                 <el-col :span="17">
-                    <div id="storyboard" class="grid-content" style="height: 1160px;">
+                    <div id="storyboard" class="grid-content" style="height: 1430px;">
                         <storyboard></storyboard>
                     </div>
                 </el-col>

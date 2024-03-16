@@ -6,27 +6,37 @@
             <div v-for="(scene, index) in story_info" :key="index" class="scene_container">
                 <div class="frame">Frame {{ index + 1 }}
                     <!-- <button @click="toggle(index)">Toggle</button> -->
-                    <el-switch v-model="toggle_rec[index]" active-color="#13ce66" inactive-color="#ff4949">
+                    <el-switch v-model="toggle_rec[index]" active-color="#13ce66" inactive-color="#ff4949"
+                        style="transform: scale(2); margin-right: 20px;">
                     </el-switch>
                 </div>
                 <div v-html="scene.text" class="scene_text" @click="handleClick" @mouseover="handleMouseover"
                     @mouseout="handleMouseleave" v-show="!toggle_rec[index]"></div>
                 <div v-show="toggle_rec[index]">
-                    <div v-for="(e, index) in scene.svo" :key="index" class="grid-content svo_container">
+                    <div v-for="(svo_object, index) in scene.svo" :key="index" class="grid-content svo_container">
+                        <!-- e 是一个 svo 对象 {subject: , verb: , object: } -->
                         <el-row :gutter="10" style="display:flex; align-items: center; padding: 10px;">
                             <el-col :span="5">
-                                <div class="svo">{{ e.subject }}</div>
+                                <div class="svo">{{ svo_object.subject }}</div>
                             </el-col>
                             <el-col :span="5">
-                                <div class="svo" style="font-weight: bold;">{{ e.verb }}</div>
+                                <div class="svo" style="font-weight: bold;">{{ svo_object.verb }}</div>
                             </el-col>
-                            <el-col :span="14">
-                                <div class="svo">{{ e.object }}</div>
+                            <el-col :span="13">
+                                <div class="svo">{{ svo_object.object }}</div>
+                            </el-col>
+                            <el-col :span='1'>
+                                <img src="../../assets/image/ArrowRightBold.svg"
+                                    @click="toggleDesignSelector(svo_object, $event)">
                             </el-col>
                         </el-row>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="design_selector" v-show="showSelector">
+            {{ design_selector_data }}
         </div>
 
         <div class="legend_container" style="position: relative; height: 150px;">
@@ -40,15 +50,6 @@
             <span class="legend_description" style="left: 180px; top: 100px;">Thought & Dialogue</span>
             <span class="legend_example right" style="color:blue; left: 420px; top: 100px;">Eat</span>
             <span class="legend_description right" style="left:580px; top: 100px;">Action</span>
-        </div>
-
-        <div class="dropdown" @mouseover="showOptions = true" @mouseleave="showOptions = false">
-            <div class="arrow">▼</div>
-            <div class="options" v-show="showOptions">
-                <div class="option" @click="selectOption('Option 1')">Option 1</div>
-                <div class="option" @click="selectOption('Option 2')">Option 2</div>
-                <div class="option" @click="selectOption('Option 3')">Option 3</div>
-            </div>
         </div>
 
     </div>
@@ -74,23 +75,15 @@ export default {
                     object: "the wolf"
                 },
             ],
-
-
-
-
             showOptions: true,
             selectedOption: null,
+            showSelector: false, // 是否显示设计选择器
+            design_selector_data: {},
         };
     },
     mounted() {
         this.$bus.$on("pass_story_info", (story_info) => {
-            // story_info.forEach((_, index) => {
-            //     this.$set(this.toggle_rec, index, true);
-            // });
             this.story_info = story_info;
-            // this.story_info.forEach((_, index) => {
-            //     this.$set(this.toggle_rec, index, true);
-            // });
         })
     },
     computed: {
@@ -105,13 +98,13 @@ export default {
         },
         handleMouseover(event) {
             if (event.target.classList.contains('marked')) {
-                console.log('mouse over:', event.target);
+                // console.log('mouse over:', event.target);
                 event.target.style.backgroundColor = "yellow";
             }
         },
         handleMouseleave(event) {
             if (event.target.classList.contains('marked')) {
-                console.log('mouse leave:', event.target);
+                // console.log('mouse leave:', event.target);
                 event.target.style.backgroundColor = "";
             }
         },
@@ -119,54 +112,42 @@ export default {
             this.$set(this.toggle_rec, index, !this.toggle_rec[index]);
         },
 
-
-
-
         selectOption(option) {
             this.selectedOption = option;
             this.showOptions = false;
         },
+        toggleDesignSelector(svo_object, event) { // 切换是否显示设计选择器
+            console.log(svo_object);
+            if (this.showSelector === false) {
+                this.design_selector_data = svo_object;
+
+                const button = event.target;
+                
+                const design_selector = document.getElementById('design_selector');
+                design_selector.style.left = button.getBoundingClientRect().right - 40 + 'px';
+                design_selector.style.top = button.getBoundingClientRect().top -80 + 'px';
+
+                this.showSelector = true;
+            } else if (this.showSelector === true) {
+                if (this.design_selector_data === svo_object) {
+                    this.showSelector = false;
+                    this.design_selector_data = {};
+                } else {
+                    this.design_selector_data = svo_object;
+
+                    const button = event.target;
+                    
+                    const design_selector = document.getElementById('design_selector');
+                    design_selector.style.left = button.getBoundingClientRect().right - 40+ 'px';
+                    design_selector.style.top = button.getBoundingClientRect().top - 80 + 'px';
+                }
+            }
+        }
     },
 };
 </script>
 
 <style>
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.arrow {
-    cursor: pointer;
-}
-
-.options {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.options .option {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.options .option:hover {
-    background-color: #f1f1f1;
-}
-
-
-
-
-
-
-
-
 #title {
     display: flex;
     width: 700px;
@@ -215,7 +196,6 @@ export default {
     font-size: 24px;
     text-align: center;
 }
-
 
 
 .name-highlight {
@@ -298,7 +278,6 @@ export default {
     border-radius: 20px;
 }
 
-
 .grid-content {
     border: 2px solid #22201420;
     border-radius: 5px;
@@ -309,7 +288,6 @@ export default {
     border: 2px solid #ABABAB;
 }
 
-
 .scene_container {
     border-radius: 20px;
     border: 2px solid #ABABAB;
@@ -318,5 +296,12 @@ export default {
 .grid-content.svo {
     border-radius: 20px;
     border: 2px solid #ABABAB;
+}
+
+#design_selector {
+    position: absolute;
+    width: 400px;
+    z-index: 100;
+    border: 2px solid #000;
 }
 </style>
