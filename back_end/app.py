@@ -21,9 +21,9 @@ def chatgpt_request(key, messages):
     openai.api_base = "https://ai-yyds.com/v1"
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        # model="gpt-3.5-turbo",
         # model = 'gpt-4-1106-preview',
-        # model = 'gpt-4',
+        model = 'gpt-4',
         messages=messages,
         temperature=0,
     )
@@ -34,7 +34,7 @@ def split_story_into_sentences(story):
     """
     对整个故事操作
     """
-    print(story)
+    # print(story)
     if not isinstance(story, str):
         raise ValueError("Story must be a string")
     sentences_array = sent_tokenize(story)

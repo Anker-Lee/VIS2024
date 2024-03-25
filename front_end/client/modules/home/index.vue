@@ -4,15 +4,13 @@
         <div v-show="!showMain" class="container">
             <div class="brand-section">
                 <div class="header">DANCING BOARD</div>
-                <div id="slogan" style="text-align: center;">Turn your story into animated storyboard!</div>
+                <div id="slogan">Turn your story into animated storyboard!</div>
             </div>
-            <el-input type="textarea" :rows="60" placeholder="Please enter content" v-model="input_story"
+            <el-input type="textarea" :rows="50" placeholder="Please enter content" v-model="input_story"
                 class="input-area">
             </el-input>
-            <button class="generate-btn" :disabled="isButtonDisabled" @click="showMainPage"
-                style="height: 150px; width: 400px; font-size: 50px;">Generate your
+            <button class="generate-btn" :disabled="isButtonDisabled" @click="showMainPage">Generate your
                 storyboard!</button>
-
         </div>
 
 
@@ -25,7 +23,7 @@
                     </div>
                 </el-col>
                 <el-col :span="17">
-                    <div id="storyboard" class="grid-content" style="height: 1430px;">
+                    <div id="storyboard" style="height: 1320px;">
                         <storyboard></storyboard>
                     </div>
                 </el-col>
@@ -38,12 +36,13 @@
 <style type="text/css">
 /* 画布大小 2560*1440 */
 .wrapper {
-    width: 2560px;
-    height: 1440px;
+    width: 2440px;
+    height: 1320px;
     border: 2px solid #22201420;
     /* border-bottom: none; */
     border-radius: 5px;
     padding: 60px;
+    background: #FFFCF9;
     /* Add padding */
 
 }
@@ -80,8 +79,27 @@
     /* Span across both columns */
     justify-self: center;
     /* Center the button */
-    margin-top: 20px;
+    margin-top: 60px;
     /* Space above the button */
+
+    display: flex;
+    width: 480px;
+    height: 160px;
+    padding: 5px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    color: var(--color-white, #FFF);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 26px;
+    /* 54.167% */
 }
 
 .grid-content {
@@ -90,14 +108,18 @@
 }
 
 #slogan {
-    color: #000;
+    color: var(--color-black, #000);
     text-align: center;
     font-family: "Nothing You Could Do";
-    font-size: 60px;
+    font-size: 96px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 596px;
+
+    width: 953px;
+    height: 256px;
+
+    margin-block: 30px;
 }
 
 /* 标题 */
@@ -106,11 +128,11 @@
     height: 160px;
     flex-shrink: 0;
     border: 1px solid #000;
-    background: #D9D9D9;
+    background: #7566A9
 }
 
 .header {
-    color: #000;
+    color: #fff;
     text-align: center;
     display: flex;
     align-items: center;

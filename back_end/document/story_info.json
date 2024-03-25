@@ -1,1 +1,113 @@
-[{"character": ["grandmother", "Little Red Riding Hood", "mother"], "object": ["a little cap made of red velvet"], "line": [{"name": "mother", "content": "Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother.", "type": "speak"}], "action": ["grandmother gave Little Red Riding Hood a little cap made of red velvet"], "svo": [{"subject": "grandmother", "verb": "gave", "object": "a little cap made of red velvet"}, {"subject": "mother", "verb": "said", "object": "Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother."}], "text": "Once upon a time there was a sweet little girl. Everyone who saw her liked her, but most of all her <span class=\"marked character\">grandmother</span>, who did not know what to give the child next. Once she <span class=\"marked action\">gave her a <span class=\"marked object\">little cap made of red velvet</span></span>. Because it suited her so well, and she wanted to wear it all the time, she came to be known as <span class=\"marked character\">Little Red Riding Hood</span>. One day her <span class=\"marked name\">mother</span> said to her: <span class=\"marked line\">\"Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother.\"</span>"}, {"character": ["Little Red Riding Hood", "wolf"], "object": ["cake", "wine"], "line": [{"name": "wolf", "content": "Good day to you, Little Red Riding Hood.", "type": "speak"}, {"name": "Little Red Riding Hood", "content": "Thank you, wolf.", "type": "speak"}, {"name": "wolf", "content": "Where are you going so early, Little Red Riding Hood?", "type": "speak"}, {"name": "Little Red Riding Hood", "content": "To grandmother's.", "type": "speak"}, {"name": "wolf", "content": "And what are you carrying under your apron?", "type": "speak"}, {"name": "Little Red Riding Hood", "content": "Grandmother is sick and weak, and I am taking her some cake and wine. We baked yesterday, and they should give her strength.", "type": "speak"}, {"name": "wolf", "content": "Little Red Riding Hood, just where does your grandmother live?", "type": "speak"}], "action": [], "svo": [], "text": "Little Red Riding Hood promised to obey her mother. The grandmother lived out in the woods, a half hour from the village. When Little Red Riding Hood entered the woods a wolf came up to her. She did not know what a wicked animal he was, and was not afraid of him. <span class=\"marked character\">\"Good day to you, Little Red Riding Hood.\" - \"Thank you, wolf.\" - \"Where are you going so early, Little Red Riding Hood?\" - \"To grandmother's.\" - \"And what are you carrying under your apron?\" - \"Grandmother is sick and weak, and I am taking her some cake and wine. We baked yesterday, and they should give her strength.\" - \"Little Red Riding Hood, just where does your grandmother live?\"</span>"}, {"character": ["Little Red Riding Hood", "wolf"], "object": [], "line": [{"name": "Little Red Riding Hood", "content": "Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,", "type": "speak"}, {"name": "wolf", "content": "Now there is a tasty bite for me. Just how are you going to catch her?", "type": "thought"}, {"name": "wolf", "content": "Listen, Little Red Riding Hood, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.", "type": "speak"}, {"name": "Little Red Riding Hood", "content": "If I take a bouquet to grandmother, she will be very pleased. Anyway, it is still early, and I'll be home on time.", "type": "thought"}], "action": ["Little Red Riding Hood opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers", "Little Red Riding Hood ran off into the woods looking for flowers", "Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"], "svo": [{"subject": "Little Red Riding Hood", "verb": "opened", "object": "her eyes"}, {"subject": "Little Red Riding Hood", "verb": "saw", "object": "the sunlight breaking through the trees and how the ground was covered with beautiful flowers"}, {"subject": "Little Red Riding Hood", "verb": "ran off", "object": "into the woods looking for flowers"}, {"subject": "she", "verb": "picked", "object": "one"}, {"subject": "she", "verb": "thought", "object": "that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"}], "text": "\"Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,\" said <span class=\"marked character\">Little Red Riding Hood</span>. The <span class=\"marked character\">wolf</span> thought to himself: \"Now there is a tasty bite for me. Just how are you going to catch her?\" Then he said: \"Listen, <span class=\"marked character\">Little Red Riding Hood</span>, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.\" <span class=\"marked character\">Little Red Riding Hood</span> opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers. She thought: \"If I take a bouquet to grandmother, she will be very pleased. Anyway, it is still early, and I'll be home on time.\" And she ran off into the woods looking for flowers. Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods."}, {"character": ["wolf", "grandmother"], "object": [], "line": [{"name": "wolf", "content": "Who's there?", "type": "speak"}, {"name": "wolf", "content": "Little Red Riding Hood. I'm bringing you some cake and wine. Open the door for me.", "type": "speak"}, {"name": "grandmother", "content": "Just press the latch. I'm too weak to get up.", "type": "speak"}], "action": ["The wolf pressed the latch", "The wolf stepped inside", "The wolf went straight to the grandmother's bed", "The wolf ate the grandmother up", "The wolf took her clothes", "The wolf put the clothes on", "The wolf put her cap on his head", "The wolf got into her bed", "The wolf pulled the curtains shut"], "svo": [{"subject": "wolf", "verb": "pressed", "object": "the latch"}, {"subject": "wolf", "verb": "stepped", "object": "inside"}, {"subject": "wolf", "verb": "went", "object": "straight to the grandmother's bed"}, {"subject": "wolf", "verb": "ate", "object": "the grandmother up"}, {"subject": "wolf", "verb": "took", "object": "her clothes"}, {"subject": "wolf", "verb": "put", "object": "the clothes on"}, {"subject": "wolf", "verb": "put", "object": "her cap on his head"}, {"subject": "wolf", "verb": "got", "object": "into her bed"}, {"subject": "wolf", "verb": "pulled", "object": "the curtains shut"}], "text": "But the <span class=\"marked character\">wolf</span> ran straight to the <span class=\"marked character\">grandmother</span>'s house and knocked on the door. <span class=\"marked line\">\"Who's there?\" - \"Little Red Riding Hood. I'm bringing you some cake and wine. Open the door for me.\" - \"Just press the latch,\" called out the <span class=\"marked character\">grandmother</span>. \"I'm too weak to get up.\"</span> The <span class=\"marked character\">wolf</span> <span class=\"marked action\">pressed the latch</span>, and the door opened. He <span class=\"marked action\">stepped inside</span>, <span class=\"marked action\">went straight to the grandmother's bed</span>, and <span class=\"marked action\">ate her up</span>. Then he <span class=\"marked action\">took her clothes</span>, <span class=\"marked action\">put them on</span>, and <span class=\"marked action\">put her cap on his head</span>. He <span class=\"marked action\">got into her bed</span> and <span class=\"marked action\">pulled the curtains shut</span>."}]
+[
+    {
+        "character": [
+            "grandma",
+            "girl",
+            "mother"
+        ],
+        "object": [
+            "cap"
+        ],
+        "line": [
+            {
+                "name": "mother",
+                "content": "Come girl. Here is a piece of cake and a bottle of wine.",
+                "type": "speak"
+            }
+        ],
+        "action": [
+            "grandma gave girl a little cap made of red velvet"
+        ],
+        "svo": [
+            {
+                "subject": "grandma",
+                "verb": "gave",
+                "object": "cap",
+                "receiver": "girl"
+            },
+            {
+                "subject": "mother",
+                "verb": "said",
+                "object": "Here is a piece of cake and a bottle of wine. "
+            },
+            {
+                "subject": "girl",
+                "verb": "went",
+                "object": "to her grandma"
+            },
+            {
+                "subject": "girl", 
+                "verb": "thought",
+                "object": "that the cap suited her so well"
+            },
+            {
+                "subject": "girl",
+                "verb": "kicked",
+                "object": "foot"
+            }
+        ],
+        "text": "Once upon a time there was a sweet little girl. Everyone who saw her liked her, but most of all her <span class=\"marked character\">grandma</span>, who did not know what to give the child next. Once she <span class=\"marked action\">gave her a <span class=\"marked object\">little cap made of red velvet</span></span>. Because it suited her so well, and she wanted to wear it all the time, she came to be known as <span class=\"marked character\">girl</span>. One day her <span class=\"marked name\">mother</span> said to her: <span class=\"marked line\">\"Come girl. Here is a piece of cake and a bottle of wine. Take them to your grandma. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandma.\"</span>"
+    },
+    {
+        "character": [
+            "girl",
+            "wolf"
+        ],
+        "object": [],
+        "line": [
+            {
+                "name": "girl",
+                "content": "Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,",
+                "type": "speak"
+            },
+            {
+                "name": "wolf",
+                "content": "Now there is a tasty bite for me. Just how are you going to catch her?",
+                "type": "thought"
+            },
+            {
+                "name": "wolf",
+                "content": "Listen, girl, haven't you seen the beautiful flowers that are blossoming in the woods?",
+                "type": "speak"
+            },
+            {
+                "name": "girl",
+                "content": "If I take a bouquet to grandma, she will be very pleased. Anyway, it is still early, and I'll be home on time.",
+                "type": "thought"
+            }
+        ],
+        "action": [
+            "girl opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers",
+            "girl ran off into the woods looking for flowers",
+            "Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"
+        ],
+        "svo": [
+            {
+                "subject": "girl",
+                "verb": "opened",
+                "object": "her eyes"
+            },
+            {
+                "subject": "girl",
+                "verb": "cry",
+                "object": "the sunlight breaking through the trees and how the ground was covered with beautiful flowers"
+            },
+            {
+                "subject": "girl",
+                "verb": "ran off",
+                "object": "into the woods looking for flowers"
+            },
+            {
+                "subject": "she",
+                "verb": "picked",
+                "object": "one"
+            },
+            {
+                "subject": "she",
+                "verb": "thought",
+                "object": "that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"
+            }
+        ],
+        "text": "\"Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,\" said <span class=\"marked character\">girl</span>. The <span class=\"marked character\">wolf</span> thought to himself: \"Now there is a tasty bite for me. Just how are you going to catch her?\" Then he said: \"Listen, <span class=\"marked character\">girl</span>, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.\" <span class=\"marked character\">girl</span> opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers. She thought: \"If I take a bouquet to grandma, she will be very pleased. Anyway, it is still early, and I'll be home on time.\" And she ran off into the woods looking for flowers. Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods."
+    }
+]
