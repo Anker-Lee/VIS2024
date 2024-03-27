@@ -1,7 +1,67 @@
 <template>
     <div id="app" style="position: relative">
-        <div
-            style="position: absolute; width: 1600px; height: 400px; right: 0px; border-radius: 20px; border: 2px solid #B2AAD1;">
+        <div style="position: absolute; left: 10px; width: 80px; height: 400px;">
+            <img src="../../assets/image/character_icon.svg" style="margin-top: 60px;" @click="show_overview = true">
+            <img src="../../assets/image/item.svg" style="margin-top: 110px; ">
+        </div>
+
+        <div v-show="show_overview"
+            style="position: absolute; top: 0px; width: 1600px; height: 400px; right: 0px; border-radius: 20px; border: 2px solid #B2AAD1;">
+            <!-- 角色展示 -->
+            <div id="design_board_character_overview" style="top: 0px; left: 0px;">
+                <div v-for="(character, index) in character_and_item_overview['characters']" :key="index"
+                    class="boarder_style_overview preview_block_overview" style="position: relative;">
+                    <div class="emoji_head_overview"
+                        :class="{ emoji_head_no_legs_overview: character.selectedEmoji[4] === '' }">
+                        {{ character.selectedEmoji[0] }}</div>
+                    <div class="emoji_clothes_overview"
+                        :class="{ emoji_clothes_no_legs_overview: character.selectedEmoji[4] === '' }"> {{
+                character.selectedEmoji[2] }}</div>
+                    <div class="emoji_left_hand_overview"
+                        :class="{ emoji_left_hand_no_legs_overview: character.selectedEmoji[4] === '' }"> {{
+                character.selectedEmoji[1] }}</div>
+                    <div class="emoji_right_hand_overview"
+                        :class="{ emoji_right_hand_no_legs_overview: character.selectedEmoji[4] === '' }">
+                        {{ character.selectedEmoji[3] }}</div>
+                    <div class="emoji_pants_overview">{{
+                character.selectedEmoji[4] }}</div>
+                    <div class="emoji_left_foot_overview">{{
+                character.selectedEmoji[5] }}</div>
+                    <div class="emoji_right_foot_overview">{{
+                character.selectedEmoji[6] }}</div>
+                    <div class="color_block_overview" style="position: absolute; top: 0px; right: 0px; ">
+                        <div class="preview_name_overview">{{
+                character.name }}
+                        </div>
+                        <!-- <div class="preview_name_overview" style="position: absolute; top: 0px; left: 30px">{{
+            character.name }}
+                        </div> -->
+                        <!-- <img class="preview_edit_overview"
+                            style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;  cursor: pointer;"
+                            src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec(index)" /> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 物品展示 -->
+            <div id="design_board_items_overview" style="top: 200px">
+                <div v-for="(item, index) in character_and_item_overview['items']" :key="index"
+                    class="boarder_style_overview preview_block_overview" style="position: relative;">
+                    <div class="emoji_item_overview" style="position: absolute; top: 10px; left: 10px">{{
+                item.selectedEmoji }}
+                    </div>
+                    <div class="color_block_overview" style="position: absolute; top: 0px; right: 0px; ">
+                        <div class="preview_name_overview">{{ item.name
+                            }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div v-show="!show_overview"
+            style="position: absolute; top: 0px; width: 1600px; height: 400px; right: 0px; border-radius: 20px; border: 2px solid #B2AAD1;">
             <!-- 角色展示 -->
             <div id="design_board_character" style="top: 0px; left: 0px;">
                 <div v-for="(character, index) in all_character_and_item[currentFrameIndex]['characters']" :key="index"
@@ -9,24 +69,24 @@
                     <div class="emoji_head" :class="{ emoji_head_no_legs: character.selectedEmoji[4] === '' }">
                         {{ character.selectedEmoji[0] }}</div>
                     <div class="emoji_clothes" :class="{ emoji_clothes_no_legs: character.selectedEmoji[4] === '' }"> {{
-                    character.selectedEmoji[2] }}</div>
+                character.selectedEmoji[2] }}</div>
                     <div class="emoji_left_hand"
                         :class="{ emoji_left_hand_no_legs: character.selectedEmoji[4] === '' }"> {{
-                    character.selectedEmoji[1] }}</div>
+                character.selectedEmoji[1] }}</div>
                     <div class="emoji_right_hand"
                         :class="{ emoji_right_hand_no_legs: character.selectedEmoji[4] === '' }">
                         {{ character.selectedEmoji[3] }}</div>
                     <div class="emoji_pants">{{
-                    character.selectedEmoji[4] }}</div>
+                character.selectedEmoji[4] }}</div>
                     <div class="emoji_left_foot">{{
-                    character.selectedEmoji[5] }}</div>
+                character.selectedEmoji[5] }}</div>
                     <div class="emoji_right_foot">{{
-                    character.selectedEmoji[6] }}</div>
+                character.selectedEmoji[6] }}</div>
                     <div class="color_block" style="position: absolute; top: 150px ">
                         <div class="preview_name" style="position: absolute; top: 0px; left: 30px">{{ character.name }}
                         </div>
                         <img class="preview_edit"
-                            style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;"
+                            style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;  cursor: pointer;"
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec(index)" />
                     </div>
                 </div>
@@ -42,10 +102,9 @@
                         <div class="preview_name" style="position: absolute; top: 0px; left: 30px">{{ item.name }}
                         </div>
                         <img class="preview_edit"
-                            style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;"
+                            style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;  cursor: pointer;"
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec_Item(index)" />
                     </div>
-
                 </div>
             </div>
         </div>
@@ -56,46 +115,52 @@
             v-show="showEditPanelRec[index]">
             <div class="edit_panel_title">Figure Editing -&nbsp;<span class="edit_panel_name">{{ character.name
                     }}</span>
-                <img src="../../assets/image/check.svg" style="position: absolute; right: 40px;"
+                <img src="../../assets/image/check.svg" style="position: absolute; right: 40px;  cursor: pointer;"
                     @click="changeEditPanelRec(index)" />
             </div>
 
             <div class="small_block_medium small_block"
                 :class="{ small_block_selected: selectedBlock === 0, small_block_occupied: character.selectedEmoji[0] !== '' }"
                 style="position: absolute; top: 190px; left: 220px;" @click=" clickBlock(0)">{{
-                    character.selectedEmoji[0] }}</div>
+                character.selectedEmoji[0] }}</div>
             <div class="small_block_small small_block"
                 :class="{ small_block_selected: selectedBlock === 1, small_block_occupied: character.selectedEmoji[1] !== '' }"
                 style="position: absolute; top: 350px; left: 100px;" @click=" clickBlock(1)">{{
-                    character.selectedEmoji[1] }}</div>
+                character.selectedEmoji[1] }}</div>
             <div class="small_block_large small_block "
                 :class="{ small_block_selected: selectedBlock === 2, small_block_occupied: character.selectedEmoji[2] !== '' }"
                 style="position: absolute; top: 350px; left: 200px;" @click=" clickBlock(2)">{{
-                    character.selectedEmoji[2] }}</div>
+                character.selectedEmoji[2] }}</div>
             <div class="small_block_small small_block"
                 :class="{ small_block_selected: selectedBlock === 3, small_block_occupied: character.selectedEmoji[3] !== '' }"
                 style="position: absolute; top: 350px; left: 400px;" @click=" clickBlock(3)">{{
-                    character.selectedEmoji[3] }}</div>
+                character.selectedEmoji[3] }}</div>
             <div class="small_block_medium small_block"
                 :class="{ small_block_selected: selectedBlock === 4, small_block_occupied: character.selectedEmoji[4] !== '' }"
                 style="position: absolute; top: 550px; left: 220px;" @click=" clickBlock(4)">{{
-                    character.selectedEmoji[4] }}</div>
+                character.selectedEmoji[4] }}</div>
             <div class="small_block_small small_block"
                 :class="{ small_block_selected: selectedBlock === 5, small_block_occupied: character.selectedEmoji[5] !== '' }"
                 style="position: absolute; top: 710px; left: 184px;" @click=" clickBlock(5)">{{
-                    character.selectedEmoji[5] }}</div>
+                character.selectedEmoji[5] }}</div>
             <div class="small_block_small small_block"
                 :class="{ small_block_selected: selectedBlock === 6, small_block_occupied: character.selectedEmoji[6] !== '' }"
                 style="position: absolute; top: 710px; left: 316px;" @click=" clickBlock(6)">{{
-                    character.selectedEmoji[6] }}</div>
+                character.selectedEmoji[6] }}</div>
 
-            <span class="title_inventory" style="position: absolute; top: 198px; left: 793px">Inventory</span>
-            <div class="emoji_list" style="position: absolute; top: 300px; left: 600px">
+            <span class="title_inventory" style="position: absolute; top: 158px; left: 793px">Inventory</span>
+
+            <div class="edit_search" style="position: absolute; top: 260px; left: 600px">
+                <img src="../../assets/image/search.svg" style="width: 50px; height: 50px; margin: 10px;" />
+                <span>Search for Visuals</span>
+            </div>
+
+            <div class="emoji_list" style="position: absolute; top: 340px; left: 600px">
                 <span class="emoji_in_list" v-for="(e, i) in emojis[selectedBlock]" :key="i"
                     @click="changeEmoji(i, index)">{{ e
                     }}</span>
             </div>
-            <div class="edit_panel_bt_container" style="position: absolute; left: 1225px; top: 624px">
+            <div class="edit_panel_bt_container" style="position: absolute; left: 1224px; top: 664px">
                 <img src="../../assets/image/FolderAdd.svg" class="edit_panel_button" />
                 <img src="../../assets/image/circle-close.svg" class="edit_panel_button" @click="removeEmoji(index)" />
             </div>
@@ -115,54 +180,85 @@
                 style="position: absolute; top: 380px; left: 180px;" @click="clickBlockItem">{{ item.selectedEmoji }}
             </div>
 
-            <span class="title_inventory" style="position: absolute; top: 198px; left: 793px">Inventory</span>
-            <div class="emoji_list" style="position: absolute; top: 300px; left: 600px">
+            <span class="title_inventory" style="position: absolute; top: 158px; left: 793px">Inventory</span>
+
+            <div class="edit_search" style="position: absolute; top: 260px; left: 600px">
+                <img src="../../assets/image/search.svg" style="width: 50px; height: 50px; margin: 10px;" />
+                <span>Search for Visuals</span>
+            </div>
+
+            <div class="emoji_list" style="position: absolute; top: 340px; left: 600px">
                 <span class="emoji_in_list" v-for="(e, i) in emojis_item" :key="i"
                     @click="changeEmoji_Item(e, index)">{{ e }}</span>
             </div>
-            <div class="edit_panel_bt_container" style="position: absolute; left: 1225px; top: 624px">
+            <div class="edit_panel_bt_container" style="position: absolute; left: 1224px; top: 664px">
                 <img src="../../assets/image/FolderAdd.svg" class="edit_panel_button" />
                 <img src="../../assets/image/circle-close.svg" class="edit_panel_button"
                     @click="removeEmoji_item(index)" />
             </div>
         </div>
 
+        <!-- 上传背景 -->
+        <div class="boarder_style edit_panel" style="position: absolute; top: 210px; right: 420px" v-show="show_backgroundPanel">
+            <div class="edit_panel_title">Background Pictures Inventory
+                <img src="../../assets/image/check.svg" style="position: absolute; right: 40px; cursor: pointer"
+                    @click="show_backgroundPanel = false" />
+            </div>
+
+            <div class="edit_search" style="position: absolute; top: 130px; left: 200px; width: 1200px">
+                <img src="../../assets/image/search.svg" style="width: 50px; height: 50px; margin: 10px;" />
+                <span>Search for Background Pictures</span>
+            </div>
+
+            <div class="background_list" style="position: absolute; top: 215px; left: 200px">
+                <img v-for="(image, index) in backgroundPicture" :key="index"
+                    :src="require(`../../assets/image/backgroundImage/${image}`)"
+                    style="width: 400px; height: auto; cursor: pointer;" @click="setImageAsBackground(image)" />
+            </div>
+            <div class="edit_panel_bt_container_overview" style="position: absolute; left: 1203px; top: 718px">
+                <img src="../../assets/image/FolderAdd.svg" class="edit_panel_button"
+                    @click="$refs.fileInput.click()" />
+                <img src="../../assets/image/circle-close.svg" class="edit_panel_button" />
+            </div>
+        </div>
+
 
         <!-- 故事板 -->
-        <div id="story_board" style="position: absolute; top: 420px; right: 100px;">
-
-            <img id="emoji_1" class="emoji" src="../../assets/image/reshot-icon-disbelief-TQL2MNDFRK.svg" alt="emoji_1">
+        <div id="story_board" style="position: absolute; top: 420px; right: 100px; background-size: cover;"
+            :style="{ backgroundImage: `url(${all_backgroundImages[currentFrameIndex]})` }">
 
             <div v-for="(character, index) in all_character_and_item[currentFrameIndex]['characters']"
                 :key="index + 300" :id="'character-' + index" class="character_in_story"
-                style="position: absolute; top: 10px; left: 10px;" @click="handle_emoji_click($event)">
+                style="position: absolute; top: -420px;" @click="handle_emoji_click($event)"
+                :style="{ left: `${100 + index * 302}px` }" v-show="!show_overview">
                 <div class="emoji_head emoji_click" :class="{ emoji_head_no_legs: character.selectedEmoji[4] === '' }"
                     :id="'head_' + index">
                     {{ character.selectedEmoji[0] }}</div>
                 <div class="emoji_clothes emoji_click"
                     :class="{ emoji_clothes_no_legs: character.selectedEmoji[4] === '' }" :id="'clothes_' + index"> {{
-                    character.selectedEmoji[2] }}</div>
+                character.selectedEmoji[2] }}</div>
                 <div class="emoji_left_hand emoji_click"
                     :class="{ emoji_left_hand_no_legs: character.selectedEmoji[4] === '' }" :id="'left_hand_' + index">
                     {{
-                    character.selectedEmoji[1] }}</div>
+                character.selectedEmoji[1] }}</div>
                 <div class="emoji_right_hand emoji_click"
                     :class="{ emoji_right_hand_no_legs: character.selectedEmoji[4] === '' }"
                     :id="'right_hand_' + index">
                     {{ character.selectedEmoji[3] }}</div>
                 <div class="emoji_pants emoji_click" :id="'pants_' + index" v-if="character.selectedEmoji[4] !== ''">{{
-                    character.selectedEmoji[4] }}</div>
+                character.selectedEmoji[4] }}</div>
                 <div class="emoji_left_foot emoji_click" :id="'left_foot_' + index"
                     v-if="character.selectedEmoji[4] !== ''">{{
-                    character.selectedEmoji[5] }}</div>
+                character.selectedEmoji[5] }}</div>
                 <div class="emoji_right_foot emoji_click" :id="'right_foot_' + index"
                     v-if="character.selectedEmoji[4] !== ''">{{
-                    character.selectedEmoji[6] }}</div>
+                character.selectedEmoji[6] }}</div>
             </div>
 
             <div v-for="(item, index) in all_character_and_item[currentFrameIndex]['items']" :key="index + 400"
                 :id="'item-' + index" class="item_in_story emoji_item emoji_click"
-                style="position: absolute; top: 50%; left: 50%;" @click="handle_emoji_click($event)">
+                style="position: absolute; top: -144px;" @click="handle_emoji_click($event)"
+                :style="{ left: `${252 + index * 302}px` }" v-show="!show_overview">
                 {{ item.selectedEmoji }}
             </div>
 
@@ -172,27 +268,35 @@
         <!-- 动画顺序列表 -->
         <div style="position: absolute; top: 420px; right: 100px" class="animation_list grid-content"
             v-show="showAnimationList">
-            <div class="animation_list_title">Frame {{ currentFrameIndex + 1 }} Animation</div>
+            <div class="animation_list_title">Frame {{ currentFrameIndex + 1 }} <span>&nbsp;Animation</span></div>
             <div v-for="(animationSmallList, index) in all_animationList[currentFrameIndex]" :key="index"
                 class="animation_item">
                 <div style="width: 600px; height: 100px; background: #AF99C7;">
                     <div style="position: absolute; left: 0px" class="animation_title_index"> {{ index + 1 }}</div>
-                    <div style="position: absolute; right: 0px" class="animation_title">{{
-                    all_svo_list[currentFrameIndex][index] }}</div>
+                    <div style="position: absolute; right: 0px" class="animation_title">
+                        <div style="width: 450px; height: 100px;">{{ all_svo_list[currentFrameIndex][index] }}</div>
+                        <img src="../../assets/image/close.svg" @click="deleteAnimation(index)"
+                            style="cursor: pointer;" />
+                    </div>
                 </div>
 
-                <div v-for="(animation, i) in animationSmallList" :key="i" class="animation_subaction">
+                <!-- <div v-for="(animation, i) in animationSmallList" :key="i" class="animation_subaction">
                     {{ animation['name'] }}
-                </div>
+                </div> -->
             </div>
         </div>
 
         <!-- 控制按钮 -->
         <div id="control" style="position: absolute; top: 420px; right: 0px">
-            <img class="control_button " style="position: absolute; top: 0px;" src="../../assets/image/icon_edit.svg"
+            <img class="control_button " style="position: absolute; top: 0px; " src="../../assets/image/icon_edit.svg"
                 v-if="isPlay" @click="isPlay = !isPlay" />
+            <img class="control_button " style="position: absolute; top: 100px;"
+                src="../../assets/image/Framebackground.svg" v-if="isPlay" @click="show_backgroundPanel = true" />
+            <input type="file" ref="fileInput" style="display: none" @change="onFileChange" />
             <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/Frame.svg"
-                v-if="isPlay" @click="showAnimationList = !showAnimationList" />
+                v-if="isPlay & !showAnimationList" @click="showAnimationList = !showAnimationList" />
+            <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/return.svg"
+                v-if="isPlay & showAnimationList" @click="showAnimationList = !showAnimationList" />
             <img class="control_button " style="position: absolute; top: 500px;" src="../../assets/image/icon_play.svg"
                 v-if="isPlay" @click="runAnimations()" />
             <img class="control_button " style="position: absolute; top: 600px;" src="../../assets/image/replay.svg"
@@ -219,7 +323,7 @@
 
         <!-- 测试按钮 -->
         <div style="position: absolute; top: 1320px; left: 0px">
-            <div class="control_button boarder_style test" style="position: absolute; top: 0px;"
+            <!-- <div class="control_button boarder_style test" style="position: absolute; top: 0px;"
                 @click="ptrans(lastClicked, 'emoji_1')">移动到emoji</div>
             <div class="control_button boarder_style test" style="position: absolute; top: 40px;"
                 @click="propel_pull(lastClicked, 'emoji_1')">拉 emoji</div>
@@ -254,17 +358,17 @@
             <div class="control_button boarder_style test" style="position: absolute; top:60px; left: 320px"
                 @click="node_head(lastClicked)">点头</div>
             <div class="control_button boarder_style test" style="position: absolute; top: 0px; left: 400px"
-                @click="cry(lastClicked)">流泪</div>
-            <div class="control_button boarder_style test" style="position: absolute; top: 20px; left: 400px"
-                @click="runAnimations()">连续运行</div>
+                @click="cry(lastClicked)">流泪</div> -->
+            <!-- <div class="control_button boarder_style test" style="position: absolute; top: 20px; left: 400px"
+                @click="runAnimations()">连续运行</div> -->
             <div class="control_button boarder_style test" style="position: absolute; top: 40px; left: 400px"
                 @click="saveScene()">存储场景</div>
-                <div class="control_button boarder_style test" style="position: absolute; top: 60px; left: 400px"
-                @click="loadScene()">恢复场景</div>
-            <div class="control_button boarder_style test" style="position: absolute; top: 0px; left: 480px"
-                @click="clearUserAnimationsCache()">撤销</div>
-            <div class="control_button boarder_style test" style="position: absolute; top: 20px; left: 480px"
-                @click="confirmUserAnimations()">确认</div>
+            <!-- <div class="control_button boarder_style test" style="position: absolute; top: 60px; left: 400px"
+                @click="loadScene()">恢复场景</div> -->
+            <!-- <div class="control_button boarder_style test" style="position: absolute; top: 0px; left: 480px"
+                @click="clearUserAnimationsCache()">撤销</div> -->
+            <!-- <div class="control_button boarder_style test" style="position: absolute; top: 20px; left: 480px"
+                @click="confirmUserAnimations()">确认</div> -->
         </div>
     </div>
 </template>
@@ -278,8 +382,44 @@ import Draggable from 'gsap/src/Draggable';
 gsap.registerPlugin(MotionPathPlugin, Draggable);
 
 export default {
+    watch: {
+        all_character_and_item: {
+            handler: function (val) {
+                let characters = [];
+                let items = [];
+
+                val.forEach((frame) => {
+                    frame['characters'].forEach((character) => {
+                        characters.push(character);
+                    });
+                    frame['items'].forEach((item) => {
+                        items.push(item);
+                    });
+                });
+
+                this.character_and_item_overview = {
+                    characters,
+                    items
+                };
+                console.log("汇总character_and_item_overview, character_and_item_overview:", this.character_and_item_overview);
+
+            },
+            deep: true
+        }
+    },
     data() {
         return {
+            backgroundPicture: [
+                'bg-1.png',
+                'bg-2.png',
+                'bg-3.png',
+                'bg-4.png',
+                'bg-5.png',
+                'bg-6.png',
+                'bg-7.png',
+                'bg-8.png',
+                'bg-9.png',
+            ],
             emojis: [
                 [
                     "😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "🥲", "🥹", "☺️", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "😗", "😙", "😚", "😋", "😛", "😝", "😜", "🤪", "🤨", "🧐", "🤓", "😎", "🥸", "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣", "😖", "😫", "😩", "🥺", "😢", "😭", "😮‍💨", "😤", "😠", "😡", "🤬", "🤯", "😳", "🥵", "🥶", "😱", "😨", "😰", "😥", "😓", "🫣", "🤗", "🫡", "🤔", "🫢", "🤭", "🤫", "🤥", "😶", "😶‍🌫️", "😐", "😑", "😬", "🫨", "🫠", "🙄", "😯", "😦", "😧", "😮", "😲", "🥱", "😴", "🤤", "😪", "😵", "😵‍💫", "🫥", "🤐", "🥴", "🤢", "🤮", "🤧", "😷", "🤒", "🤕", "🤑", "🤠", "😈", "👿", "👹", "👺", "🤡", "💩", "👻", "💀", "☠️", "👽", "👾", "🎃", "😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "👶", "👧", "🧒", "👦", "👩", "🧑", "👨", "👩‍🦱", "🧑‍🦱", "👨‍🦱", "👩‍🦰", "🧑‍🦰", "👨‍🦰", "👱‍♀️", "👱", "👱‍♂️", "👩‍🦳", "🧑‍🦳", "👨‍🦳", "👩‍🦲", "🧑", "👨‍🦲", "🧔‍♀️", "🧔", "🧔‍♂️", "👵", "🧓", "👴", "👲", "👳‍♀️", "👳", "👳‍♂️", "🧕", "👮‍♀️", "👮", "👮‍♂️", "👷‍♀️", "👷", "👷‍♂️", "💂‍♀️", "💂", "💂‍♂️", "🕵️‍♀️", "🕵️", "🕵️‍♂️", "👩‍⚕️", "🧑‍⚕️", "👨‍⚕️", "👩‍🌾", "🧑‍🌾", "👨", "👩‍🍳", "🧑‍🍳", "👨‍🍳", "👩‍🎓", "🧑‍🎓", "👨‍🎓", "👩‍🎤", "🧑‍🎤", "👨‍🎤", "👩‍🏫", "🧑‍🏫", "👨‍🏫", "👩‍🏭", "🧑‍🏭", "👨‍🏭", "👩‍💻", "🧑‍💻", "👨‍💻", "👩‍💼", "🧑‍💼", "👨‍💼", "👩‍🔧", "🧑‍🔧", "👨‍🔧", "👩", "🧑‍🔬", "👨‍🔬", "👩‍🎨", "🧑‍🎨", "👨‍🎨", "👩‍🚒", "🧑‍🚒", "👨‍🚒", "👩‍✈️", "🧑‍✈️", "👨‍✈️", "👩‍🚀", "🧑‍🚀", "👨‍🚀", "👩‍⚖️", "🧑‍⚖️", "👨‍⚖️", "👰‍♀️", "👰", "👰‍♂️", "🤵‍♀️", "🤵", "🤵‍♂️", "👸", "🫅", "🤴", "🥷", "🦸‍♀️", "🦸", "🦸‍♂️", "🦹‍♀️", "🦹", "🦹‍♂️", "🤶", "🧑‍🎄", "🎅", "🧙‍♀️", "🧙", "🧙‍♂️", "🧝‍♀️", "🧝", "🧝‍♂️", "🧛‍♀️", "🧛", "🧛‍♂️", "🧟‍♀️", "🧟", "🧟‍♂️", "👼", "🙎‍♀️", "🙎", "🙎‍♂️", "🙍‍♀️", "🙍", "🙍‍♂️", "💇‍♀️", "💇", "💇‍♂️", "💆‍♀️", "💆", "💆‍♂️", "🧖‍♀️", "🧖", "🧖‍♂️", "👶🏻", "👧🏻", "🧒🏻", "👦🏻", "👩🏻", "🧑🏻", "👨🏻", "👩🏻‍🦱", "🧑🏻‍🦱", "👨🏻‍🦱", "👩🏻‍🦰", "🧑🏻‍🦰", "👨🏻‍🦰", "👱🏻‍♀️", "👱🏻", "👱🏻‍♂️", "👩🏻‍🦳", "🧑🏻‍🦳", "👨🏻‍🦳", "👩🏻‍🦲", "🧑🏻‍🦲", "👨🏻", "🧔🏻‍♀️", "🧔🏻", "🧔🏻‍♂️", "👵🏻", "🧓🏻", "👴🏻", "👲🏻", "👳🏻‍♀️", "👳🏻", "👳🏻‍♂️", "🧕🏻", "👮🏻‍♀️", "👮🏻", "👮🏻‍♂️", "👷🏻‍♀️", "👷🏻", "👷🏻‍♂️", "💂🏻‍♀️", "💂🏻", "💂🏻‍♂️", "🕵🏻‍♀️", "🕵🏻", "🕵🏻‍♂️", "👩🏻‍⚕️", "🧑🏻‍⚕️", "👨🏻‍⚕️", "👩🏻‍🌾", "🧑🏻‍🌾", "👨🏻‍🌾", "👩🏻‍🍳", "🧑🏻‍🍳", "👨🏻‍🍳", "👩🏻‍🎓", "🧑🏻‍🎓", "👨🏻‍🎓", "🧑🏻‍🎤", "👨🏻‍🎤", "👩🏻‍🏫", "🧑🏻‍🏫", "👨🏻‍🏫", "🧑🏻‍🏭", "👨🏻‍🏭", "👩🏻‍💻", "🧑🏻‍💻", "👨🏻‍💻", "👩🏻‍💼", "🧑🏻‍💼", "👨🏻‍💼", "👩🏻‍🔧", "🧑🏻‍🔧", "👨🏻‍🔧", "👩🏻‍🔬", "🧑🏻‍🔬", "👨🏻‍🔬", "👩🏻‍🎨", "🧑🏻‍🎨", "👨🏻‍🎨", "👩🏻‍🚒", "👨🏻‍🚒", "👩🏻‍✈️", "🧑🏻‍✈️", "👨🏻‍✈️", "👩🏻‍🚀", "👨🏻‍🚀", "👩🏻‍⚖️", "🧑🏻‍⚖️", "👨🏻‍⚖️", "👰🏻‍♀️", "👰🏻", "👰🏻‍♂️", "🤵🏻‍♀️", "🤵🏻", "🤵🏻‍♂️", "👸🏻", "🫅🏻", "🤴🏻", "🥷🏻", "🦸🏻", "🦸🏻‍♂️", "🦹🏻‍♀️", "🦹🏻", "🦹🏻‍♂️", "🤶🏻", "🧑🏻‍🎄", "🎅🏻", "🧙🏻‍♀️", "🧙🏻", "🧙🏻‍♂️", "🧝🏻‍♀️", "🧝🏻", "🧝🏻‍♂️", "🧛🏻‍♀️", "🧛🏻", "🧛🏻‍♂️", "💁🏻‍♀️", "💁🏻", "💁🏻‍♂️", "🙅🏻‍♀️", "🙅🏻", "🙅🏻‍♂️", "🙆🏻‍♀️", "🙆🏻", "🙆🏻‍♂️", "🙋🏻‍♀️", "🙋🏻", "🙋🏻‍♂️", "🧏🏻‍♀️", "🧏🏻", "🤦🏻‍♀️", "🤦🏻", "🤦🏻‍♂️", "🤷🏻‍♀️", "🤷🏻", "🤷🏻‍♂️", "🙎🏻", "🙎🏻‍♂️", "🙍🏻‍♀️", "🙍🏻", "🙍🏻‍♂️", "💇🏻‍♀️", "💇", "💇🏻‍♂️", "💆🏻‍♀️", "💆🏻", "💆🏻‍♂️", "🧖🏻‍♀️", "🧖🏻", "🧖🏻‍♂️", "👶🏼", "👧🏼", "🧒🏼", "👦🏼", "👩🏼", "🧑🏼", "👨🏼", "👩🏼‍🦱", "🧑🏼‍🦱", "👨🏼‍🦱", "👩🏼‍🦰", "🧑🏼‍🦰", "👨🏼‍🦰", "👱🏼‍♀️", "👱🏼", "👱🏼‍♂️", "👩🏼‍🦳", "🧑🏼‍🦳", "👨🏼‍🦳", "👩🏼‍🦲", "🧑🏼‍🦲", "👨🏼", "🧔🏼‍♀️", "🧔🏼", "🧔🏼‍♂️", "👵🏼", "🧓🏼", "👴🏼", "👲🏼", "👳🏼‍♀️", "👳🏼", "👳🏼‍♂️", "🧕🏼", "👮🏼‍♀️", "👮🏼", "👮🏼‍♂️", "👷🏼‍♀️", "👷🏼", "👷🏼‍♂️", "💂🏼‍♀️", "💂🏼", "💂🏼‍♂️", "🕵🏼‍♀️", "🕵🏼", "🕵🏼‍♂️", "👩🏼‍⚕️", "🧑🏼‍⚕️", "👨🏼‍⚕️", "👩🏼‍🌾", "🧑🏼‍🌾", "👨🏼‍🌾", "👩🏼‍🍳", "🧑🏼‍🍳", "👨🏼‍🍳", "👩🏼‍🎓", "🧑🏼‍🎓", "👨🏼‍🎓", "🧑🏼‍🎤", "👨🏼‍🎤", "👩🏼‍🏫", "🧑🏼‍🏫", "👨🏼‍🏫", "🧑🏼‍🏭", "👨🏼‍🏭", "👩🏼‍💻", "🧑🏼‍💻", "👨🏼‍💻", "👩🏼‍💼", "🧑🏼‍💼", "👨🏼‍💼", "👩🏼‍🔧", "🧑🏼‍🔧", "👨🏼‍🔧", "👩🏼‍🔬", "🧑🏼‍🔬", "👨🏼‍🔬", "👩🏼‍🎨", "🧑🏼‍🎨", "👨🏼‍🎨", "👩🏼‍🚒", "👨🏼‍🚒", "👩🏼‍✈️", "🧑🏼‍✈️", "👨🏼‍✈️", "👩🏼‍🚀", "👨🏼‍🚀", "👩🏼‍⚖️", "🧑🏼‍⚖️", "👨🏼‍⚖️", "👰🏼‍♀️", "👰🏼", "👰🏼‍♂️", "🤵🏼‍♀️", "🤵🏼", "🤵🏼‍♂️", "👸🏼", "🫅🏼", "🤴🏼", "🥷🏼", "🦸🏼", "🦸🏼‍♂️", "🦹🏼‍♀️", "🦹🏼", "🦹🏼‍♂️", "🤶🏼", "🧑🏼‍🎄", "🎅🏼", "🧙🏼‍♀️", "🧙🏼", "🧙🏼‍♂️", "🧝🏼‍♀️", "🧝🏼", "🧝🏼‍♂️", "🧛🏼‍♀️", "🧛🏼", "🧛🏼‍♂️", "🙇🏼‍♀️", "🙇🏼", "🙇🏼‍♂️", "💁🏼‍♀️", "💁🏼", "💁🏼‍♂️", "🙅🏼‍♀️", "🙅🏼", "🙅🏼‍♂️", "🙆🏼‍♀️", "🙆🏼", "🙆🏼‍♂️", "🙋🏼‍♀️", "🙋🏼", "🧏🏼‍♀️", "🧏🏼", "🧏🏼‍♂️", "🤦🏼‍♀️", "🤦🏼", "🤦🏼‍♂️", "🤷🏼", "🤷🏼‍♂️", "🙎🏼‍♀️", "🙎🏼", "🙎🏼‍♂️", "🙍🏼‍♀️", "🙍🏼‍♂️", "💇🏼‍♀️", "💇🏼", "💇🏼‍♂️", "💆🏼‍♀️", "💆🏼", "💆🏼‍♂️", "🧖🏼‍♀️", "🧖🏼", "🧖🏼‍♂️", "👶🏽", "👧🏽", "🧒🏽", "👦🏽", "👩🏽", "🧑🏽", "👨🏽", "👩🏽‍🦱", "🧑🏽‍🦱", "👨🏽‍🦱", "👩🏽‍🦰", "🧑🏽‍🦰", "👨🏽‍🦰", "👱🏽‍♀️", "👱🏽", "👱🏽‍♂️", "👩🏽‍🦳", "🧑🏽‍🦳", "👨🏽‍🦳", "👩🏽‍🦲", "🧑🏽‍🦲", "👨🏽", "🧔🏽‍♀️", "🧔🏽", "🧔🏽‍♂️", "👵🏽", "🧓🏽", "👴🏽", "👲🏽", "👳🏽‍♀️", "👳🏽", "👳🏽‍♂️", "🧕🏽", "👮🏽‍♀️", "👮🏽", "👮🏽‍♂️", "👷🏽‍♀️", "👷🏽", "👷🏽‍♂️", "💂🏽‍♀️", "💂🏽", "💂🏽‍♂️", "🕵🏽‍♀️", "🕵🏽", "🕵🏽‍♂️", "👩🏽‍⚕️", "🧑🏽‍⚕️", "👨🏽‍⚕️", "👩🏽‍🌾", "🧑🏽‍🌾", "👨🏽‍🌾", "👩🏽‍🍳", "🧑🏽‍🍳", "👨🏽‍🍳", "👩🏽‍🎓", "🧑🏽‍🎓", "👨🏽‍🎓", "🧑🏽‍🎤", "👨🏽‍🎤", "👩🏽‍🏫", "🧑🏽‍🏫", "👨🏽‍🏫", "🧑🏽‍🏭", "👨🏽‍🏭", "👩🏽‍💻", "🧑🏽‍💻", "👨🏽‍💻", "👩🏽‍💼", "🧑🏽‍💼", "👨🏽‍💼", "👩🏽‍🔧", "🧑🏽‍🔧", "👨🏽‍🔧", "👩🏽‍🔬", "🧑🏽‍🔬", "👨🏽‍🔬", "👩🏽‍🎨", "🧑🏽‍🎨", "👨🏽‍🎨", "👩🏽‍🚒", "👨🏽‍🚒", "👩🏽‍✈️", "🧑🏽‍✈️", "👨🏽‍✈️", "👩🏽‍🚀", "👨🏽‍🚀", "👩🏽‍⚖️", "🧑🏽‍⚖️", "👨🏽‍⚖️", "👰🏽‍♀️", "👰🏽", "👰🏽‍♂️", "🤵🏽‍♀️", "🤵🏽", "🤵🏽‍♂️", "👸🏽", "🫅🏽", "🤴🏽", "🥷🏽", "🦸🏽", "🦸🏽‍♂️", "🦹🏽‍♀️", "🦹🏽", "🦹🏽‍♂️", "🤶🏽", "🧑🏽‍🎄", "🎅🏽", "🧙🏽‍♀️", "🧙🏽", "🧙🏽‍♂️", "🧝🏽‍♀️", "🧝🏽", "🧝🏽‍♂️", "🧛🏽‍♀️", "🧛🏽", "🧛🏽‍♂️", "🧜🏽‍♀️", "🧜🏽", "🧜🏽‍♂️", "🧚🏽‍♀️", "🧚🏽", "🧚🏽‍♂️", "👼🏽", "🤰🏽", "🫄🏽", "🫃🏽", "🤱🏽", "👩🏽‍🍼", "👨🏽‍🍼", "🙇🏽‍♀️", "🙇🏽", "🙇🏽‍♂️", "💁🏽‍♀️", "💁🏽", "🙅🏽‍♀️", "🙅🏽", "🙅🏽‍♂️", "🙆🏽‍♀️", "🙆🏽", "🙆🏽‍♂️", "🙋🏽", "🙋🏽‍♂️", "🧏🏽‍♀️", "🧏🏽", "🧏🏽‍♂️", "🤦🏽‍♀️", "🤦🏽‍♂️", "🤷🏽‍♀️", "🤷🏽", "🤷🏽‍♂️", "🙎🏽‍♀️", "🙎🏽", "🙎🏽‍♂️", "🙍🏽‍♀️", "🙍🏽", "🙍🏽‍♂️", "💇🏽‍♀️", "💇🏽", "💇🏽‍♂️", "💆🏽‍♀️", "💆🏽", "💆🏽‍♂️", "🧖🏽‍♀️", "🧖🏽", "🧖🏽‍♂️", "👶🏾", "👧🏾", "🧒🏾", "👦🏾", "👩🏾", "🧑🏾", "👨🏾", "👩🏾‍🦱", "🧑🏾‍🦱", "👨🏾‍🦱", "👩🏾‍🦰", "🧑🏾‍🦰", "👨🏾‍🦰", "👱🏾‍♀️", "👱🏾", "👱🏾‍♂️", "👩🏾‍🦳", "🧑🏾‍🦳", "👨🏾‍🦳", "👩🏾‍🦲", "🧑🏾‍🦲", "👨🏾", "🧔🏾‍♀️", "🧔🏾", "🧔🏾‍♂️", "👵🏾", "🧓🏾", "👴🏾", "👲🏾", "👳🏾‍♀️", "👳🏾", "👳🏾‍♂️", "🧕🏾", "👮🏾‍♀️", "👮🏾", "👮🏾‍♂️", "👷🏾‍♀️", "👷🏾", "👷🏾‍♂️", "💂🏾‍♀️", "💂🏾", "💂🏾‍♂️", "🕵🏾‍♀️", "🕵🏾", "🕵🏾‍♂️", "👩🏾‍⚕️", "🧑🏾‍⚕️", "👨🏾‍⚕️", "👩🏾‍🌾", "🧑🏾‍🌾", "👨🏾‍🌾", "👩🏾‍🍳", "🧑🏾‍🍳", "👨🏾‍🍳", "👩🏾‍🎓", "🧑🏾‍🎓", "👨🏾‍🎓", "🧑🏾‍🎤", "👨🏾‍🎤", "👩🏾‍🏫", "🧑🏾‍🏫", "👨🏾‍🏫", "🧑🏾‍🏭", "👨🏾‍🏭", "👩🏾‍💻", "🧑🏾‍💻", "👨🏾‍💻", "👩🏾‍💼", "🧑🏾‍💼", "👨🏾‍💼", "👩🏾‍🔧", "🧑🏾‍🔧", "👨🏾‍🔧", "👩🏾‍🔬", "🧑🏾‍🔬", "👨🏾‍🔬", "👩🏾‍🎨", "🧑🏾‍🎨", "👨🏾‍🎨", "👩🏾‍🚒", "👨🏾‍🚒", "👩🏾‍✈️", "🧑🏾‍✈️", "👨🏾‍✈️", "👩🏾‍🚀", "👨🏾‍🚀", "👩🏾‍⚖️", "🧑🏾‍⚖️", "👨🏾‍⚖️", "👰🏾‍♀️", "👰🏾", "👰🏾‍♂️", "🤵🏾‍♀️", "🤵🏾", "🤵🏾‍♂️", "👸🏾", "🫅🏾", "🤴🏾", "🥷🏾", "🦸🏾", "🦸🏾‍♂️", "🦹🏾‍♀️", "🦹🏾", "🦹🏾‍♂️", "🤶🏾", "🧑🏾‍🎄", "🎅🏾", "🧙🏾‍♀️", "🧙🏾", "🧙🏾‍♂️", "🧝🏾‍♀️", "🧝🏾", "🧝🏾‍♂️", "🧛🏾‍♀️", "🧛🏾", "🧛🏾‍♂️", "🧜🏾‍♀️", "🧜🏾", "🧜🏾‍♂️", "🧚🏾‍♀️", "🧚🏾", "🧚🏾‍♂️", "👼🏾", "🤰🏾", "🫄🏾", "🫃🏾", "🤱🏾", "👩🏾‍🍼", "👨🏾‍🍼", "🙇🏾‍♀️", "🙇🏾", "🙇🏾‍♂️", "💁🏾‍♀️", "💁🏾", "🙅🏾‍♀️", "🙅🏾", "🙅🏾‍♂️", "🙆🏾‍♀️", "🙆🏾", "🙆🏾‍♂️", "🙋🏾", "🙋🏾‍♂️", "🧏🏾‍♀️", "🧏🏾", "🧏🏾‍♂️", "🤦🏾‍♀️", "🤦🏾‍♂️", "🤷🏾‍♀️", "🤷🏾", "🤷🏾‍♂️", "🙎🏾‍♀️", "🙎🏾", "🙎🏾‍♂️", "🙍🏾‍♀️", "🙍🏾", "🙍🏾‍♂️", "💇🏾‍♀️", "💇🏾", "💇🏾‍♂️", "💆🏾‍♀️", "💆🏾", "💆🏾‍♂️", "🧖🏾‍♀️", "🧖🏾", "🧖🏾‍♂️", "👶🏿", "👧🏿", "🧒🏿", "👦🏿", "👩🏿", "🧑🏿", "👨🏿", "👩🏿‍🦱", "🧑🏿", "👨🏿‍🦱", "👩🏿‍🦰", "🧑🏿‍🦰", "👨🏿‍🦰", "👱🏿‍♀️", "👱🏿", "👩🏿‍🦳", "🧑🏿‍🦳", "👨🏿‍🦳", "👩🏿‍🦲", "🧑🏿‍🦲", "👨🏿‍🦲", "🧔🏿‍♀️", "🧔🏿", "🧔🏿‍♂️", "👵🏿", "🧓🏿", "👴🏿", "👲🏿", "👳🏿‍♀️", "👳🏿", "👳🏿‍♂️", "🧕🏿", "👮🏿‍♀️", "👮🏿", "👮🏿‍♂️", "👷🏿‍♀️", "👷🏿‍♂️", "💂🏿‍♀️", "💂🏿", "💂🏿‍♂️", "🕵🏿‍♀️", "🕵🏿", "🕵🏿‍♂️", "👩🏿‍⚕️", "🧑🏿‍⚕️", "👨🏿‍⚕️", "👩🏿‍🌾", "🧑🏿‍🌾", "👨🏿", "👩🏿‍🍳", "🧑🏿‍🍳", "👨🏿‍🍳", "👩🏿‍🎓", "🧑🏿‍🎓", "👨🏿‍🎓", "👩🏿‍🎤", "🧑🏿‍🎤", "👨🏿‍🎤", "👩🏿‍🏫", "🧑🏿‍🏫", "👨🏿‍🏫", "👩🏿‍🏭", "🧑🏿‍🏭", "👨🏿‍🏭", "👩🏿‍💻", "🧑🏿‍💻", "👨🏿‍💻", "👩🏿‍💼", "🧑🏿‍💼", "👨🏿‍💼", "👩🏿‍🔧", "🧑🏿‍🔧", "👨🏿‍🔧", "👩🏿", "🧑🏿‍🔬", "👨🏿‍🔬", "👩🏿‍🎨", "🧑🏿‍🎨", "👨🏿‍🎨", "👩🏿‍🚒", "🧑🏿‍🚒", "👨🏿‍🚒", "👩🏿‍✈️", "🧑🏿‍✈️", "👨🏿‍✈️", "👩🏿‍🚀", "🧑🏿‍🚀", "👨🏿‍🚀", "👩🏿‍⚖️", "🧑🏿‍⚖️", "👨🏿‍⚖️", "👰🏿‍♀️", "👰🏿", "👰🏿‍♂️", "🤵🏿‍♀️", "🤵🏿", "🤵🏿‍♂️", "👸🏿", "🫅🏿", "🤴🏿", "🥷🏿", "🦸🏿‍♀️", "🦸🏿", "🦸🏿‍♂️", "🦹🏿‍♀️", "🦹🏿", "🦹🏿‍♂️", "🤶🏿", "🎅🏿", "🧙🏿‍♀️", "🧙🏿", "🧙🏿‍♂️", "🧝🏿‍♀️", "🧝🏿", "🧝🏿‍♂️", "🧛🏿‍♀️", "🧛🏿", "🧛🏿‍♂️", "🧜🏿‍♀️", "🧜🏿", "🧜🏿‍♂️", "🧚🏿‍♀️", "🧚🏿", "🧚🏿‍♂️", "👼🏿", "🤰🏿", "🫄🏿", "🫃🏿", "🤱🏿", "👩🏿‍🍼", "🧑🏿‍🍼", "👨🏿‍🍼", "🙇🏿‍♀️", "🙇🏿", "🙇🏿‍♂️", "💁🏿‍♀️", "💁🏿", "💁🏿‍♂️", "🙅🏿‍♀️", "🙅🏿", "🙅🏿‍♂️", "🙆🏿‍♀️", "🙆🏿", "🙆🏿‍♂️", "🙋🏿‍♀️", "🙋🏿", "🙋🏿‍♂️", "🧏🏿‍♀️", "🧏🏿", "🧏🏿‍♂️", "🤦🏿‍♀️", "🤦🏿", "🤦🏿‍♂️", "🤷🏿‍♀️", "🤷🏿", "🤷🏿‍♂️", "🙎🏿‍♀️", "🙎🏿", "🙎🏿‍♂️", "🙍🏿‍♀️", "🙍🏿", "🙍🏿‍♂️", "💇🏿‍♀️", "💇🏿", "💇🏿‍♂️", "💆🏿‍♀️", "💆🏿", "💆🏿‍♂️", "🧖🏿‍♀️", "🧖🏿", "🧖🏿‍♂️", "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐻‍❄️", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐔", "🐧", "🐦", "🐦‍⬛", "🐤", "🐣", "🐥", "🦆", "🦅", "🦉", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝"],
@@ -343,7 +483,7 @@ export default {
             // ],
             lastClicked: {}, // 选中的人物的id
             clickTimeout: null,
-            isPlay: false, // 右侧原子操作面板是否展开的 flag
+            isPlay: true, // 右侧原子操作面板是否展开的 flag
             // scenes: [], // 记录每一步动画后的信息
             all_scenes: [],
             userAnimationsCache: [], // 记录用户场景到场景的动画
@@ -359,7 +499,15 @@ export default {
             ],
             all_styles: [
                 []
-            ]
+            ],
+            character_and_item_overview: {
+                characters: [],
+                items: [],
+            },
+            show_overview: true,
+            backgroundImage: '',
+            all_backgroundImages: {},
+            show_backgroundPanel: false,
         };
     },
     mounted() {
@@ -378,6 +526,7 @@ export default {
                 scene_info['character'].forEach((character) => {
                     characters.push({
                         selectedEmoji: ['👩🏻‍🦳', '🫲🏻', '👗', '🫱🏻', '👖', '👠', '👠'],
+                        // selectedEmoji: ['', '', '', '', '', '', ''],
                         name: character, // character 本身就是name
                     });
                 });
@@ -385,6 +534,7 @@ export default {
                 scene_info['object'].forEach((item) => {
                     items.push({
                         selectedEmoji: '🍪',
+                        // selectedEmoji: '',
                         name: item,
                     });
                 });
@@ -399,11 +549,12 @@ export default {
                 this.all_scenes.push([]);
                 this.all_styles.push([]);
 
-                this.currentFrameIndex = 0;
             });
             this.$nextTick(() => {
                 this.animateShape();
             });
+
+            console.log("storyboard数据初始化完成, all_character_and_item: ", this.all_character_and_item);
         });
         this.$bus.$on('switch_frame', (data) => {
             const scene_info = data[0]; // 一个场景的所有信息
@@ -421,7 +572,36 @@ export default {
             this.all_character_and_item[this.currentFrameIndex]['items'].forEach((_, index) => { // 初始化
                 this.$set(this.showEditPanelRec_item, index, false);
             });
+
+            this.show_overview = false;
+
+
             this.$nextTick(() => {
+                if (this.all_animationList[this.currentFrameIndex].length === 0) {
+                    console.log("已重置位置")
+                    // 获取所有 character 和 item DOM元素，并修改位置
+                    const characters = document.querySelectorAll('.character_in_story');
+                    const items = document.querySelectorAll('.item_in_story');
+                    characters.forEach((character, index) => {
+                        character.style.top = -420 + 'px';
+                        character.style.left = 100 + index * 302 + 'px';
+                        character.style.transform = 'none';
+
+                        // 获取 Draggable 实例并更新位置状态
+                        // let draggableInstance = Draggable.get(character);
+                        // if (draggableInstance) {
+                        //     draggableInstance.update();
+                        //     console.log('draggableInstance.update()')
+                        // }
+
+                    });
+
+                    items.forEach((item, index) => {
+                        item.style.top = -144 + 'px';
+                        item.style.left = 252 + index * 302 + 'px';
+                    });
+
+                }
                 this.animateShape();
             });
         });
@@ -503,6 +683,14 @@ export default {
             }
 
         });
+        this.$bus.$on('confirm_design', () => {
+            console.log('收到 confirm_design')
+            this.confirmUserAnimations();
+        });
+        this.$bus.$on('clear_user_design_cache', () => {
+            console.log('收到 clear_user_design_cache')
+            this.clearUserAnimationsCache();
+        });
     },
     methods: {
         removeEmoji(index) {
@@ -539,10 +727,11 @@ export default {
             this.all_character_and_item[this.currentFrameIndex]['items'][index].selectedEmoji = emoji;
         },
         animateShape() {
-            Draggable.create(['.character_in_story', '#emoji_1', '.item_in_story'], {
-                bounds: document.getElementById("story_board"),
+            Draggable.create(['.character_in_story', '.item_in_story'], {
+                // bounds: document.getElementById("story_board"),
                 inertia: true,
-                zIndexBoost: false
+                zIndexBoost: false,
+                type: 'top, left',
             });
         },
         atrans(giverId, receiverId, itemId, resolve = null) { // transfer of abstract relationship 
@@ -1535,7 +1724,12 @@ export default {
 
         },
         clearUserAnimationsCache() {
+            if (this.userAnimationsCache.length === 0) {
+                console.log("this.userAnimationsCache.length === 0, no need to clear");
+                return;
+            }
             this.userAnimationsCache = []; // 清空这一步的用户动画
+
             if (this.all_scenes[this.currentFrameIndex].length > 0) {
                 this.loadScene(this.all_scenes[this.currentFrameIndex].length - 1); // 恢复到最后一个场景
             }
@@ -1579,12 +1773,13 @@ export default {
         //     console.log("confirmed user animations");
         // },
         confirmUserAnimations() { // 确认这一步的用户动画: 1. 恢复到最后一个场景，预览用户动画，存储新场景 2. 存储用户动画到 this.animations 
-            if (this.all_styles[this.currentFrameIndex].length === 0) { 
-                console.log("this.all_styles[this.currentFrameIndex].length === 0");
-                return; }
-            if (this.userAnimationsCache.length === 0) { 
+            if (this.all_styles[this.currentFrameIndex].length === 0) {
+                console.log("this.all_styles[this.currentFrameIndex].length === 0, 未初始化, 无法记录用户动画");
+                return;
+            }
+            if (this.userAnimationsCache.length === 0) {
                 console.log("this.userAnimationsCache.length === 0");
-                return; 
+                return;
             }
 
             // 我要将 userAnimationsCache 做为整体添加到 animationList 中
@@ -1619,6 +1814,33 @@ export default {
 
             console.log("this.all_scenes: ", this.all_scenes);
             console.log("confirmed user animations");
+        },
+        deleteAnimation(index) {
+            this.all_svo_list[this.currentFrameIndex].splice(index, 1);
+            this.all_animationList[this.currentFrameIndex].splice(index, 1);
+
+            console.log("已删除, this.all_svo_list: ", this.all_svo_list, "this.all_animationList: ", this.all_animationList);
+        },
+        onFileChange(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.backgroundImage = e.target.result;
+                    this.$set(this.all_backgroundImages, this.currentFrameIndex, e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+            this.show_backgroundPanel = false;
+        },
+        setImageAsBackground(image) {
+            // 获取图片的 src
+            const src = require(`../../assets/image/backgroundImage/${image}`);
+
+            // 将 src 设置为 currentFrame 的背景图片
+            this.backgroundImage = src;
+            this.$set(this.all_backgroundImages, this.currentFrameIndex, src);
+            this.show_backgroundPanel = false;
         }
     }
 }
@@ -1632,7 +1854,7 @@ export default {
 }
 
 #design_board_character {
-    width: 1800px;
+    width: 1600px;
     height: 200px;
     /* flex-shrink: 0; */
     display: flex;
@@ -1647,6 +1869,35 @@ export default {
     /* flex-shrink: 0; */
     display: flex;
     flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#design_board_character_overview {
+    width: 1600px;
+    height: 200px;
+
+    /* flex-shrink: 0; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#design_board_items_overview {
+    width: 1600px;
+    height: 200px;
+    /* flex-shrink: 0; */
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+
     overflow-x: auto;
     overflow-y: hidden;
 }
@@ -1680,12 +1931,22 @@ export default {
     width: 80px;
     height: 80px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .preview_block {
     width: 300px;
     height: 200px;
     flex-shrink: 0;
+}
+
+.preview_block_overview {
+    width: 350px;
+    height: 96px;
+    flex-shrink: 0;
+
+    border-radius: 20px;
+    border: 2px solid #B2AAD1;
 }
 
 .emoji_head {
@@ -1871,6 +2132,217 @@ export default {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+.emoji_head_overview {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    position: absolute;
+    top: 5px;
+    left: 50px;
+
+    transform: translate(-50%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+
+}
+
+.emoji_clothes_overview {
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+    position: absolute;
+    top: 28px;
+    left: 50px;
+    transform: translate(-50%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_left_hand_overview {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    position: absolute;
+    top: 28px;
+    left: 25px;
+    transform: translate(0%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_right_hand_overview {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    position: absolute;
+    top: 28px;
+    left: 65px;
+    transform: translate(0%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_pants_overview {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    position: absolute;
+    top: 55px;
+    left: 50px;
+    transform: translate(-50%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_left_foot_overview {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    position: absolute;
+    top: 77px;
+    left: 52px;
+    transform: translate(-100%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_right_foot_overview {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    position: absolute;
+    top: 77px;
+    left: 52px;
+    transform: translate(0%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_head_no_legs_overview {
+    width: 64px;
+    height: 64px;
+    font-size: 64px;
+    position: absolute;
+    top: 40px;
+    left: 150px;
+    transform: translate(-50%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_clothes_no_legs_overview {
+    width: 76px;
+    height: 76px;
+    font-size: 76px;
+    position: absolute;
+    top: 110px;
+    left: 150px;
+    transform: translate(-50%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+
+}
+
+.emoji_left_hand_no_legs_overview {
+    width: 36px;
+    height: 36px;
+    font-size: 36px;
+    position: absolute;
+    top: 110px;
+    left: 85px;
+    transform: translate(-50%, 0%);
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.emoji_right_hand_no_legs_overview {
+    width: 36px;
+    height: 36px;
+    font-size: 36px;
+    position: absolute;
+    top: 110px;
+    left: 205px;
+    transform: translate(-50%, 0%);
+
+
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .emoji_item {
     width: 100px;
     height: 100px;
@@ -1883,7 +2355,38 @@ export default {
     /* 垂直居中 */
 }
 
+.emoji_item_overview {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+    transform: translate(0%, 0%);
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
 .preview_name {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    text-transform: capitalize;
+
+    width: 200px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview_name_overview {
     color: #FFF;
     text-align: center;
     font-family: Montserrat;
@@ -1994,6 +2497,7 @@ export default {
     border-radius: 16px;
     border: 2px dashed #7566A9;
 
+    cursor: pointer;
 }
 
 .small_block_selected {
@@ -2023,6 +2527,15 @@ export default {
     overflow: auto;
 }
 
+.background_list {
+    width: 1200px;
+    height: 600px;
+    border-radius: 40px;
+    border: 4px solid #7566A9;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .emoji_in_list {
     width: 80px;
     height: 80px;
@@ -2040,10 +2553,19 @@ export default {
     border-radius: 0px 0px 40px 0px;
 }
 
+.edit_panel_bt_container_overview {
+    width: 200px;
+    height: 100px;
+    display: flex;
+
+}
+
 .edit_panel_button {
     width: 80px;
     height: 80px;
     margin: 10px 10px;
+
+    cursor: pointer;
 }
 
 .character_in_story {
@@ -2184,6 +2706,17 @@ div.electric span {
     height: 50px;
 }
 
+.color_block_overview {
+    border-radius: 0px 20px 20px 0px;
+    background-color: #7566A9;
+    width: 250px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .animation_list {
     width: 600px;
     height: 900px;
@@ -2197,14 +2730,39 @@ div.electric span {
 .animation_list_title {
     border-radius: 20px 20px 0px 0px;
     background: #7566A9;
+
     color: #FFF;
     text-align: center;
     font-family: Montserrat;
-    font-size: 38px;
-    font-style: normal;
+    font-size: 54px;
     font-weight: 700;
     line-height: normal;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100px;
 }
+
+.animation_list_title>span {
+    border-radius: 20px 20px 0px 0px;
+    background: #7566A9;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 54px;
+    font-weight: 500;
+    line-height: normal;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100px;
+}
+
 
 .animation_title {
     width: 496px;
@@ -2215,6 +2773,14 @@ div.electric span {
     border: solid 2px #B2AAD1;
     border-radius: 10px;
 
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animation_title div {
     color: var(--color-black, #000);
     text-align: center;
     font-family: Montserrat;
@@ -2266,5 +2832,32 @@ div.electric span {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.edit_search {
+    width: 820px;
+    height: 70px;
+
+    display: flex;
+
+    border-radius: 10px;
+    border: 1px solid var(--Color-Border-border-color, #DCDFE6);
+    background: var(--Color-Fill-fill-color-blank, #FFF);
+}
+
+.edit_search span {
+    height: 70px;
+
+    color: var(--Color-Text-text-color-placeholder, #A8ABB2);
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    /* 68.75% */
+
+    display: flex;
+    justify-content: center;
+    margin: 25px 0px 0px 0px;
 }
 </style>

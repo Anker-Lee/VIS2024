@@ -1,113 +1,277 @@
 [
     {
         "character": [
-            "grandma",
-            "girl",
-            "mother"
+            "king",
+            "queen",
+            "frog"
         ],
-        "object": [
-            "cap"
-        ],
-        "line": [
-            {
-                "name": "mother",
-                "content": "Come girl. Here is a piece of cake and a bottle of wine.",
-                "type": "speak"
-            }
-        ],
-        "action": [
-            "grandma gave girl a little cap made of red velvet"
-        ],
+        "object": [],
         "svo": [
             {
-                "subject": "grandma",
-                "verb": "gave",
-                "object": "cap",
-                "receiver": "girl"
-            },
-            {
-                "subject": "mother",
+                "subject": "king",
                 "verb": "said",
-                "object": "Here is a piece of cake and a bottle of wine. "
+                "object": "Would that we had a child!",
+                "receiver": ""
             },
             {
-                "subject": "girl",
-                "verb": "went",
-                "object": "to her grandma"
-            },
-            {
-                "subject": "girl", 
-                "verb": "thought",
-                "object": "that the cap suited her so well"
-            },
-            {
-                "subject": "girl",
-                "verb": "kicked",
-                "object": "foot"
+                "subject": "frog",
+                "verb": "said",
+                "object": "Thy wish shall be fulfilled; before a year has gone by, thou shalt bring a daughter into the world.",
+                "receiver": ""
             }
         ],
-        "text": "Once upon a time there was a sweet little girl. Everyone who saw her liked her, but most of all her <span class=\"marked character\">grandma</span>, who did not know what to give the child next. Once she <span class=\"marked action\">gave her a <span class=\"marked object\">little cap made of red velvet</span></span>. Because it suited her so well, and she wanted to wear it all the time, she came to be known as <span class=\"marked character\">girl</span>. One day her <span class=\"marked name\">mother</span> said to her: <span class=\"marked line\">\"Come girl. Here is a piece of cake and a bottle of wine. Take them to your grandma. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandma.\"</span>"
+        "text": "In times past there lived a <span class=\"marked character\">king</span> and <span class=\"marked character\">queen</span>, who said to each other every day of their lives, \"Would that we had a child!\" and yet they had none. But it happened once that when the <span class=\"marked character\">queen</span> was bathing, there came a <span class=\"marked character\">frog</span> out of the water, and he squatted on the ground, and <span class=\"marked action\">said to her: <span class=\"marked line\">\"Thy wish shall be fulfilled; before a year has gone by, thou shalt bring a daughter into the world.\"</span></span>"
     },
     {
         "character": [
-            "girl",
-            "wolf"
+            "wise women",
+            "13th witch",
+            "princess",
+            "12th witch"
         ],
-        "object": [],
-        "line": [
-            {
-                "name": "girl",
-                "content": "Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,",
-                "type": "speak"
-            },
-            {
-                "name": "wolf",
-                "content": "Now there is a tasty bite for me. Just how are you going to catch her?",
-                "type": "thought"
-            },
-            {
-                "name": "wolf",
-                "content": "Listen, girl, haven't you seen the beautiful flowers that are blossoming in the woods?",
-                "type": "speak"
-            },
-            {
-                "name": "girl",
-                "content": "If I take a bouquet to grandma, she will be very pleased. Anyway, it is still early, and I'll be home on time.",
-                "type": "thought"
-            }
-        ],
-        "action": [
-            "girl opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers",
-            "girl ran off into the woods looking for flowers",
-            "Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"
+        "object": [
+            "virtue"
         ],
         "svo": [
             {
-                "subject": "girl",
-                "verb": "opened",
-                "object": "her eyes"
+                "subject": "wise women",
+                "verb": "gave",
+                "object": "virtue",
+                "receiver": "princess"
             },
             {
-                "subject": "girl",
-                "verb": "cry",
-                "object": "the sunlight breaking through the trees and how the ground was covered with beautiful flowers"
+                "subject": "13th witch",
+                "verb": "cried",
+                "object": "",
+                "receiver": ""
             },
             {
-                "subject": "girl",
-                "verb": "ran off",
-                "object": "into the woods looking for flowers"
+                "subject": "13th witch",
+                "verb": "said",
+                "object": "The princess shall not die, but fall into a deep sleep for a hundred years.",
+                "receiver": "In the fifteenth year of her age the princess shall prick herself with a spindle and shall fall down dead."
             },
             {
-                "subject": "she",
-                "verb": "picked",
-                "object": "one"
-            },
-            {
-                "subject": "she",
-                "verb": "thought",
-                "object": "that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"
+                "subject": "12th witch",
+                "verb": "said",
+                "object": "The princess shall not die, but fall into a deep sleep for a hundred years.",
+                "receiver": ""
             }
         ],
-        "text": "\"Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,\" said <span class=\"marked character\">girl</span>. The <span class=\"marked character\">wolf</span> thought to himself: \"Now there is a tasty bite for me. Just how are you going to catch her?\" Then he said: \"Listen, <span class=\"marked character\">girl</span>, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.\" <span class=\"marked character\">girl</span> opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers. She thought: \"If I take a bouquet to grandma, she will be very pleased. Anyway, it is still early, and I'll be home on time.\" And she ran off into the woods looking for flowers. Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods."
+        "text": "However, the feast was celebrated with all splendour; and as it drew to an end, the <span class=\"marked character\">wise women</span> stood forward to present to the child their wonderful gifts: one bestowed virtue, one beauty, a third riches, and so on, whatever there is in the world to wish for. And when eleven of them had said their say, in came the uninvited <span class=\"marked character\">thirteenth witch</span>, burning to revenge herself, and without greeting or respect, she <span class=\"marked action\">cried with a loud voice</span>: <span class=\"marked line\">\"In the fifteenth year of her age the <span class=\"marked character\">princess</span> shall prick herself with a <span class=\"marked object\">spindle</span> and shall fall down dead.\"</span> And without speaking one more word she turned away and left the hall. Every one was terrified at her saying, when the <span class=\"marked character\">twelfth witch</span> came forward, for she had not yet bestowed her gift, and though she could not do away with the evil prophecy, yet she could soften it, so she <span class=\"marked action\">said</span>: <span class=\"marked line\">\"The <span class=\"marked character\">princess</span> shall not die, but fall into a deep sleep for a hundred years.\"</span>"
+    },
+    {
+        "character": [
+            "king",
+            "queen",
+            "old woman",
+            "princess"
+        ],
+        "object": [
+            "key",
+            "old tower",
+            "spindle",
+            "flax"
+        ],
+        "svo": [
+            {
+                "subject": "king",
+                "verb": "said",
+                "object": "all the spindles in his kingdom should be burnt up",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "went",
+                "object": "old tower",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "rotated",
+                "object": "key",
+                "receiver": ""
+            },
+            {
+                "subject": "old woman",
+                "verb": "pulled",
+                "object": "flax",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "said",
+                "object": "Good day, mother, what are you doing?",
+                "receiver": ""
+            },
+            {
+                "subject": "old woman",
+                "verb": "said",
+                "object": "I am spinning",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "said",
+                "object": "What thing is that that twists round so briskly?",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "went",
+                "object": "spindle",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "raised",
+                "object": "spindle",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "rotated",
+                "object": "spindle",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "rotated",
+                "object": "into a deep sleep",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "said",
+                "object": "Zzzzzzz...",
+                "receiver": ""
+            }
+        ],
+        "text": "Now the <span class=\"marked character\">king</span>, being desirous of saving his child even from this misfortune, <span class=\"marked action\">gave commandment that all the <span class=\"marked object\">spindles</span> in his kingdom should be burnt up</span>. The <span class=\"marked character\">maiden</span> grew up, adorned with all the gifts of the wise women; and she was so lovely, modest, sweet, and kind and clever, that no one who saw her could help loving her. It happened one day, she being already fifteen years old, that the <span class=\"marked character\">king</span> and <span class=\"marked character\">queen</span> rode abroad, and the <span class=\"marked character\">maiden</span> was left behind alone in the castle. She wandered about into all the nooks and corners, and into all the chambers and parlours, as the fancy took her, till at last she came to an old tower. She climbed the narrow winding stair which led to a little door, with a rusty key sticking out of the lock; she turned the key, and the door opened, and there in the little room sat an <span class=\"marked character\">old woman</span> with a <span class=\"marked object\">spindle</span>, diligently spinning her <span class=\"marked object\">flax</span>. \"Good day, mother,\" said the <span class=\"marked character\">princess</span>, \"what are you doing?\" - \"I am spinning,\" answered the <span class=\"marked character\">old woman</span>, nodding her head. \"What thing is that that twists round so briskly?\" asked the <span class=\"marked character\">maiden</span>, and taking the <span class=\"marked object\">spindle</span> into her hand she began to spin; but no sooner had she touched it than the evil prophecy was fulfilled, and she pricked her finger with it. In that very moment she fell back upon the <span class=\"marked object\">bed</span> that stood there, and lay in a deep sleep."
+    },
+    {
+        "character": [
+            "old man",
+            "Rosamond",
+            "prince"
+        ],
+        "object": [
+            "hedge of thorns",
+            "hedge of flowers",
+            "castle",
+            "door"
+        ],
+        "svo": [
+            {
+                "subject": "prince",
+                "verb": "went",
+                "object": "old man",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "said",
+                "object": "I've heard about Rosamond sleeping for a hundred years!",
+                "receiver": ""
+            },
+            {
+                "subject": "old man",
+                "verb": "said",
+                "object": "King's sons dies for trying to pass the hedge!",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "said",
+                "object": "I do not fear to try; I shall win through and see the lovely Rosamond.",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "went",
+                "object": "hedge of thorns",
+                "receiver": ""
+            },
+            {
+                "subject": "hedge of thorns",
+                "verb": "changed",
+                "object": "hedge of flowers",
+                "receiver": ""
+            },
+            {
+                "subject": "hedge of flowers",
+                "verb": "went",
+                "object": "away",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "went",
+                "object": "castle",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "opened",
+                "object": "door",
+                "receiver": ""
+            }
+        ],
+        "text": "Many a long year afterwards there came a <span class=\"marked character\">king's son</span> into that country, and heard an <span class=\"marked character\">old man</span> tell how there should be a castle standing behind the <span class=\"marked object\">hedge of thorns</span>, and that there a beautiful enchanted princess named <span class=\"marked character\">Rosamond</span> had slept for a hundred years, and with her the <span class=\"marked character\">king</span> and <span class=\"marked character\">queen</span>, and the whole <span class=\"marked character\">court</span>. The <span class=\"marked character\">old man</span> had been told by his grandfather that many king's sons had sought to pass the <span class=\"marked object\">thorn-hedge</span>, but had been caught and pierced by the thorns, and had died a miserable death. Then said the young man: \"Nevertheless, I do not fear to try; I shall win through and see the lovely Rosamond.\" The good <span class=\"marked character\">old man</span> tried to dissuade him, but he would not listen to his words. For now the hundred years were at an end, and the day had come when Rosamond should be awakened. When the <span class=\"marked character\">prince</span> drew near the <span class=\"marked object\">hedge of thorns</span>, it was changed into a <span class=\"marked object\">hedge of beautiful large flowers</span>, which parted and bent aside to let him pass, and then closed behind him in a thick hedge. When he reached the <span class=\"marked object\">castle-yard</span>, he saw the <span class=\"marked character\">horses</span> and brindled <span class=\"marked character\">hunting-dogs</span> lying asleep, and on the <span class=\"marked object\">roof</span> the <span class=\"marked character\">pigeons</span> were sitting with their heads under their wings. And when he came indoors, the <span class=\"marked character\">flies</span> on the <span class=\"marked object\">wall</span> were asleep, the <span class=\"marked character\">cook</span> in the <span class=\"marked object\">kitchen</span> had his <span class=\"marked object\">hand</span> uplifted to strike the <span class=\"marked character\">scullion</span>, and the <span class=\"marked character\">kitchen-maid</span> had the <span class=\"marked object\">black fowl</span> on her lap ready to pluck."
+    },
+    {
+        "character": [
+            "prince",
+            "princess"
+        ],
+        "object": [
+            "tower",
+            "door"
+        ],
+        "svo": [
+            {
+                "subject": "princess",
+                "verb": "said",
+                "object": "Zzzzzzz...",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "went",
+                "object": "higher",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "went",
+                "object": "tower",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "opened",
+                "object": "door",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "went",
+                "object": "princess",
+                "receiver": ""
+            },
+            {
+                "subject": "prince",
+                "verb": "went",
+                "object": "out",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "went",
+                "object": "out",
+                "receiver": ""
+            }
+        ],
+        "text": "Then he <span class=\"marked action\">mounted</span> higher, and saw in the <span class=\"marked object\">hall</span> the whole <span class=\"marked character\">court</span> lying asleep, and above them, on their <span class=\"marked object\">thrones</span>, slept the <span class=\"marked character\">king</span> and the <span class=\"marked character\">queen</span>. And still he went farther, and all was so quiet that he could hear his own breathing; and at last he came to the <span class=\"marked object\">tower</span>, and went up the <span class=\"marked object\">winding stair</span>, and <span class=\"marked action\">opened</span> the <span class=\"marked object\">door</span> of the little <span class=\"marked object\">room</span> where <span class=\"marked character\">Rosamond</span> lay. And when he saw her looking so lovely in her sleep, he could not turn away his eyes; and presently he <span class=\"marked action\">stooped and kissed</span> her.And she <span class=\"marked action\">awaked</span>, and <span class=\"marked action\">opened</span> her eyes, and looked very kindly on him. And she rose, and they went forth together, and the <span class=\"marked character\">king</span> and the <span class=\"marked character\">queen</span> and whole <span class=\"marked character\">court</span> waked up, and gazed on each other with great eyes of wonderment. And the <span class=\"marked character\">horses</span> in the <span class=\"marked object\">yard</span> got up and shook themselves, the <span class=\"marked character\">hounds</span> sprang up and wagged their tails, the <span class=\"marked character\">pigeons</span> on the <span class=\"marked object\">roof</span> drew their heads from under their wings, looked round, and flew into the field, the <span class=\"marked character\">flies</span> on the <span class=\"marked object\">wall</span> crept on a little farther, the <span class=\"marked object\">kitchen fire</span> leapt up and blazed, and cooked the <span class=\"marked object\">meat</span>, the <span class=\"marked object\">joint</span> on the <span class=\"marked object\">spit</span> began to roast, the <span class=\"marked character\">cook</span> gave the <span class=\"marked character\">scullion</span> such a <span class=\"marked object\">box on the ear</span> that he roared out, and the <span class=\"marked character\">maid</span> went on plucking the <span class=\"marked object\">fowl</span>.\nThen the wedding of the <span class=\"marked character\">Prince</span> and <span class=\"marked character\">Rosamond</span> was held with all splendour, and they lived very happily together until their lives' end."
     }
 ]

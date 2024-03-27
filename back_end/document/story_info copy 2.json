@@ -1,0 +1,113 @@
+[
+    {
+        "character": [
+            "grandma",
+            "girl",
+            "mother"
+        ],
+        "object": [
+            "cap"
+        ],
+        "line": [
+            {
+                "name": "mother",
+                "content": "Come girl. Here is a piece of cake and a bottle of wine.",
+                "type": "speak"
+            }
+        ],
+        "action": [
+            "grandma gave girl a little cap made of red velvet"
+        ],
+        "svo": [
+            {
+                "subject": "grandma",
+                "verb": "gave",
+                "object": "cap",
+                "receiver": "girl"
+            },
+            {
+                "subject": "mother",
+                "verb": "said",
+                "object": "Here is a piece of cake and a bottle of wine. "
+            },
+            {
+                "subject": "girl",
+                "verb": "went",
+                "object": "to her grandma"
+            },
+            {
+                "subject": "girl", 
+                "verb": "thought",
+                "object": "that the cap suited her so well"
+            },
+            {
+                "subject": "girl",
+                "verb": "kicked",
+                "object": "foot"
+            }
+        ],
+        "text": "Once upon a time there was a sweet little girl. Everyone who saw her liked her, but most of all her <span class=\"marked character\">grandma</span>, who did not know what to give the child next. Once she <span class=\"marked action\">gave her a <span class=\"marked object\">little cap made of red velvet</span></span>. Because it suited her so well, and she wanted to wear it all the time, she came to be known as <span class=\"marked character\">girl</span>. One day her <span class=\"marked name\">mother</span> said to her: <span class=\"marked line\">\"Come girl. Here is a piece of cake and a bottle of wine. Take them to your grandma. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandma.\"</span>"
+    },
+    {
+        "character": [
+            "girl",
+            "wolf"
+        ],
+        "object": [],
+        "line": [
+            {
+                "name": "girl",
+                "content": "Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,",
+                "type": "speak"
+            },
+            {
+                "name": "wolf",
+                "content": "Now there is a tasty bite for me. Just how are you going to catch her?",
+                "type": "thought"
+            },
+            {
+                "name": "wolf",
+                "content": "Listen, girl, haven't you seen the beautiful flowers that are blossoming in the woods?",
+                "type": "speak"
+            },
+            {
+                "name": "girl",
+                "content": "If I take a bouquet to grandma, she will be very pleased. Anyway, it is still early, and I'll be home on time.",
+                "type": "thought"
+            }
+        ],
+        "action": [
+            "girl opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers",
+            "girl ran off into the woods looking for flowers",
+            "Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"
+        ],
+        "svo": [
+            {
+                "subject": "girl",
+                "verb": "opened",
+                "object": "her eyes"
+            },
+            {
+                "subject": "girl",
+                "verb": "cry",
+                "object": "the sunlight breaking through the trees and how the ground was covered with beautiful flowers"
+            },
+            {
+                "subject": "girl",
+                "verb": "ran off",
+                "object": "into the woods looking for flowers"
+            },
+            {
+                "subject": "she",
+                "verb": "picked",
+                "object": "one"
+            },
+            {
+                "subject": "she",
+                "verb": "thought",
+                "object": "that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods"
+            }
+        ],
+        "text": "\"Her house is a good quarter hour from here in the woods, under the three large oak trees. There's a hedge of hazel bushes there. You must know the place,\" said <span class=\"marked character\">girl</span>. The <span class=\"marked character\">wolf</span> thought to himself: \"Now there is a tasty bite for me. Just how are you going to catch her?\" Then he said: \"Listen, <span class=\"marked character\">girl</span>, haven't you seen the beautiful flowers that are blossoming in the woods? Why don't you go and take a look? And I don't believe you can hear how beautifully the birds are singing. You are walking along as though you were on your way to school in the village. It is very beautiful in the woods.\" <span class=\"marked character\">girl</span> opened her eyes and saw the sunlight breaking through the trees and how the ground was covered with beautiful flowers. She thought: \"If I take a bouquet to grandma, she will be very pleased. Anyway, it is still early, and I'll be home on time.\" And she ran off into the woods looking for flowers. Each time she picked one she thought that she could see an even more beautiful one a little way off, and she ran after it, going further and further into the woods."
+    }
+]

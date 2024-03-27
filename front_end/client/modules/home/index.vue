@@ -1,16 +1,18 @@
 <template>
     <!-- 这里写Html -->
     <div class="wrapper">
-        <div v-show="!showMain" class="container">
-            <div class="brand-section">
-                <div class="header">DANCING BOARD</div>
-                <div id="slogan">Turn your story into animated storyboard!</div>
-            </div>
+        <div v-show="!showMain" class="container" style="position: relative;">
+            <div class="header" style="position: absolute; top: 435px; left: 230px;">DANCING BOARD</div>
+            <div id="slogan" style="position: absolute; top: 629px; left: 103px;">Turn your story into animated
+                storyboard!</div>
             <el-input type="textarea" :rows="50" placeholder="Please enter content" v-model="input_story"
-                class="input-area">
+                class="input-area" style="position: absolute; width: 1000px; top: 12px; right: 78px; border-radius: 20px;">
             </el-input>
-            <button class="generate-btn" :disabled="isButtonDisabled" @click="showMainPage">Generate your
+            <button class="generate-btn" :class="{ generateBtn_disabled: input_story === '' }" @click="showMainPage"
+                style="position: absolute; right: 598px; top: 1156px;">Generate your
                 storyboard!</button>
+            <button class="upload-btn" :class="{ uploadBtn_disabled: input_story !== '' }"
+                style="position: absolute; right: 78px; top: 1156px;">Upload File</button>
         </div>
 
 
@@ -47,50 +49,20 @@
 
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Adjust the ratio as needed */
-    grid-template-rows: auto;
-    gap: 20px;
-    /* Space between grid items */
-    align-items: center;
-    padding: 20px;
-}
 
-.brand-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Aligns children to the center of the flex container */
-    grid-column: 1 / 2;
-}
 
-.input-area {
-    grid-column: 2 / 3;
-    width: 100%;
-    /* Full width of grid column */
-    /* Adjust height if needed or use the rows attribute to define height */
-}
 
 .generate-btn {
-    grid-column: 2 / 3;
-    /* Span across both columns */
-    justify-self: center;
-    /* Center the button */
-    margin-top: 60px;
-    /* Space above the button */
-
     display: flex;
     width: 480px;
     height: 160px;
-    padding: 5px 16px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
 
     border-radius: 10px;
+    border: 2px solid #000;
+    background: #14AE5C;
 
     color: var(--color-white, #FFF);
     text-align: center;
@@ -98,8 +70,81 @@
     font-size: 48px;
     font-style: italic;
     font-weight: 600;
-    line-height: 26px;
+    line-height: normal;
     /* 54.167% */
+
+    cursor: pointer;
+}
+
+.generateBtn_disabled {
+    display: flex;
+    width: 480px;
+    height: 160px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    border: 2px solid #ABABAB;
+    background: var(--Color-Fill-fill-color, #F0F2F5);
+
+    color: var(--Color-Text-text-color-regular, #606266);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: normal;
+    /* 54.167% */
+    /* 54.167% */
+    cursor: not-allowed;
+}
+
+.upload-btn {
+    display: flex;
+    width: 480px;
+    height: 160px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    border: 2px solid #ABABAB;
+    background: rgba(64, 158, 255, 1);
+
+    color: var(--color-white, #FFF);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: normal;
+    /* 54.167% */
+    cursor: pointer;
+}
+
+.uploadBtn_disabled {
+    display: flex;
+    width: 480px;
+    height: 160px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    border: 2px solid #ABABAB;
+    background: var(--Color-Fill-fill-color, #F0F2F5);
+
+    color: var(--Color-Text-text-color-regular, #606266);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: normal;
+    /* 54.167% */
+
+    cursor: not-allowed;
 }
 
 .grid-content {
