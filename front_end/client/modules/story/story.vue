@@ -50,7 +50,7 @@
                             <div v-for="(kind, j) in design_base[verb2kind[svo_object.verb]]" :key="j"
                                 v-show="!showConfirmPanel[i]">
                                 <!-- Hand -->
-                                <div class="divider" v-if="kind['kind'] !== 'all'">
+                                <div class="divider">
                                     <span class="divider-content">{{ kind["kind"] }}</span>
                                 </div>
                                 <div class="selection_container ">
@@ -75,7 +75,7 @@
 
                             <div class="confirmPanel_container " v-show="showConfirmPanel[i]"
                                 style="position: relative;">
-                                <div class="divider" v-if="tmp_body_part !== 'all'">
+                                <div class="divider">
                                     <span class="divider-content">{{ tmp_body_part }}</span>
                                 </div>
 
@@ -87,7 +87,7 @@
 
 
                                 <div class="confirmPanel" style="position: absolute; right: 25px"
-                                    v-if="tmp_kind === 'move'">
+                                    v-if="tmp_kind === 'move' || tmp_kind === 'propel'">
                                     <div style="position: absolute; left: 25px; top:10px;" class="parameter_title">
                                         Parameters</div>
                                     <div style="position: absolute; top:55px" class="param">
@@ -352,7 +352,8 @@ export default {
                 'rotated': 'move',
                 'raised': 'propel',
                 'pulled': 'propel',
-                'changed': 'expel'
+                'changed': 'expel',
+                'pushed': 'propel'
             },
             design_base: {
                 "move": [
@@ -367,6 +368,10 @@ export default {
                     {
                         'kind': 'feet',
                         'choice': ['kick', 'raise', 'drub', 'walk']
+                    },
+                    {
+                        'kind': 'all',
+                        'choice': ['rotate']
                     }
                 ],
                 "ptrans": [

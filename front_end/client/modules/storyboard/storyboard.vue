@@ -199,7 +199,8 @@
         </div>
 
         <!-- 上传背景 -->
-        <div class="boarder_style edit_panel" style="position: absolute; top: 210px; right: 420px" v-show="show_backgroundPanel">
+        <div class="boarder_style edit_panel" style="position: absolute; top: 210px; right: 420px"
+            v-show="show_backgroundPanel">
             <div class="edit_panel_title">Background Pictures Inventory
                 <img src="../../assets/image/check.svg" style="position: absolute; right: 40px; cursor: pointer"
                     @click="show_backgroundPanel = false" />
@@ -269,7 +270,8 @@
         <div style="position: absolute; top: 420px; right: 100px" class="animation_list grid-content"
             v-show="showAnimationList">
             <div class="animation_list_title">Frame {{ currentFrameIndex + 1 }} <span>&nbsp;Animation</span></div>
-            <div v-for="(animationSmallList, index) in all_animationList[currentFrameIndex]" :key="index"
+            <div style="width: 600px; height: 800px; overflow-y: auto; overflow-x: hidden;">
+                <div v-for="(animationSmallList, index) in all_animationList[currentFrameIndex]" :key="index"
                 class="animation_item">
                 <div style="width: 600px; height: 100px; background: #AF99C7;">
                     <div style="position: absolute; left: 0px" class="animation_title_index"> {{ index + 1 }}</div>
@@ -284,6 +286,8 @@
                     {{ animation['name'] }}
                 </div> -->
             </div>
+            </div>
+            
         </div>
 
         <!-- 控制按钮 -->
@@ -294,9 +298,9 @@
                 src="../../assets/image/Framebackground.svg" v-if="isPlay" @click="show_backgroundPanel = true" />
             <input type="file" ref="fileInput" style="display: none" @change="onFileChange" />
             <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/Frame.svg"
-                v-if="isPlay & !showAnimationList" @click="showAnimationList = !showAnimationList" />
-            <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/return.svg"
-                v-if="isPlay & showAnimationList" @click="showAnimationList = !showAnimationList" />
+                v-if="isPlay" @click="toggleAnimationList" />
+            <!-- <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/return.svg"
+                v-if="isPlay & showAnimationList" @click="showAnimationList = !showAnimationList" /> -->
             <img class="control_button " style="position: absolute; top: 500px;" src="../../assets/image/icon_play.svg"
                 v-if="isPlay" @click="runAnimations()" />
             <img class="control_button " style="position: absolute; top: 600px;" src="../../assets/image/replay.svg"
@@ -626,6 +630,8 @@ export default {
             const character_index = characters.indexOf(subject);
             const characterId = "character-" + character_index; // character-0, character-1, ...
 
+            const objectAsSubjectId = 'item-' + items.indexOf(subject);
+
             const object_index = items.indexOf(object);
             const objectId = "item-" + object_index; // item-0, item-1, ...
 
@@ -668,9 +674,15 @@ export default {
                     this.node_head(characterId);
                 } else if (design_type === "head_shake") {
                     this.move_head(characterId);
+                } else if (design_type === "all_rotate") {
+                    this.rotate(objectAsSubjectId); // 钥匙旋转特例
                 }
             } else if (action_type === "propel") {
-                null;
+                if (design_type === "all_pull") {
+                    this.propel_pull(characterId, objectId);
+                } else if (design_type === "all_push") {
+                    this.propel_push(characterId, objectId);
+                }
             } else if (action_type === "ptrans") {
                 if (design_type === "all_path") {
                     this.customizeMove(characterId);
@@ -679,6 +691,8 @@ export default {
                 if (design_type === "all_dialogue box") {
                     console.log("all_dialogue box", characterId);
                     this.speak(characterId, object);
+                } else if (design_type === 'all_direct') {
+                    this.speak_direct(characterId, object);
                 }
             }
 
@@ -693,6 +707,20 @@ export default {
         });
     },
     methods: {
+        toggleAnimationList() {
+            this.showAnimationList = !this.showAnimationList;
+            // 获取页面上所有元素的z-index，找出最大值
+            if (this.showAnimationList) {
+                var maxZIndex = Math.max.apply(null,
+                    Array.from(document.querySelectorAll('*'))
+                        .map(elem => parseFloat(window.getComputedStyle(elem).zIndex))
+                        .filter(zIndex => !isNaN(zIndex))
+                );
+
+                // 将你的元素的z-index设置为最大值加1
+                gsap.set(".animation_list", { zIndex: maxZIndex + 1 });
+            }
+        },
         removeEmoji(index) {
             this.$set(this.characters[index].selectedEmoji, this.selectedBlock, '');
         },
@@ -703,10 +731,28 @@ export default {
         changeEditPanelRec(index) {
             this.$set(this.showEditPanelRec, index, !this.showEditPanelRec[index]);
             this.selectedBlock = 7;
+
+            var maxZIndex = Math.max.apply(null,
+                Array.from(document.querySelectorAll('*'))
+                    .map(elem => parseFloat(window.getComputedStyle(elem).zIndex))
+                    .filter(zIndex => !isNaN(zIndex))
+            );
+
+            // 将你的元素的z-index设置为最大值加1
+            gsap.set(".edit_panel", { zIndex: maxZIndex + 1 });
         },
         changeEditPanelRec_Item(index) {
             this.$set(this.showEditPanelRec_item, index, !this.showEditPanelRec_item[index]);
-            this.selectedBlock_item = -1;
+            this.selectedBlock_item = 1;
+
+            var maxZIndex = Math.max.apply(null,
+                Array.from(document.querySelectorAll('*'))
+                    .map(elem => parseFloat(window.getComputedStyle(elem).zIndex))
+                    .filter(zIndex => !isNaN(zIndex))
+            );
+
+            // 将你的元素的z-index设置为最大值加1
+            gsap.set(".edit_panel", { zIndex: maxZIndex + 1 });
         },
         clickBlock(index) {
             this.selectedBlock = index;
@@ -730,7 +776,7 @@ export default {
             Draggable.create(['.character_in_story', '.item_in_story'], {
                 // bounds: document.getElementById("story_board"),
                 inertia: true,
-                zIndexBoost: false,
+                zIndexBoost: true,
                 type: 'top, left',
             });
         },
@@ -835,6 +881,39 @@ export default {
                 speechBubble.remove();
                 resolve();
             }, 3000);
+
+            if (resolve === defaultResolve) {
+                this.userAnimationsCache.push({ func: this.speak, args: [characterId, text], name: "speak" });
+                console.log("this.userAnimationsCache: ", this.userAnimationsCache);
+            }
+        },
+        speak_direct(characterId, text, resolve = null) {
+            const defaultResolve = () => { };
+            if (resolve === null) {
+                resolve = defaultResolve;
+            }
+
+            let character = document.getElementById(characterId);
+            // 创建对话框元素
+            const speechBubble = document.createElement('p');
+            // speechBubble.classList.add('bubble', 'speech');
+            speechBubble.textContent = text;
+
+            // 将对话框添加到角色元素
+            character.appendChild(speechBubble);
+
+            // 设置对话框的位置
+            speechBubble.style.position = 'absolute';
+            speechBubble.style.top = '-80px'; // 将top值调整为角色正上方的位置
+            speechBubble.style.left = '60%';
+            speechBubble.style.transform = 'translate(-10%, -100%)';
+            speechBubble.style.fontSize = '60px';
+            speechBubble.style.fontFamily = 'Tac One'
+
+            // setTimeout(() => {
+            //     speechBubble.remove();
+            //     resolve();
+            // }, 3000);
 
             if (resolve === defaultResolve) {
                 this.userAnimationsCache.push({ func: this.speak, args: [characterId, text], name: "speak" });
@@ -962,8 +1041,70 @@ export default {
                 originalDraggable.kill(); // 禁用原有的Draggable实例
             }
 
+            // Draggable.create(object, {
+            //     type: "x,y",
+            //     edgeResistance: 0.65,
+            //     bounds: storyBoard,
+            //     inertia: true,
+            //     onPress: function () {
+            //         path = [];
+            //         // 创建SVG元素
+            //         svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            //         svg.style.position = "absolute";
+            //         svg.style.width = "100%";
+            //         svg.style.height = "100%";
+            //         storyBoard.appendChild(svg);
+            //         // 创建折线元素
+            //         polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+            //         polyline.setAttribute("stroke", "grey");
+            //         polyline.setAttribute("fill", "none");
+            //         polyline.setAttribute("stroke-width", "4");
+            //         polyline.setAttribute("stroke-dasharray", "5,5");
+            //         svg.appendChild(polyline);
+            //         // 创建一个幽灵元素
+            //         ghostElement = object.cloneNode(true);
+            //         ghostElement.id = "ghost";
+            //         ghostElement.style.opacity = 1;
+            //         ghostElement.style.pointerEvents = "none";
+            //         storyBoard.appendChild(ghostElement);
+            //         gsap.set(ghostElement, { x: this.x, y: this.y });
+            //         gsap.set(object, { opacity: 0.5 });
+            //     },
+            //     onDrag: function () {
+            //         path.push({ x: this.x, y: this.y });
+            //         // 更新折线路径
+            //         var points = path.map(point => `${point.x + object.offsetWidth / 2},${point.y + object.offsetHeight / 2}`).join(" ");
+            //         polyline.setAttribute("points", points);
+            //     },
+            //     onRelease: function () {
+            //         // 在释放元素时，移除SVG元素
+            //         svg.remove();
+
+            //         // 沿着轨迹运动
+            //         // var tl = gsap.timeline();
+            //         // tl.set(object, { opacity: 1 })
+            //         // tl.to(object, { x: path[0].x, y: path[0].y, duration: 0 });
+            //         // tl.to(object, {
+            //         //     motionPath: {
+            //         //         path: path,
+            //         //         curviness: 1.25,
+            //         //         // autoRotate: true
+            //         //     },
+            //         //     duration: 2
+            //         // });
+
+            //         vm.moveAlongPath(objectId, path);
+            //         ghostElement.remove();
+
+            //         if (originalDraggable) {
+            //             Draggable.create(object, originalDraggable.vars); // 恢复原有的Draggable实例
+            //         }
+
+            //     }
+            // });
+
             Draggable.create(object, {
-                type: "x,y",
+                type: "top,left",
                 edgeResistance: 0.65,
                 bounds: storyBoard,
                 inertia: true,
@@ -988,7 +1129,7 @@ export default {
                     ghostElement.style.opacity = 1;
                     ghostElement.style.pointerEvents = "none";
                     storyBoard.appendChild(ghostElement);
-                    gsap.set(ghostElement, { x: this.x, y: this.y });
+                    gsap.set(ghostElement, { top: this.top, left: this.left });
                     gsap.set(object, { opacity: 0.5 });
                 },
                 onDrag: function () {
@@ -1023,8 +1164,27 @@ export default {
 
                 }
             });
+
         },
         moveAlongPath(objectId, path, resolve = null) {
+            // const defaultResolve = () => { };
+            // if (resolve === null) {
+            //     resolve = defaultResolve;
+            // }
+
+            // let object = document.getElementById(objectId);
+            // var tl = gsap.timeline();
+            // tl.set(object, { opacity: 1 })
+            // tl.to(object, { x: path[0].x, y: path[0].y, duration: 0 });
+            // tl.to(object, {
+            //     motionPath: {
+            //         path: path,
+            //         curviness: 1.25,
+            //         // autoRotate: true
+            //     },
+            //     duration: 2
+            // });
+
             const defaultResolve = () => { };
             if (resolve === null) {
                 resolve = defaultResolve;
@@ -1033,13 +1193,16 @@ export default {
             let object = document.getElementById(objectId);
             var tl = gsap.timeline();
             tl.set(object, { opacity: 1 })
-            tl.to(object, { x: path[0].x, y: path[0].y, duration: 0 });
+            tl.to(object, { top: path[0].y, left: path[0].x, duration: 0 });
             tl.to(object, {
                 motionPath: {
-                    path: path,
+                    path: path.map(point => ({ top: point.y, left: point.x })),
                     curviness: 1.25,
                     // autoRotate: true
                 },
+                immediateRender: true,
+                // useFrames: true,
+                // autoAlpha: true,
                 duration: 2
             });
 
@@ -1050,14 +1213,25 @@ export default {
                 console.log("this.userAnimationsCache: ", this.userAnimationsCache);
             }
         },
-        propel_push(characterId, objectId) {
+        propel_push(characterId, objectId, resolve = null) {
+            const defaultResolve = () => { };
+            if (resolve === null) {
+                resolve = defaultResolve;
+            }
             // 角色的手部和物体同步运动，实现推的效果
             var object = document.getElementById(objectId);
 
             var right_hand = document.querySelector("#" + characterId + " .emoji_right_hand");
-            var tl = gsap.timeline();
-            tl.to([right_hand, object], { x: "+=100", duration: 1 });
-            tl.to(right_hand, { x: "-=100", duration: 1 });
+            var tl = gsap.timeline({ repeat: 5 });
+            tl.to([right_hand, object], { y: "-=10", duration: 0.1 });
+            tl.to([right_hand, object], { y: "+=10", duration: 0.1 });
+
+            tl.eventCallback("onComplete", resolve);
+
+            if (resolve === defaultResolve) {
+                this.userAnimationsCache.push({ func: this.propel_push, args: [characterId, objectId], name: "push" });
+                console.log("this.userAnimationsCache: ", this.userAnimationsCache);
+            }
         },
         propel_pull(characterId, objectId, resolve = null) {
             const defaultResolve = () => { };
@@ -1069,8 +1243,8 @@ export default {
 
             var right_hand = document.querySelector("#" + characterId + " .emoji_right_hand");
             var tl = gsap.timeline();
-            tl.to([right_hand, object], { x: "-=100", duration: 1 });
             tl.to(right_hand, { x: "+=100", duration: 1 });
+            tl.to([right_hand, object], { x: "-=100", duration: 1 });
 
 
             tl.eventCallback("onComplete", resolve);
@@ -2570,8 +2744,8 @@ export default {
 
 .character_in_story {
     width: 300px;
-    height: 200px;
-    border: 2px solid #7566A9;
+    height: 150px;
+    /*border: 2px solid #7566A9;*/
 }
 
 

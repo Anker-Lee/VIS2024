@@ -2,7 +2,9 @@
     <!-- 这里写Html -->
     <div class="wrapper">
         <div v-show="!showMain" class="container" style="position: relative;">
-            <div class="header" style="position: absolute; top: 435px; left: 230px;">DANCING BOARD</div>
+            <div class="header" style="position: absolute; top: 435px; left: 230px;">
+                <img src="../../assets/image/Logo.svg" style="widows: 700px; height: 160px;"/>
+            </div>
             <div id="slogan" style="position: absolute; top: 629px; left: 103px;">Turn your story into animated
                 storyboard!</div>
             <el-input type="textarea" :rows="50" placeholder="Please enter content" v-model="input_story"
@@ -20,7 +22,9 @@
             <el-row :gutter="40">
                 <el-col :span="7">
                     <div id="left_view">
-                        <div class="header grid-content">DANCING BOARD</div>
+                        <div class="header">
+                            <img src="../../assets/image/Logo.svg" style="widows: 700px; height: 160px;"/>
+                        </div>
                         <story></story>
                     </div>
                 </el-col>
@@ -172,8 +176,6 @@
     width: 700px;
     height: 160px;
     flex-shrink: 0;
-    border: 1px solid #000;
-    background: #7566A9
 }
 
 .header {

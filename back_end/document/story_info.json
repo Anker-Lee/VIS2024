@@ -48,8 +48,8 @@
             {
                 "subject": "13th witch",
                 "verb": "said",
-                "object": "The princess shall not die, but fall into a deep sleep for a hundred years.",
-                "receiver": "In the fifteenth year of her age the princess shall prick herself with a spindle and shall fall down dead."
+                "object": "In the fifteenth year of her age the princess shall prick herself with a spindle and shall fall down dead.",
+                "receiver": ""
             },
             {
                 "subject": "12th witch",
@@ -63,15 +63,13 @@
     {
         "character": [
             "king",
-            "queen",
             "old woman",
             "princess"
         ],
         "object": [
-            "key",
+            "door",
             "old tower",
-            "spindle",
-            "flax"
+            "spindle"
         ],
         "svo": [
             {
@@ -88,14 +86,20 @@
             },
             {
                 "subject": "princess",
-                "verb": "rotated",
-                "object": "key",
+                "verb": "pulled",
+                "object": "door",
                 "receiver": ""
             },
             {
                 "subject": "old woman",
-                "verb": "pulled",
-                "object": "flax",
+                "verb": "pushed",
+                "object": "spindle",
+                "receiver": ""
+            },
+            {
+                "subject": "princess",
+                "verb": "went",
+                "object": "spindle",
                 "receiver": ""
             },
             {
@@ -117,28 +121,10 @@
                 "receiver": ""
             },
             {
-                "subject": "princess",
-                "verb": "went",
+                "subject": "old woman",
+                "verb": "gave",
                 "object": "spindle",
-                "receiver": ""
-            },
-            {
-                "subject": "princess",
-                "verb": "raised",
-                "object": "spindle",
-                "receiver": ""
-            },
-            {
-                "subject": "princess",
-                "verb": "rotated",
-                "object": "spindle",
-                "receiver": ""
-            },
-            {
-                "subject": "princess",
-                "verb": "rotated",
-                "object": "into a deep sleep",
-                "receiver": ""
+                "receiver": "princess"
             },
             {
                 "subject": "princess",
