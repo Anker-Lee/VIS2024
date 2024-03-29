@@ -5,8 +5,7 @@
             <img src="../../assets/image/item.svg" style="margin-top: 110px; ">
         </div>
 
-        <div v-show="show_overview"
-            style="position: absolute; top: 0px; width: 1600px; height: 400px; right: 0px; border-radius: 20px; border: 2px solid #B2AAD1;">
+        <div v-show="show_overview" style="position: absolute; top: 0px; width: 1600px; height: 400px; right: 0px; ">
             <!-- 角色展示 -->
             <div id="design_board_character_overview" style="top: 0px; left: 0px;">
                 <div v-for="(character, index) in character_and_item_overview['characters']" :key="index"
@@ -29,8 +28,12 @@
                 character.selectedEmoji[5] }}</div>
                     <div class="emoji_right_foot_overview">{{
                 character.selectedEmoji[6] }}</div>
+
+
                     <div class="color_block_overview" style="position: absolute; top: 0px; right: 0px; ">
-                        <div class="preview_name_overview">{{
+                        <div class="preview_name_overview"
+                            @click="showEditPanel_overview = true; kingNameTmp = character.name; characterTmp.selectedEmoji = ['', '', '', '', '', '', '']">
+                            {{
                 character.name }}
                         </div>
                         <!-- <div class="preview_name_overview" style="position: absolute; top: 0px; left: 30px">{{
@@ -40,6 +43,10 @@
                             style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;  cursor: pointer;"
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec(index)" /> -->
                     </div>
+
+                    <div v-if="character.selectedEmoji[0] === ''" style="position: absolute; top: 10px; left: 10px"
+                        class="no_emoji_overview">🈚️</div>
+
                 </div>
             </div>
 
@@ -51,17 +58,19 @@
                 item.selectedEmoji }}
                     </div>
                     <div class="color_block_overview" style="position: absolute; top: 0px; right: 0px; ">
-                        <div class="preview_name_overview">{{ item.name
+                        <div class="preview_name_overview"
+                            @click="showEditPanel_item_overview = true; itemNameTmp = item.name; itemTmp.selectedEmoji = ''; selectedBlock_item = 1">
+                            {{ item.name
                             }}
                         </div>
                     </div>
-
+                    <div v-if="item.selectedEmoji === ''" style="position: absolute; top: 10px; left: 10px"
+                        class="no_emoji_overview">🈚️</div>
                 </div>
             </div>
         </div>
 
-        <div v-show="!show_overview"
-            style="position: absolute; top: 0px; width: 1600px; height: 400px; right: 0px; border-radius: 20px; border: 2px solid #B2AAD1;">
+        <div v-show="!show_overview" style="position: absolute; top: 0px; width: 1600px; height: 400px; right: 0px;">
             <!-- 角色展示 -->
             <div id="design_board_character" style="top: 0px; left: 0px;">
                 <div v-for="(character, index) in all_character_and_item[currentFrameIndex]['characters']" :key="index"
@@ -89,6 +98,8 @@
                             style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;  cursor: pointer;"
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec(index)" />
                     </div>
+
+                    <div v-if="character.selectedEmoji[0] === ''" class="no_emoji">🈚️</div>
                 </div>
             </div>
 
@@ -105,6 +116,7 @@
                             style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;  cursor: pointer;"
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec_Item(index)" />
                     </div>
+                    <div v-if="item.selectedEmoji === ''" class="no_emoji">🈚️</div>
                 </div>
             </div>
         </div>
@@ -223,6 +235,7 @@
             </div>
         </div>
 
+        <div class="control" style="position: absolute; top: 420px; right:50px; z-index: 0;"></div>
 
         <!-- 故事板 -->
         <div id="story_board" style="position: absolute; top: 420px; right: 100px; background-size: cover;"
@@ -230,8 +243,8 @@
 
             <div v-for="(character, index) in all_character_and_item[currentFrameIndex]['characters']"
                 :key="index + 300" :id="'character-' + index" class="character_in_story"
-                style="position: absolute; top: -420px;" @click="handle_emoji_click($event)"
-                :style="{ left: `${100 + index * 302}px` }" v-show="!show_overview">
+                style="position: absolute; top: -418px;" @click="handle_emoji_click($event)"
+                :style="{ left: `${106 + index * 303}px` }" v-show="!show_overview">
                 <div class="emoji_head emoji_click" :class="{ emoji_head_no_legs: character.selectedEmoji[4] === '' }"
                     :id="'head_' + index">
                     {{ character.selectedEmoji[0] }}</div>
@@ -258,8 +271,8 @@
 
             <div v-for="(item, index) in all_character_and_item[currentFrameIndex]['items']" :key="index + 400"
                 :id="'item-' + index" class="item_in_story emoji_item emoji_click"
-                style="position: absolute; top: -144px;" @click="handle_emoji_click($event)"
-                :style="{ left: `${252 + index * 302}px` }" v-show="!show_overview">
+                style="position: absolute; top: -139px;" @click="handle_emoji_click($event)"
+                :style="{ left: `${256 + index * 303}px` }" v-show="!show_overview">
                 {{ item.selectedEmoji }}
             </div>
 
@@ -268,12 +281,12 @@
 
         <!-- 动画顺序列表 -->
         <div style="position: absolute; top: 420px; right: 100px" class="animation_list grid-content"
-            v-show="showAnimationList">
+            v-show="showAnimationList && !show_overview">
             <div class="animation_list_title">Frame {{ currentFrameIndex + 1 }} <span>&nbsp;Animation</span></div>
-            <div style="width: 600px; height: 800px; overflow-y: auto; overflow-x: hidden;">
+            <div style="width: 600px; height: 800px; overflow-y: auto; overflow-x: hidden; position: relative;">
+
                 <div v-for="(animationSmallList, index) in all_animationList[currentFrameIndex]" :key="index"
-                class="animation_item">
-                <div style="width: 600px; height: 100px; background: #AF99C7;">
+                    class="animation_item" style="width: 600px; height: 100px; background: #AF99C7;">
                     <div style="position: absolute; left: 0px" class="animation_title_index"> {{ index + 1 }}</div>
                     <div style="position: absolute; right: 0px" class="animation_title">
                         <div style="width: 450px; height: 100px;">{{ all_svo_list[currentFrameIndex][index] }}</div>
@@ -282,16 +295,13 @@
                     </div>
                 </div>
 
-                <!-- <div v-for="(animation, i) in animationSmallList" :key="i" class="animation_subaction">
-                    {{ animation['name'] }}
-                </div> -->
             </div>
-            </div>
-            
+
         </div>
 
+
         <!-- 控制按钮 -->
-        <div id="control" style="position: absolute; top: 420px; right: 0px">
+        <div class="control" style="position: absolute; top: 420px; right: 0px">
             <img class="control_button " style="position: absolute; top: 0px; " src="../../assets/image/icon_edit.svg"
                 v-if="isPlay" @click="isPlay = !isPlay" />
             <img class="control_button " style="position: absolute; top: 100px;"
@@ -301,6 +311,8 @@
                 v-if="isPlay" @click="toggleAnimationList" />
             <!-- <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/return.svg"
                 v-if="isPlay & showAnimationList" @click="showAnimationList = !showAnimationList" /> -->
+            <img class="control_button " style="position: absolute; top: 300px;" src="../../assets/image/save.svg"
+                v-if="isPlay" @click="saveScene" />
             <img class="control_button " style="position: absolute; top: 500px;" src="../../assets/image/icon_play.svg"
                 v-if="isPlay" @click="runAnimations()" />
             <img class="control_button " style="position: absolute; top: 600px;" src="../../assets/image/replay.svg"
@@ -365,8 +377,8 @@
                 @click="cry(lastClicked)">流泪</div> -->
             <!-- <div class="control_button boarder_style test" style="position: absolute; top: 20px; left: 400px"
                 @click="runAnimations()">连续运行</div> -->
-            <div class="control_button boarder_style test" style="position: absolute; top: 40px; left: 400px"
-                @click="saveScene()">存储场景</div>
+            <!-- <div class="control_button boarder_style test" style="position: absolute; top: 60px; left: 400px"
+                @click="saveScene()">存储场景</div> -->
             <!-- <div class="control_button boarder_style test" style="position: absolute; top: 60px; left: 400px"
                 @click="loadScene()">恢复场景</div> -->
             <!-- <div class="control_button boarder_style test" style="position: absolute; top: 0px; left: 480px"
@@ -374,6 +386,92 @@
             <!-- <div class="control_button boarder_style test" style="position: absolute; top: 20px; left: 480px"
                 @click="confirmUserAnimations()">确认</div> -->
         </div>
+
+        <div v-show="showEditPanel_overview" class="boarder_style edit_panel"
+            style="position: absolute; top: 210px; right: 420px">
+            <div class="edit_panel_title">Figure Editing -&nbsp;<span class="edit_panel_name">{{ kingNameTmp }}</span>
+                <img src="../../assets/image/check.svg" style="position: absolute; right: 40px;  cursor: pointer;"
+                    @click="setForKing" />
+            </div>
+
+            <div class="small_block_medium small_block"
+                :class="{ small_block_selected: selectedBlock === 0, small_block_occupied: characterTmp.selectedEmoji[0] !== '' }"
+                style="position: absolute; top: 190px; left: 220px;" @click=" clickBlock(0)">{{
+                characterTmp.selectedEmoji[0] }}</div>
+            <div class="small_block_small small_block"
+                :class="{ small_block_selected: selectedBlock === 1, small_block_occupied: characterTmp.selectedEmoji[1] !== '' }"
+                style="position: absolute; top: 350px; left: 100px;" @click=" clickBlock(1)">{{
+                characterTmp.selectedEmoji[1] }}</div>
+            <div class="small_block_large small_block "
+                :class="{ small_block_selected: selectedBlock === 2, small_block_occupied: characterTmp.selectedEmoji[2] !== '' }"
+                style="position: absolute; top: 350px; left: 200px;" @click=" clickBlock(2)">{{
+                characterTmp.selectedEmoji[2] }}</div>
+            <div class="small_block_small small_block"
+                :class="{ small_block_selected: selectedBlock === 3, small_block_occupied: characterTmp.selectedEmoji[3] !== '' }"
+                style="position: absolute; top: 350px; left: 400px;" @click=" clickBlock(3)">{{
+                characterTmp.selectedEmoji[3] }}</div>
+            <div class="small_block_medium small_block"
+                :class="{ small_block_selected: selectedBlock === 4, small_block_occupied: characterTmp.selectedEmoji[4] !== '' }"
+                style="position: absolute; top: 550px; left: 220px;" @click=" clickBlock(4)">{{
+                characterTmp.selectedEmoji[4] }}</div>
+            <div class="small_block_small small_block"
+                :class="{ small_block_selected: selectedBlock === 5, small_block_occupied: characterTmp.selectedEmoji[5] !== '' }"
+                style="position: absolute; top: 710px; left: 184px;" @click=" clickBlock(5)">{{
+                characterTmp.selectedEmoji[5] }}</div>
+            <div class="small_block_small small_block"
+                :class="{ small_block_selected: selectedBlock === 6, small_block_occupied: characterTmp.selectedEmoji[6] !== '' }"
+                style="position: absolute; top: 710px; left: 316px;" @click=" clickBlock(6)">{{
+                characterTmp.selectedEmoji[6] }}</div>
+
+            <span class="title_inventory" style="position: absolute; top: 158px; left: 793px">Inventory</span>
+
+            <div class="edit_search" style="position: absolute; top: 260px; left: 600px">
+                <img src="../../assets/image/search.svg" style="width: 50px; height: 50px; margin: 10px;" />
+                <span>Search for Visuals</span>
+            </div>
+
+            <div class="emoji_list" style="position: absolute; top: 340px; left: 600px">
+                <span class="emoji_in_list" v-for="(e, i) in emojis[selectedBlock]" :key="i"
+                    @click="changeEmojiForKing(e)">{{ e
+                    }}</span>
+            </div>
+            <div class="edit_panel_bt_container" style="position: absolute; left: 1224px; top: 664px">
+                <img src="../../assets/image/FolderAdd.svg" class="edit_panel_button" />
+                <img src="../../assets/image/circle-close.svg" class="edit_panel_button"
+                    @click="removeEmojiForKing()" />
+            </div>
+        </div>
+
+
+        <div class="boarder_style edit_panel" style="position: absolute; top: 210px; right: 420px"
+            v-show="showEditPanel_item_overview">
+            <div class="edit_panel_title">Figure Editing -&nbsp;<span class="edit_panel_name">{{ itemNameTmp }}</span>
+                <img src="../../assets/image/check.svg" style="position: absolute; right: 40px;" @click="setForItem" />
+            </div>
+
+            <div class="small_block small_block_XLarge"
+                :class="{ small_block_selected: selectedBlock_item === 1, small_block_occupied: itemTmp.selectedEmoji !== '' }"
+                style="position: absolute; top: 380px; left: 180px;" @click="clickBlockItem">{{ itemTmp.selectedEmoji }}
+            </div>
+
+            <span class="title_inventory" style="position: absolute; top: 158px; left: 793px">Inventory</span>
+
+            <div class="edit_search" style="position: absolute; top: 260px; left: 600px">
+                <img src="../../assets/image/search.svg" style="width: 50px; height: 50px; margin: 10px;" />
+                <span>Search for Visuals</span>
+            </div>
+
+            <div class="emoji_list" style="position: absolute; top: 340px; left: 600px">
+                <span class="emoji_in_list" v-for="(e, i) in emojis_item" :key="i" @click="changeEmojiForItem(e)">{{ e
+                    }}</span>
+            </div>
+            <div class="edit_panel_bt_container" style="position: absolute; left: 1224px; top: 664px">
+                <img src="../../assets/image/FolderAdd.svg" class="edit_panel_button" />
+                <img src="../../assets/image/circle-close.svg" class="edit_panel_button"
+                    @click="removeEmojiForItem()" />
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -394,12 +492,18 @@ export default {
 
                 val.forEach((frame) => {
                     frame['characters'].forEach((character) => {
-                        characters.push(character);
+                        if (!characters.some(char => JSON.stringify(char) === JSON.stringify(character))) {
+                            characters.push(character);
+                        }
                     });
                     frame['items'].forEach((item) => {
-                        items.push(item);
+                        if (!items.some(itm => JSON.stringify(itm) === JSON.stringify(item))) {
+                            items.push(item);
+                        }
                     });
                 });
+
+
 
                 this.character_and_item_overview = {
                     characters,
@@ -413,6 +517,16 @@ export default {
     },
     data() {
         return {
+            kingNameTmp: '',
+            itemNameTmp: '',
+            characterTmp: {
+                selectedEmoji: ['', '', '', '', '', '', ''],
+                name: 'King'
+            },
+            itemTmp: {
+                selectedEmoji: '',
+                name: 'King'
+            },
             backgroundPicture: [
                 'bg-1.png',
                 'bg-2.png',
@@ -512,6 +626,8 @@ export default {
             backgroundImage: '',
             all_backgroundImages: {},
             show_backgroundPanel: false,
+            showEditPanel_overview: false,
+            showEditPanel_item_overview: false,
         };
     },
     mounted() {
@@ -529,16 +645,16 @@ export default {
 
                 scene_info['character'].forEach((character) => {
                     characters.push({
-                        selectedEmoji: ['👩🏻‍🦳', '🫲🏻', '👗', '🫱🏻', '👖', '👠', '👠'],
-                        // selectedEmoji: ['', '', '', '', '', '', ''],
+                        // selectedEmoji: ['👩🏻‍🦳', '🫲🏻', '👗', '🫱🏻', '👖', '👠', '👠'],
+                        selectedEmoji: ['', '', '', '', '', '', ''],
                         name: character, // character 本身就是name
                     });
                 });
 
                 scene_info['object'].forEach((item) => {
                     items.push({
-                        selectedEmoji: '🍪',
-                        // selectedEmoji: '',
+                        // selectedEmoji: '🍪',
+                        selectedEmoji: '',
                         name: item,
                     });
                 });
@@ -587,8 +703,8 @@ export default {
                     const characters = document.querySelectorAll('.character_in_story');
                     const items = document.querySelectorAll('.item_in_story');
                     characters.forEach((character, index) => {
-                        character.style.top = -420 + 'px';
-                        character.style.left = 100 + index * 302 + 'px';
+                        character.style.top = -418 + 'px';
+                        character.style.left = 106 + index * 303 + 'px';
                         character.style.transform = 'none';
 
                         // 获取 Draggable 实例并更新位置状态
@@ -597,12 +713,20 @@ export default {
                         //     draggableInstance.update();
                         //     console.log('draggableInstance.update()')
                         // }
-
+                        gsap.set(character, {
+                            x: 0,
+                            y: 0
+                        });
                     });
 
                     items.forEach((item, index) => {
-                        item.style.top = -144 + 'px';
-                        item.style.left = 252 + index * 302 + 'px';
+                        item.style.top = -139 + 'px';
+                        item.style.left = 256 + index * 303 + 'px';
+
+                        gsap.set(item, {
+                            x: 0,
+                            y: 0
+                        });
                     });
 
                 }
@@ -648,7 +772,8 @@ export default {
                 }
             } else if (action_type === "expel") {
                 if (design_type === 'all_appear-path') {
-                    this.cry(characterId);
+                    // this.cry(characterId);
+                    this.flower_expel(objectAsSubjectId, objectId);
                 }
             } else if (action_type === "ingest") {
                 null;
@@ -685,7 +810,12 @@ export default {
                 }
             } else if (action_type === "ptrans") {
                 if (design_type === "all_path") {
-                    this.customizeMove(characterId);
+                    if (characterId === 'character--1') {
+                        this.customizeMove(objectAsSubjectId);
+                        console.log('运行: customizeMove(objectAsSubjectId)');
+                    } else {
+                        this.customizeMove(characterId);
+                    }
                 }
             } else if (action_type === "speak") {
                 if (design_type === "all_dialogue box") {
@@ -707,6 +837,32 @@ export default {
         });
     },
     methods: {
+        setForKing() {
+            this.all_character_and_item.forEach((frame) => {
+                frame['characters'].forEach((character) => {
+                    console.log('character.name: ', character.name, 'this.kingNameTmp: ', this.kingNameTmp)
+                    if (character.name === this.kingNameTmp) {
+                        character.selectedEmoji.forEach((_, index) => {
+                            character.selectedEmoji[index] = this.characterTmp.selectedEmoji[index];
+                        });
+                    }
+                });
+            });
+
+            this.showEditPanel_overview = false;
+        },
+        setForItem() {
+            this.all_character_and_item.forEach((frame) => {
+                frame['items'].forEach((item) => {
+                    console.log('item.name: ', item.name, 'this.itemNameTmp: ', this.itemNameTmp)
+                    if (item.name === this.itemNameTmp) {
+                        item.selectedEmoji = this.itemTmp.selectedEmoji;
+                    }
+                });
+            });
+
+            this.showEditPanel_item_overview = false;
+        },
         toggleAnimationList() {
             this.showAnimationList = !this.showAnimationList;
             // 获取页面上所有元素的z-index，找出最大值
@@ -722,11 +878,25 @@ export default {
             }
         },
         removeEmoji(index) {
-            this.$set(this.characters[index].selectedEmoji, this.selectedBlock, '');
+            this.$set(this.all_character_and_item[this.currentFrameIndex]['characters'][index].selectedEmoji, this.selectedBlock, '');
+        },
+        removeEmojiForKing() {
+            if (this.selectedBlock === -1) {
+                console.log('selectedBlock === -1');
+                return;
+            }
+            this.$set(this.characterTmp.selectedEmoji, this.selectedBlock, '');
+        },
+        removeEmojiForItem() {
+            if (this.selectedBlock === -1) {
+                console.log('selectedBlock === -1');
+                return;
+            }
+            this.itemTmp.selectedEmoji = '';
         },
         removeEmoji_item(index) {
             // this.$set(this.items[index].selectedEmoji, '');
-            this.items[index].selectedEmoji = '';
+            this.all_character_and_item[this.currentFrameIndex]['items'][index].selectedEmoji = '';
         },
         changeEditPanelRec(index) {
             this.$set(this.showEditPanelRec, index, !this.showEditPanelRec[index]);
@@ -765,6 +935,22 @@ export default {
                 return;
             }
             this.$set(this.all_character_and_item[this.currentFrameIndex]['characters'][characterIndex].selectedEmoji, this.selectedBlock, this.emojis[this.selectedBlock][index]);
+            this.selectedBlock += 1;
+            this.selectedBlock %= 7;
+        },
+        changeEmojiForKing(e) {
+            if (this.selectedBlock === -1) {
+                return;
+            }
+            this.$set(this.characterTmp.selectedEmoji, this.selectedBlock, e);
+            this.selectedBlock += 1;
+            this.selectedBlock %= 7;
+        },
+        changeEmojiForItem(e) {
+            if (this.selectedBlock === -1) {
+                return;
+            }
+            this.itemTmp.selectedEmoji = e;
         },
         changeEmoji_Item(emoji, index) {
             if (this.selectedBlock_item === -1) {
@@ -801,6 +987,8 @@ export default {
 
             // 使用 GSAP 创建动画
             // gsap.to(giver, { x: 100, duration: 1 });
+            gsap.set(item, { x: 0, y: 0 });
+
             gsap.to(item, { x: "+=" + translateX, y: "+=" + translateY, duration: 1, onComplete: resolve });
 
             if (resolve === defaultResolve) {
@@ -910,13 +1098,13 @@ export default {
             speechBubble.style.fontSize = '60px';
             speechBubble.style.fontFamily = 'Tac One'
 
-            // setTimeout(() => {
-            //     speechBubble.remove();
-            //     resolve();
-            // }, 3000);
+            setTimeout(() => {
+                speechBubble.remove();
+                resolve();
+            }, 3000);
 
             if (resolve === defaultResolve) {
-                this.userAnimationsCache.push({ func: this.speak, args: [characterId, text], name: "speak" });
+                this.userAnimationsCache.push({ func: this.speak_direct, args: [characterId, text], name: "speak" });
                 console.log("this.userAnimationsCache: ", this.userAnimationsCache);
             }
         },
@@ -1024,7 +1212,7 @@ export default {
             const vm = this;
 
             const object = document.getElementById(objectId);
-            if (!object.classList.contains("character_in_story")) {
+            if (!object.classList.contains("character_in_story") && !object.classList.contains("item_in_story")) {
                 return
             }
             var path = [];
@@ -1102,88 +1290,134 @@ export default {
 
             //     }
             // });
+            if (object.classList.contains('character_in_story')) {
+                Draggable.create(object, {
+                    type: "top,left",
+                    edgeResistance: 0.65,
+                    bounds: storyBoard,
+                    inertia: true,
+                    onPress: function () {
+                        path = [];
+                        // 创建SVG元素
+                        svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svg.style.position = "absolute";
+                        svg.style.width = "100%";
+                        svg.style.height = "100%";
+                        storyBoard.appendChild(svg);
+                        // 创建折线元素
+                        polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+                        polyline.setAttribute("stroke", "grey");
+                        polyline.setAttribute("fill", "none");
+                        polyline.setAttribute("stroke-width", "4");
+                        polyline.setAttribute("stroke-dasharray", "5,5");
+                        svg.appendChild(polyline);
+                        // 创建一个幽灵元素
+                        ghostElement = object.cloneNode(true);
+                        ghostElement.id = "ghost";
+                        ghostElement.style.opacity = 1;
+                        ghostElement.style.pointerEvents = "none";
+                        storyBoard.appendChild(ghostElement);
+                        gsap.set(ghostElement, { top: this.top, left: this.left });
+                        gsap.set(object, { opacity: 0.5 });
+                    },
+                    onDrag: function () {
+                        path.push({ x: this.x, y: this.y });
+                        // 更新折线路径
+                        var points = path.map(point => `${point.x + object.offsetWidth / 2},${point.y + object.offsetHeight / 2}`).join(" ");
+                        polyline.setAttribute("points", points);
+                    },
+                    onRelease: function () {
+                        // 在释放元素时，移除SVG元素
+                        svg.remove();
 
-            Draggable.create(object, {
-                type: "top,left",
-                edgeResistance: 0.65,
-                bounds: storyBoard,
-                inertia: true,
-                onPress: function () {
-                    path = [];
-                    // 创建SVG元素
-                    svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                    svg.style.position = "absolute";
-                    svg.style.width = "100%";
-                    svg.style.height = "100%";
-                    storyBoard.appendChild(svg);
-                    // 创建折线元素
-                    polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-                    polyline.setAttribute("stroke", "grey");
-                    polyline.setAttribute("fill", "none");
-                    polyline.setAttribute("stroke-width", "4");
-                    polyline.setAttribute("stroke-dasharray", "5,5");
-                    svg.appendChild(polyline);
-                    // 创建一个幽灵元素
-                    ghostElement = object.cloneNode(true);
-                    ghostElement.id = "ghost";
-                    ghostElement.style.opacity = 1;
-                    ghostElement.style.pointerEvents = "none";
-                    storyBoard.appendChild(ghostElement);
-                    gsap.set(ghostElement, { top: this.top, left: this.left });
-                    gsap.set(object, { opacity: 0.5 });
-                },
-                onDrag: function () {
-                    path.push({ x: this.x, y: this.y });
-                    // 更新折线路径
-                    var points = path.map(point => `${point.x + object.offsetWidth / 2},${point.y + object.offsetHeight / 2}`).join(" ");
-                    polyline.setAttribute("points", points);
-                },
-                onRelease: function () {
-                    // 在释放元素时，移除SVG元素
-                    svg.remove();
+                        // 沿着轨迹运动
+                        // var tl = gsap.timeline();
+                        // tl.set(object, { opacity: 1 })
+                        // tl.to(object, { x: path[0].x, y: path[0].y, duration: 0 });
+                        // tl.to(object, {
+                        //     motionPath: {
+                        //         path: path,
+                        //         curviness: 1.25,
+                        //         // autoRotate: true
+                        //     },
+                        //     duration: 2
+                        // });
 
-                    // 沿着轨迹运动
-                    // var tl = gsap.timeline();
-                    // tl.set(object, { opacity: 1 })
-                    // tl.to(object, { x: path[0].x, y: path[0].y, duration: 0 });
-                    // tl.to(object, {
-                    //     motionPath: {
-                    //         path: path,
-                    //         curviness: 1.25,
-                    //         // autoRotate: true
-                    //     },
-                    //     duration: 2
-                    // });
+                        vm.moveAlongPath(objectId, path);
+                        ghostElement.remove();
 
-                    vm.moveAlongPath(objectId, path);
-                    ghostElement.remove();
+                        if (originalDraggable) {
+                            Draggable.create(object, originalDraggable.vars); // 恢复原有的Draggable实例
+                        }
 
-                    if (originalDraggable) {
-                        Draggable.create(object, originalDraggable.vars); // 恢复原有的Draggable实例
                     }
+                });
+            } else if (object.classList.contains('item_in_story')) {
+                Draggable.create(object, {
+                    type: "top,left",
+                    edgeResistance: 0.65,
+                    bounds: storyBoard,
+                    inertia: true,
+                    onPress: function () {
+                        path = [];
+                        // 创建SVG元素
+                        svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svg.style.position = "absolute";
+                        svg.style.width = "100%";
+                        svg.style.height = "100%";
+                        storyBoard.appendChild(svg);
+                        // 创建折线元素
+                        polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+                        polyline.setAttribute("stroke", "grey");
+                        polyline.setAttribute("fill", "none");
+                        polyline.setAttribute("stroke-width", "4");
+                        polyline.setAttribute("stroke-dasharray", "5,5");
+                        svg.appendChild(polyline);
+                        // 创建一个幽灵元素
+                        ghostElement = object.cloneNode(true);
+                        ghostElement.id = "ghost";
+                        ghostElement.style.opacity = 1;
+                        ghostElement.style.pointerEvents = "none";
+                        storyBoard.appendChild(ghostElement);
+                        gsap.set(ghostElement, { top: this.top, left: this.left });
+                        gsap.set(object, { opacity: 0.5 });
+                    },
+                    onDrag: function () {
+                        path.push({ x: this.x, y: this.y });
+                        // 更新折线路径
+                        var points = path.map(point => `${point.x},${point.y}`).join(" ");
+                        polyline.setAttribute("points", points);
+                    },
+                    onRelease: function () {
+                        // 在释放元素时，移除SVG元素
+                        svg.remove();
 
-                }
-            });
+                        // 沿着轨迹运动
+                        // var tl = gsap.timeline();
+                        // tl.set(object, { opacity: 1 })
+                        // tl.to(object, { x: path[0].x, y: path[0].y, duration: 0 });
+                        // tl.to(object, {
+                        //     motionPath: {
+                        //         path: path,
+                        //         curviness: 1.25,
+                        //         // autoRotate: true
+                        //     },
+                        //     duration: 2
+                        // });
+
+                        vm.moveAlongPath(objectId, path);
+                        ghostElement.remove();
+
+                        if (originalDraggable) {
+                            Draggable.create(object, originalDraggable.vars); // 恢复原有的Draggable实例
+                        }
+
+                    }
+                });
+            }
 
         },
         moveAlongPath(objectId, path, resolve = null) {
-            // const defaultResolve = () => { };
-            // if (resolve === null) {
-            //     resolve = defaultResolve;
-            // }
-
-            // let object = document.getElementById(objectId);
-            // var tl = gsap.timeline();
-            // tl.set(object, { opacity: 1 })
-            // tl.to(object, { x: path[0].x, y: path[0].y, duration: 0 });
-            // tl.to(object, {
-            //     motionPath: {
-            //         path: path,
-            //         curviness: 1.25,
-            //         // autoRotate: true
-            //     },
-            //     duration: 2
-            // });
 
             const defaultResolve = () => { };
             if (resolve === null) {
@@ -1191,27 +1425,68 @@ export default {
             }
 
             let object = document.getElementById(objectId);
-            var tl = gsap.timeline();
-            tl.set(object, { opacity: 1 })
-            tl.to(object, { top: path[0].y, left: path[0].x, duration: 0 });
-            tl.to(object, {
-                motionPath: {
-                    path: path.map(point => ({ top: point.y, left: point.x })),
-                    curviness: 1.25,
-                    // autoRotate: true
-                },
-                immediateRender: true,
-                // useFrames: true,
-                // autoAlpha: true,
-                duration: 2
-            });
 
-            tl.eventCallback("onComplete", resolve);
+            if (object.classList.contains("item_in_story")) { // 物品
+                let tl = gsap.timeline();
+                tl.set(object, { opacity: 1 })
+                tl.to(object, { top: path[0].y, left: path[0].x, duration: 0 });
+                tl.to(object, {
+                    motionPath: {
+                        path: path.map(point => ({ top: point.y, left: point.x })),
+                        curviness: 1.25,
+                        // autoRotate: true
+                    },
+                    immediateRender: true,
+                    // useFrames: true,
+                    // autoAlpha: true,
+                    duration: 2
+                });
 
-            if (resolve === defaultResolve) {
-                this.userAnimationsCache.push({ func: this.moveAlongPath, args: [objectId, path], name: "move along path" });
-                console.log("this.userAnimationsCache: ", this.userAnimationsCache);
+                tl.eventCallback("onComplete", resolve);
+
+                if (resolve === defaultResolve) {
+                    this.userAnimationsCache.push({ func: this.moveAlongPath, args: [objectId, path], name: "move along path" });
+                    console.log("this.userAnimationsCache: ", this.userAnimationsCache);
+                }
+            } else if (object.classList.contains("character_in_story")) { // 角色
+                const k = 3;
+                const step_frequency = .75;
+                const duration = 2 * k * step_frequency;
+
+                let [foot_tl, span, footHeight] = this.footMove(objectId, step_frequency);
+
+                let tl = gsap.timeline();
+                tl.set(object, { opacity: 1 })
+                tl.to(object, { top: path[0].y, left: path[0].x, duration: 0 });
+                tl.to(object, {
+                    motionPath: {
+                        path: path.map(point => ({ top: point.y, left: point.x })),
+                        curviness: 1.25,
+                        // autoRotate: true
+                    },
+                    immediateRender: true,
+                    // useFrames: true,
+                    // autoAlpha: true,
+                    duration: duration,
+                    onComplete: function () {
+                        foot_tl.kill();
+                        gsap.to(object.querySelector(".emoji_right_foot"), { x: "-=" + 2 * span * footHeight, y: 0, duration: step_frequency / 2, ease: "power1.inOut" });
+                        gsap.to(object.querySelector(".emoji_left_foot"), { x: "+=" + 2 * span * footHeight, y: 0, duration: step_frequency / 2, ease: "power1.inOut" });
+                        resolve();
+                    }
+                });
+
+                // tl.eventCallback("onComplete", resolve);
+
+                if (resolve === defaultResolve) {
+                    this.userAnimationsCache.push({ func: this.moveAlongPath, args: [objectId, path], name: "move along path" });
+                    console.log("this.userAnimationsCache: ", this.userAnimationsCache);
+                }
+            } else {
+                resolve();
+                return;
             }
+
         },
         propel_push(characterId, objectId, resolve = null) {
             const defaultResolve = () => { };
@@ -1222,6 +1497,9 @@ export default {
             var object = document.getElementById(objectId);
 
             var right_hand = document.querySelector("#" + characterId + " .emoji_right_hand");
+
+            gsap.set([right_hand, object], { x: 0, y: 0 });
+
             var tl = gsap.timeline({ repeat: 5 });
             tl.to([right_hand, object], { y: "-=10", duration: 0.1 });
             tl.to([right_hand, object], { y: "+=10", duration: 0.1 });
@@ -1243,8 +1521,15 @@ export default {
 
             var right_hand = document.querySelector("#" + characterId + " .emoji_right_hand");
             var tl = gsap.timeline();
+
+            gsap.set(object, { x: 0 }); // Reset the position of the object
+
             tl.to(right_hand, { x: "+=100", duration: 1 });
             tl.to([right_hand, object], { x: "-=100", duration: 1 });
+
+            // tl.to(right_hand, { x: 100, duration: 1 });
+            // tl.to([right_hand], { x: 0, duration: 1 }, 1);
+            // tl.to([object], { x: -100, duration: 1 }, 1);
 
 
             tl.eventCallback("onComplete", resolve);
@@ -1776,6 +2061,35 @@ export default {
                 console.log("this.userAnimationsCache: ", this.userAnimationsCache);
             }
         },
+        flower_expel(subjectAsObjectId, objectId, resolve = null) { // 物体中产生花朵
+            const defaultResolve = () => { };
+            if (resolve === null) {
+                resolve = defaultResolve;
+            }
+
+            let object = document.getElementById(objectId);
+            let subject = document.getElementById(subjectAsObjectId);
+            if (object.classList.contains("item_in_story") !== true) {
+                resolve();
+                return;
+            }
+
+            gsap.set(subject, { opacity: 1 })
+            gsap.set(object, { scale: 1 });
+
+            let tl = gsap.timeline();
+            tl.to(subject, { opacity: 0, duration: 1 });
+            tl.to(object, {
+                scale: 1.5, duration: 1, onComplete: function () {
+                    resolve();
+                }
+            });
+
+            if (resolve === defaultResolve) {
+                this.userAnimationsCache.push({ func: this.flower_expel, args: [subjectAsObjectId, objectId], name: "开花" });
+                console.log("this.userAnimationsCache: ", this.userAnimationsCache);
+            }
+        },
         async runAnimations(animationList = []) { // 连续运行动画
             // animationList = [
             //     { func: this.walk, args: [document.getElementById("character-0"), 800, 200] },
@@ -2035,6 +2349,9 @@ export default {
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
+
+    border-radius: 20px;
+    border: 2px solid #B2AAD1;
 }
 
 #design_board_items {
@@ -2045,6 +2362,9 @@ export default {
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
+
+    border-radius: 20px;
+    border: 2px solid #B2AAD1;
 }
 
 #design_board_character_overview {
@@ -2059,6 +2379,9 @@ export default {
 
     overflow-x: auto;
     overflow-y: hidden;
+
+    border-radius: 20px;
+    border: 2px solid #B2AAD1;
 }
 
 #design_board_items_overview {
@@ -2074,6 +2397,9 @@ export default {
 
     overflow-x: auto;
     overflow-y: hidden;
+
+    border-radius: 20px;
+    border: 2px solid #B2AAD1;
 }
 
 #story_board {
@@ -2081,13 +2407,14 @@ export default {
     border: 2px solid #B2AAD1;
     width: 1600px;
     height: 900px;
+    background-color: #FFFCF9;
     /* flex-shrink: 0; */
 }
 
-#control {
+.control {
     border-radius: 20px;
     width: 100px;
-    height: 900px;
+    height: 904px;
     background-color: #AF99C7;
 }
 
@@ -2529,7 +2856,35 @@ export default {
     /* 垂直居中 */
 }
 
+.no_emoji {
+    width: 100px;
+    height: 100px;
+    font-size: 100px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+
+    position: absolute;
+    top: 75px;
+    left: 150px;
+}
+
 .emoji_item_overview {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+    transform: translate(0%, 0%);
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.no_emoji_overview {
     width: 80px;
     height: 80px;
     font-size: 80px;
@@ -2577,6 +2932,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
 }
 
 .edit_panel {

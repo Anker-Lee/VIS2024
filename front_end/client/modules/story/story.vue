@@ -2,14 +2,14 @@
     <div id="app">
         <!-- <div id="title">{{ title }}</div> -->
 
-        <div class="scenes" style="height: 860px; width: 700px; overflow-y: auto; overflow-x: auto; margin-top:65px;">
+        <div class="scenes" style="height: 900px; width: 700px; overflow-y: auto; overflow-x: auto; margin-top:25px;">
             <!-- v-for 创建 frame -->
             <div v-for="(scene, index) in story_info" :key="index" class="scene_container">
                 <div class="frame" :class="{ frame_selected: index === currentFrameIndex }"><span
                         @click="switchFrame(scene, index)" class="frame_title">Scene {{ index + 1 }}
                     </span>
                     <!-- <button @click="toggle(index)">Toggle</button> -->
-                    <el-switch v-model="toggle_rec[index]" active-color="#B2AAD1" inactive-color="#7566A9"
+                    <el-switch v-model="toggle_rec[index]" active-color="rgba(189, 227, 255, 0.7)" inactive-color="rgba(228, 204, 255, 0.7)"
                         style="transform: scale(2); margin-right: 20px;">
                     </el-switch>
                 </div>
@@ -28,7 +28,7 @@
                                 <div class="svo svo_verb">{{ svo_object.verb }}</div>
                             </el-col>
                             <el-col :span="13">
-                                <div class="svo">{{ svo_object.receiver + " " + svo_object.object }}</div>
+                                <div class="svo" :class="{sentences: svo_object.verb === 'said'}">{{ svo_object.receiver + " " + svo_object.object }}</div>
                             </el-col>
                             <el-col :span='1'>
                                 <img src="../../assets/image/arrow_top.svg"
@@ -87,7 +87,7 @@
 
 
                                 <div class="confirmPanel" style="position: absolute; right: 25px"
-                                    v-if="tmp_kind === 'move' || tmp_kind === 'propel'">
+                                    v-if="tmp_kind === 'move'">
                                     <div style="position: absolute; left: 25px; top:10px;" class="parameter_title">
                                         Parameters</div>
                                     <div style="position: absolute; top:55px" class="param">
@@ -242,6 +242,60 @@
                                         Speed
                                     </div>
                                     <el-slider v-model="slider_value" range
+                                        style="width: 250px; position: absolute; top: 55px; right: 25px;">
+                                    </el-slider>
+
+
+                                    <button
+                                        style="position: absolute; right: 25px; top: 120px; cursor: pointer; width: 175px; height: 75px;"
+                                        class="parameter_button">Path Setting</button>
+                                    <button @click="selectDesign(...args)"
+                                        style="position: absolute; left: 25px; bottom: 25px; cursor: pointer;"
+                                        class="parameter_button">Preview</button>
+                                    <button @click="confirmDesign()"
+                                        style="position: absolute; right: 25px; bottom: 25px; cursor: pointer;"
+                                        class="parameter_button">Apply</button>
+                                </div>
+
+                                <div class="confirmPanel" style="position: absolute; right: 25px"
+                                    v-if="tmp_kind === 'propel'">
+                                    <div style="position: absolute; left: 25px; top:10px;" class="parameter_title">
+                                        Parameters</div>
+                                    <img src="../../assets/image/back.svg"
+                                        style="position: absolute; right: 25px; top: 10px; cursor: pointer;"
+                                        @click="backToSelection(svo_index = i)" />
+
+                                    <div style="position: absolute; top:55px" class="param">
+                                        Speed
+                                    </div>
+                                    <el-slider v-model="slider_value" 
+                                        style="width: 250px; position: absolute; top: 55px; right: 25px;">
+                                    </el-slider>
+
+
+                                    <button
+                                        style="position: absolute; right: 25px; top: 120px; cursor: pointer; width: 175px; height: 75px;"
+                                        class="parameter_button">Path Setting</button>
+                                    <button @click="selectDesign(...args)"
+                                        style="position: absolute; left: 25px; bottom: 25px; cursor: pointer;"
+                                        class="parameter_button">Preview</button>
+                                    <button @click="confirmDesign()"
+                                        style="position: absolute; right: 25px; bottom: 25px; cursor: pointer;"
+                                        class="parameter_button">Apply</button>
+                                </div>
+
+                                <div class="confirmPanel" style="position: absolute; right: 25px"
+                                    v-if="tmp_kind === 'expel'">
+                                    <div style="position: absolute; left: 25px; top:10px;" class="parameter_title">
+                                        Parameters</div>
+                                    <img src="../../assets/image/back.svg"
+                                        style="position: absolute; right: 25px; top: 10px; cursor: pointer;"
+                                        @click="backToSelection(svo_index = i)" />
+
+                                    <div style="position: absolute; top:55px" class="param">
+                                        Speed
+                                    </div>
+                                    <el-slider v-model="slider_value" 
                                         style="width: 250px; position: absolute; top: 55px; right: 25px;">
                                     </el-slider>
 
@@ -756,7 +810,13 @@ export default {
 .scene_container {
     border-radius: 20px;
     border: 2px solid #ABABAB;
+    margin-bottom: 10px;
 }
+
+.scene_container:last-child {
+    margin-bottom: 0px;
+}
+
 
 .grid-content.svo {
     border-radius: 20px;
@@ -872,12 +932,8 @@ export default {
 
 .confirmPanel_container {
     width: 700px;
-    height: 650px;
+    height: 670px;
     flex-shrink: 0;
-
-    /* border-radius: 10px;
-    border: 2px solid #5E4F94;
-    background: #FFF; */
 }
 
 .parameter_title {
@@ -928,5 +984,15 @@ export default {
     display: flex;
     align-items: center;
     margin-left: 25px;
+}
+
+.sentences {
+    color: var(--color-black, #000);
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 22px;
 }
 </style>

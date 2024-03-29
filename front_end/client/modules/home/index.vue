@@ -2,8 +2,8 @@
     <!-- 这里写Html -->
     <div class="wrapper">
         <div v-show="!showMain" class="container" style="position: relative;">
-            <div class="header" style="position: absolute; top: 435px; left: 230px;">
-                <img src="../../assets/image/Logo.svg" style="widows: 700px; height: 160px;"/>
+            <div style="position: absolute; top: 340px; left: -30px;">
+                <img src="../../assets/image/Logo.svg" style="height: 300px;"/>
             </div>
             <div id="slogan" style="position: absolute; top: 629px; left: 103px;">Turn your story into animated
                 storyboard!</div>

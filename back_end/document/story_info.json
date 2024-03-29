@@ -24,7 +24,7 @@
     },
     {
         "character": [
-            "wise women",
+            "witch",
             "13th witch",
             "princess",
             "12th witch"
@@ -34,7 +34,7 @@
         ],
         "svo": [
             {
-                "subject": "wise women",
+                "subject": "witch",
                 "verb": "gave",
                 "object": "virtue",
                 "receiver": "princess"
@@ -63,7 +63,7 @@
     {
         "character": [
             "king",
-            "old woman",
+            "old lady",
             "princess"
         ],
         "object": [
@@ -91,7 +91,7 @@
                 "receiver": ""
             },
             {
-                "subject": "old woman",
+                "subject": "old lady",
                 "verb": "pushed",
                 "object": "spindle",
                 "receiver": ""
@@ -109,7 +109,7 @@
                 "receiver": ""
             },
             {
-                "subject": "old woman",
+                "subject": "old lady",
                 "verb": "said",
                 "object": "I am spinning",
                 "receiver": ""
@@ -121,7 +121,7 @@
                 "receiver": ""
             },
             {
-                "subject": "old woman",
+                "subject": "old lady",
                 "verb": "gave",
                 "object": "spindle",
                 "receiver": "princess"
@@ -133,7 +133,7 @@
                 "receiver": ""
             }
         ],
-        "text": "Now the <span class=\"marked character\">king</span>, being desirous of saving his child even from this misfortune, <span class=\"marked action\">gave commandment that all the <span class=\"marked object\">spindles</span> in his kingdom should be burnt up</span>. The <span class=\"marked character\">maiden</span> grew up, adorned with all the gifts of the wise women; and she was so lovely, modest, sweet, and kind and clever, that no one who saw her could help loving her. It happened one day, she being already fifteen years old, that the <span class=\"marked character\">king</span> and <span class=\"marked character\">queen</span> rode abroad, and the <span class=\"marked character\">maiden</span> was left behind alone in the castle. She wandered about into all the nooks and corners, and into all the chambers and parlours, as the fancy took her, till at last she came to an old tower. She climbed the narrow winding stair which led to a little door, with a rusty key sticking out of the lock; she turned the key, and the door opened, and there in the little room sat an <span class=\"marked character\">old woman</span> with a <span class=\"marked object\">spindle</span>, diligently spinning her <span class=\"marked object\">flax</span>. \"Good day, mother,\" said the <span class=\"marked character\">princess</span>, \"what are you doing?\" - \"I am spinning,\" answered the <span class=\"marked character\">old woman</span>, nodding her head. \"What thing is that that twists round so briskly?\" asked the <span class=\"marked character\">maiden</span>, and taking the <span class=\"marked object\">spindle</span> into her hand she began to spin; but no sooner had she touched it than the evil prophecy was fulfilled, and she pricked her finger with it. In that very moment she fell back upon the <span class=\"marked object\">bed</span> that stood there, and lay in a deep sleep."
+        "text": "Now the <span class=\"marked character\">king</span>, being desirous of saving his child even from this misfortune, <span class=\"marked action\">gave commandment that all the <span class=\"marked object\">spindles</span> in his kingdom should be burnt up</span>. The <span class=\"marked character\">maiden</span> grew up, adorned with all the gifts of the wise women; and she was so lovely, modest, sweet, and kind and clever, that no one who saw her could help loving her. It happened one day, she being already fifteen years old, that the <span class=\"marked character\">king</span> and <span class=\"marked character\">queen</span> rode abroad, and the <span class=\"marked character\">maiden</span> was left behind alone in the castle. She wandered about into all the nooks and corners, and into all the chambers and parlours, as the fancy took her, till at last she came to an old tower. She climbed the narrow winding stair which led to a little door, with a rusty key sticking out of the lock; she turned the key, and the door opened, and there in the little room sat an <span class=\"marked character\">old lady</span> with a <span class=\"marked object\">spindle</span>, diligently spinning her <span class=\"marked object\">flax</span>. \"Good day, mother,\" said the <span class=\"marked character\">princess</span>, \"what are you doing?\" - \"I am spinning,\" answered the <span class=\"marked character\">old lady</span>, nodding her head. \"What thing is that that twists round so briskly?\" asked the <span class=\"marked character\">maiden</span>, and taking the <span class=\"marked object\">spindle</span> into her hand she began to spin; but no sooner had she touched it than the evil prophecy was fulfilled, and she pricked her finger with it. In that very moment she fell back upon the <span class=\"marked object\">bed</span> that stood there, and lay in a deep sleep."
     },
     {
         "character": [
@@ -142,8 +142,8 @@
             "prince"
         ],
         "object": [
-            "hedge of thorns",
-            "hedge of flowers",
+            "thorns",
+            "flowers",
             "castle",
             "door"
         ],
@@ -175,17 +175,17 @@
             {
                 "subject": "prince",
                 "verb": "went",
-                "object": "hedge of thorns",
+                "object": "thorns",
                 "receiver": ""
             },
             {
-                "subject": "hedge of thorns",
+                "subject": "thorns",
                 "verb": "changed",
-                "object": "hedge of flowers",
+                "object": "flowers",
                 "receiver": ""
             },
             {
-                "subject": "hedge of flowers",
+                "subject": "flowers",
                 "verb": "went",
                 "object": "away",
                 "receiver": ""
@@ -203,7 +203,7 @@
                 "receiver": ""
             }
         ],
-        "text": "Many a long year afterwards there came a <span class=\"marked character\">king's son</span> into that country, and heard an <span class=\"marked character\">old man</span> tell how there should be a castle standing behind the <span class=\"marked object\">hedge of thorns</span>, and that there a beautiful enchanted princess named <span class=\"marked character\">Rosamond</span> had slept for a hundred years, and with her the <span class=\"marked character\">king</span> and <span class=\"marked character\">queen</span>, and the whole <span class=\"marked character\">court</span>. The <span class=\"marked character\">old man</span> had been told by his grandfather that many king's sons had sought to pass the <span class=\"marked object\">thorn-hedge</span>, but had been caught and pierced by the thorns, and had died a miserable death. Then said the young man: \"Nevertheless, I do not fear to try; I shall win through and see the lovely Rosamond.\" The good <span class=\"marked character\">old man</span> tried to dissuade him, but he would not listen to his words. For now the hundred years were at an end, and the day had come when Rosamond should be awakened. When the <span class=\"marked character\">prince</span> drew near the <span class=\"marked object\">hedge of thorns</span>, it was changed into a <span class=\"marked object\">hedge of beautiful large flowers</span>, which parted and bent aside to let him pass, and then closed behind him in a thick hedge. When he reached the <span class=\"marked object\">castle-yard</span>, he saw the <span class=\"marked character\">horses</span> and brindled <span class=\"marked character\">hunting-dogs</span> lying asleep, and on the <span class=\"marked object\">roof</span> the <span class=\"marked character\">pigeons</span> were sitting with their heads under their wings. And when he came indoors, the <span class=\"marked character\">flies</span> on the <span class=\"marked object\">wall</span> were asleep, the <span class=\"marked character\">cook</span> in the <span class=\"marked object\">kitchen</span> had his <span class=\"marked object\">hand</span> uplifted to strike the <span class=\"marked character\">scullion</span>, and the <span class=\"marked character\">kitchen-maid</span> had the <span class=\"marked object\">black fowl</span> on her lap ready to pluck."
+        "text": "Many a long year afterwards there came a <span class=\"marked character\">king's son</span> into that country, and heard an <span class=\"marked character\">old man</span> tell how there should be a castle standing behind the <span class=\"marked object\">thorns</span>, and that there a beautiful enchanted princess named <span class=\"marked character\">Rosamond</span> had slept for a hundred years, and with her the <span class=\"marked character\">king</span> and <span class=\"marked character\">queen</span>, and the whole <span class=\"marked character\">court</span>. The <span class=\"marked character\">old man</span> had been told by his grandfather that many king's sons had sought to pass the <span class=\"marked object\">thorn-hedge</span>, but had been caught and pierced by the thorns, and had died a miserable death. Then said the young man: \"Nevertheless, I do not fear to try; I shall win through and see the lovely Rosamond.\" The good <span class=\"marked character\">old man</span> tried to dissuade him, but he would not listen to his words. For now the hundred years were at an end, and the day had come when Rosamond should be awakened. When the <span class=\"marked character\">prince</span> drew near the <span class=\"marked object\">thorns</span>, it was changed into a <span class=\"marked object\">hedge of beautiful large flowers</span>, which parted and bent aside to let him pass, and then closed behind him in a thick hedge. When he reached the <span class=\"marked object\">castle-yard</span>, he saw the <span class=\"marked character\">horses</span> and brindled <span class=\"marked character\">hunting-dogs</span> lying asleep, and on the <span class=\"marked object\">roof</span> the <span class=\"marked character\">pigeons</span> were sitting with their heads under their wings. And when he came indoors, the <span class=\"marked character\">flies</span> on the <span class=\"marked object\">wall</span> were asleep, the <span class=\"marked character\">cook</span> in the <span class=\"marked object\">kitchen</span> had his <span class=\"marked object\">hand</span> uplifted to strike the <span class=\"marked character\">scullion</span>, and the <span class=\"marked character\">kitchen-maid</span> had the <span class=\"marked object\">black fowl</span> on her lap ready to pluck."
     },
     {
         "character": [
