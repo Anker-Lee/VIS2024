@@ -44,9 +44,10 @@
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec(index)" /> -->
                     </div>
 
-                    <div v-if="character.selectedEmoji[0] === ''" style="position: absolute; top: 10px; left: 10px"
-                        class="no_emoji_overview">🈚️</div>
-
+                    <!-- <div v-if="character.selectedEmoji[0] === ''" style="position: absolute; top: 10px; left: 10px"
+                        class="no_emoji_overview">🈚️</div> -->
+                    <img v-if="character.selectedEmoji[0] === ''" style="position: absolute; top: 10px; left: 10px" class="no_emoji_overview"
+                        src="../../assets/image/empty.svg"/>
                 </div>
             </div>
 
@@ -64,8 +65,10 @@
                             }}
                         </div>
                     </div>
-                    <div v-if="item.selectedEmoji === ''" style="position: absolute; top: 10px; left: 10px"
-                        class="no_emoji_overview">🈚️</div>
+                    <!-- <div v-if="item.selectedEmoji === ''" style="position: absolute; top: 10px; left: 10px" -->
+                        <!-- class="no_emoji_overview">🈚️</div> -->
+                    <img v-if="item.selectedEmoji === ''" style="position: absolute; top: 10px; left: 10px" class="no_emoji_overview"
+                        src="../../assets/image/empty.svg"/>
                 </div>
             </div>
         </div>
@@ -99,7 +102,9 @@
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec(index)" />
                     </div>
 
-                    <div v-if="character.selectedEmoji[0] === ''" class="no_emoji">🈚️</div>
+                    <!-- <div v-if="character.selectedEmoji[0] === ''" class="no_emoji">🈚️</div> -->
+                    <img v-if="character.selectedEmoji[0] === ''" class="no_emoji"
+                        src="../../assets/image/empty.svg"/>
                 </div>
             </div>
 
@@ -116,7 +121,9 @@
                             style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;  cursor: pointer;"
                             src="../../assets/image/icon_edit.svg" @click="changeEditPanelRec_Item(index)" />
                     </div>
-                    <div v-if="item.selectedEmoji === ''" class="no_emoji">🈚️</div>
+                    <!-- <div v-if="item.selectedEmoji === ''" class="no_emoji">🈚️</div> -->
+                    <img v-if="item.selectedEmoji === ''" class="no_emoji"
+                        src="../../assets/image/empty.svg"/>
                 </div>
             </div>
         </div>
