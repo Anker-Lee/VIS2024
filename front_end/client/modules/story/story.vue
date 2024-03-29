@@ -9,6 +9,7 @@
                         @click="switchFrame(scene, index)" class="frame_title">Scene {{ index + 1 }}
                     </span>
                     <!-- <button @click="toggle(index)">Toggle</button> -->
+                    <img src="../../assets/image/icon_edit.svg" style="margin-left: -170px; cursor: pointer;"/>
                     <el-switch v-model="toggle_rec[index]" active-color="rgba(189, 227, 255, 0.7)" inactive-color="rgba(228, 204, 255, 0.7)"
                         style="transform: scale(2); margin-right: 20px;">
                     </el-switch>

@@ -2693,7 +2693,7 @@ export default {
     font-size: 16px;
     position: absolute;
     top: 28px;
-    left: 25px;
+    left: 20px;
     transform: translate(0%, 0%);
 
     display: flex;
@@ -2709,7 +2709,7 @@ export default {
     font-size: 16px;
     position: absolute;
     top: 28px;
-    left: 65px;
+    left: 62px;
     transform: translate(0%, 0%);
 
     display: flex;
