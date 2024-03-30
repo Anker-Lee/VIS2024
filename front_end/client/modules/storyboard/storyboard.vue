@@ -291,7 +291,6 @@
             v-show="showAnimationList && !show_overview">
             <div class="animation_list_title">Frame {{ currentFrameIndex + 1 }} <span>&nbsp;Animation</span></div>
             <div style="width: 600px; height: 800px; overflow-y: auto; overflow-x: hidden; position: relative;">
-
                 <div v-for="(animationSmallList, index) in all_animationList[currentFrameIndex]" :key="index"
                     class="animation_item" style="width: 600px; height: 100px; background: #AF99C7;">
                     <div style="position: absolute; left: 0px" class="animation_title_index"> {{ index + 1 }}</div>
@@ -314,17 +313,18 @@
             <img class="control_button " style="position: absolute; top: 100px;"
                 src="../../assets/image/Framebackground.svg" v-if="isPlay" @click="show_backgroundPanel = true" />
             <input type="file" ref="fileInput" style="display: none" @change="onFileChange" />
-            <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/Frame.svg"
+            <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/save.svg"
+                v-if="isPlay" @click="saveScene" />
+            <img class="control_button " style="position: absolute; top: 300px;" src="../../assets/image/Frame.svg"
                 v-if="isPlay" @click="toggleAnimationList" />
             <!-- <img class="control_button " style="position: absolute; top: 200px;" src="../../assets/image/return.svg"
                 v-if="isPlay & showAnimationList" @click="showAnimationList = !showAnimationList" /> -->
-            <img class="control_button " style="position: absolute; top: 300px;" src="../../assets/image/save.svg"
-                v-if="isPlay" @click="saveScene" />
+            
             <img class="control_button " style="position: absolute; top: 500px;" src="../../assets/image/icon_play.svg"
                 v-if="isPlay" @click="runAnimations()" />
             <img class="control_button " style="position: absolute; top: 600px;" src="../../assets/image/replay.svg"
                 v-if="isPlay" />
-            <img class="control_button " style="position: absolute; top: 800px;" src="../../assets/image/share.svg"
+            <img class="control_button " style="position: absolute; top: 800px; width: 72px; height: 72px; margin-left: 15px;" src="../../assets/image/share.svg"
                 v-if="isPlay" />
 
 
@@ -3322,7 +3322,7 @@ div.electric span {
     color: var(--color-black, #000);
     text-align: center;
     font-family: Montserrat;
-    font-size: 32px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -3397,5 +3397,10 @@ div.electric span {
     display: flex;
     justify-content: center;
     margin: 25px 0px 0px 0px;
+}
+
+.animation_item:last-child {
+    border-radius: 0px 0px 0px 20px;
+    overflow: hidden;
 }
 </style>

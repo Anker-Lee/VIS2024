@@ -43,10 +43,13 @@
                         <div v-show="scene.svo_show_rec[i]" class="action_selector" style="position: relative">
                             <!-- MOVE -->
                             <div class="action_name" style="margin-left: 25px">{{ verb2kind[svo_object.verb] }}
+                                <img style="width: 35px; height: 35px; cursor: pointer; margin-left: 10px;"
+                                src="../../assets/image/penciledit.svg">
                             </div>
-                            <el-select placeholder="Change Atomics"
+                            <!-- <el-select placeholder="Change Atomics"
                                 style="position: absolute; top:5px; right: 20px; width: 200px; height: 30px;"
-                                v-model="select_value"></el-select>
+                                v-model="select_value"></el-select> -->
+                                
                             <!-- v-for 创建每个 svo list 中的设计选项 -->
                             <div v-for="(kind, j) in design_base[verb2kind[svo_object.verb]]" :key="j"
                                 v-show="!showConfirmPanel[i]">
@@ -93,7 +96,7 @@
                                         Parameters</div>
                                     <div style="position: absolute; top:55px" class="param">
                                         Param #1
-                                        <el-slider v-model="slider_value" range
+                                        <el-slider v-model="slider_value"
                                             style="width: 250px; margin-left: 25px;">
                                         </el-slider>
                                     </div>
@@ -242,7 +245,7 @@
                                     <div style="position: absolute; top:55px" class="param">
                                         Speed
                                     </div>
-                                    <el-slider v-model="slider_value" range
+                                    <el-slider v-model="slider_value" 
                                         style="width: 250px; position: absolute; top: 55px; right: 25px;">
                                     </el-slider>
 
